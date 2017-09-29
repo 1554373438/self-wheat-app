@@ -1,0 +1,36 @@
+<ion-modal-view id="reset_pwd_modal">
+  <div class="bar bar-header bar-positive">
+    <button class="button button-clear button-light button-small" ng-click="fn.close()">关闭</button>
+    <div class="h1 title">重置支付密码</div>
+  </div>
+  <ion-content>
+    
+      <form name="resetForm" ng-submit="fn.savePayPwd()" class="dbl-padding">
+        <div class="list">
+          <div class="item item-input margin-bottom">
+            <input type="tel" ng-model="data.phone" maxlength="11" required ng-readonly="data.phone">
+          </div>
+          <div class="margin-bottom row row-no-padding">
+            <div class="col">
+              <div class="item item-input">
+                 <input type="tel" placeholder="验证码" ng-model="data.validCode" maxlength="4" required>
+              </div>
+            </div>
+            <button class="margin-left button button-positive button-vcode" ng-click="fn.sendRegSmsCode()" ng-disabled="data.countdown"><span>{{data.countdown?data.countdown:'获取验证码'}}</span></button>
+          </div>
+         
+          <div class="item item-input  item-icon-right margin-bottom">
+            <input type="password" placeholder="新支付密码" ng-model="data.pwd" maxlength="16" required>
+          </div>
+          <div class="item item-input  item-icon-right margin-bottom">
+            <input type="password" placeholder="确认支付密码" ng-model="data.pwdConfirm" maxlength="16" required>
+          </div>
+        </div>
+
+        <button class="button button-positive button-block" ng-disabled="resetForm.$invalid">确认</button>
+     
+      </form>
+  
+    
+  </ion-content>
+</ion-modal-view>

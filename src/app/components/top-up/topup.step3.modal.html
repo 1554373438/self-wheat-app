@@ -1,0 +1,22 @@
+<ion-modal-view class="topup-modal topup-pwd-modal">
+  <div class="bar bar-header">
+    <button class="button button-icon icon ion-ios-arrow-left gray" ng-click="fn.back()"></button>
+    <div class="h1 title">输入验证码</div>
+  </div>
+  <ion-content>
+    <section>
+      <div class="modal-content">
+        <form class="pwd-form">
+          <p class="small gray">为了确认是您本人操作，已向您尾号为({{data.bankCard.bankCardNo.substr(-4)}})的银行卡预留手机发送验证码，输入验证码后完成扣款。</p>
+          <div class="item item-input item-borderless">
+            <input type="tel" maxlength="6" placeholder="输入验证码" ng-model="data.smSCode">
+          </div>
+          <button class="button button-block button-positive" ng-disabled="data.countdown" ng-click="fn.rechargeApply(true)">
+            <span ng-if="data.countdown">{{data.countdown}}s</span>
+            <span ng-if="!data.countdown">重新发送</span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </ion-content>
+</ion-modal-view>

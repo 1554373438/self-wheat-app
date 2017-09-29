@@ -1,0 +1,9 @@
+#spec_purchase_view {
+  .address-info p{
+    @extend .row, .col-center;
+    span:first-child {
+      width: 60px;
+      min-width: 60px;
+    }
+  }
+}

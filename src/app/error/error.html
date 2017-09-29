@@ -1,0 +1,16 @@
+<ion-view view-title="{{error.title}}" class="error-view">
+    <ion-pane >
+    	<div class="row row-center text-center full-height" ng-switch on="error.type" >
+    		<div ng-switch-when="404" class="col col-center">
+    			<img src="assets/images/err_400.png" alt="" width="117">
+    			<p class="positive" style="opacity: .6">网络故障</p>
+    		</div>
+    		
+    		<div ng-switch-default class="col col-center">
+    			<img src="assets/images/err_img02@2x.png" width="117">
+    			<p class="positive" style="opacity: .6">敬请期待</p>
+    		</div>
+    	</div>
+    	
+    </ion-pane>
+</ion-view>

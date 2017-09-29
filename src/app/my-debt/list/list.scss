@@ -1,0 +1,193 @@
+.mydebt-intro {
+  .item {
+    margin: 0;
+    border-bottom: 1px solid #eee !important;
+    padding: 10px 20px 10px 10px !important;
+  }
+  .space-between {
+    @include display-flex();
+    @include justify-content(space-between);
+  }
+  .flex{
+    @include flex(1);
+  }
+  .auto {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .prompt {
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 1px;
+    height: 16px;
+    line-height: 14px;
+    border: 1px #999 solid;
+    border-radius: 3px;
+    .icon {
+      position: absolute;
+      right: -6px;
+      top: -10px;
+      color: #80B6E0;
+    }
+  }
+  .border-bottom {
+    border-bottom: 1px solid #eee !important;
+  }
+  .scroll {
+    height: 100%;
+  }
+  .swiper-slide .scroll-view {
+    height: 100%;
+  }
+  .swiper-pagination {
+    display: none;
+  }
+  .row +.row {
+    margin-top: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+  .list > .row {
+    margin-bottom: 1px;
+  }
+  .dark {
+    color: #212121;
+  }
+  .gray {
+    color: #757575;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .just-center {
+    justify-content: center;
+  }
+  .plan-list {
+    .list > .row {
+      margin-bottom: -1px;
+    }
+    .list {
+      .item {
+        padding: 0 16px;
+        .name {
+          padding: 10px 0;
+          font-size: 14px;
+          color: #616161;
+        }
+      }
+    }
+    .name {
+      min-width: 100px;
+      @extend .dbl-padding-left;
+    }
+    .detail {
+      line-height: 20px;
+    }
+    .name,
+    .detail {
+      color: $gray;
+      @extend .gray,
+      .small;
+    }
+    .detailPositive {
+      line-height: 25px;
+      color: #3388d9;
+    }
+  }
+  .scrollBottom {
+    padding: 10px 16px;
+    font-size: 12px;
+    .col-70 {
+      width: 80%;
+    }
+    .bottomLine {
+      height: 1px;
+      background: #ccc;
+      width: 15%;
+    }
+  }
+  .icon {
+    i {
+      width: 14px;
+      height: 14px;
+      background: url($img-path+"tip_icon.png") no-repeat;
+      background-size: cover;
+      margin-right: 10px;
+    }
+  }
+  .touziTop {
+    padding: 0 10px;
+    span {
+      display: block;
+      font-size: 12px;
+    }
+  }
+  .touzi-list {
+    .list {
+      .item {
+        padding: 0 10px;
+        margin-bottom: 5px;
+        border: 0;
+        p {
+          height: 40px;
+          line-height: 40px;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+  .orange {
+    background: #FD8608;
+    padding: 0 5px;
+  }
+  .cyan {
+    background: #1ACDEF;
+    padding: 0 5px;
+  }
+  .down {
+    border: 1px solid #FD8608;
+    color: #FD8608;
+    height: 16px;
+    line-height: 14px;
+    padding: 0 10px;
+    border-radius: 5px;
+  }
+  .up {
+    color: #80B6E0;
+    border: 1px solid #80B6E0;
+  }
+  .empty {
+    margin-top: 100px;
+  }
+  .black {
+    color: #4A4A4A;
+  }
+}
+
+.confirms .popup {
+  border-radius: 5px;
+  .popup-buttons {
+    padding: 10px 10px 10px 10px;
+    border: 0;
+  }
+  .button-positive {
+    background: #FD8608;
+    border-radius: 5px;
+  }
+  .button-default {
+    background: #3389D9;
+    border-radius: 5px;
+    color: #fff;
+  }
+}
+.ioc-success {
+  width:60px;
+  height:60px;
+  display:block;
+  margin:0 auto 10px;
+  background: url($img-path + "mall/success-mark@2x.png") no-repeat;
+  background-size:100% 100%;
+}

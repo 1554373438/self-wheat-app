@@ -1,0 +1,108 @@
+<ion-view view-title="我的福利" id="welfare_view">
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" ui-sref="welfare:rules">
+      使用规则
+    </a>
+  </ion-nav-buttons>
+  <ion-pane>
+    <scroll-x>
+      <div class="row row-no-padding scroll-tabs">
+        <div class="col col-28" ng-class="{active:welfare.sliderIndex==$index}" ng-click="welfare.sliderIndex=$index" ng-repeat="tab in welfare.sliderTabs">{{tab}}</div>
+      </div>
+    </scroll-x>
+    <ion-slides slider="data.slider">
+      <ion-slide-page>
+        <ion-scroll>
+          <coupon ng-repeat="coupon in welfare.couponList" data="coupon" type="coupon"></coupon>
+          <ion-infinite-scroll ng-if="welfare.hasMoreCoupon" on-infinite="welfare.loadMore('coupon')" spinner="bubbles" immediate-check="false" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page>
+        <ion-scroll>
+          <coupon ng-repeat="interest in welfare.interestList" data="interest" type="interest"></coupon>
+          <ion-infinite-scroll ng-if="welfare.hasMoreInterest" on-infinite="welfare.loadMore('interest')" spinner="bubbles" immediate-check="false" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page class="pp-slider">
+        <ion-scroll>
+          <div ng-repeat="item in welfare.ppList" class="coupon-box">
+            <div class="row row-center pp-coupon" ng-class="{'disabled': item.disabled}">
+              <div class="assertive col col-33">
+                <span class="small">￥</span><span class="font-26">{{item.amount}}</span>
+              </div>
+              <div class="col col-66">
+                <div class="title text-ellipsis"><span>{{item.msg}}</span><span class="positive small tip" ng-if="item.status==1">计息中</span></div>
+                <ul class="gray small">
+                  <li>自动激活</li>
+                  <li>计息<span>{{item.duration}}</span>天&nbsp;|&nbsp;预期年化收益率8.80%</li>
+                  <li>
+                    <span>{{item.status==2?'累计收益：':'预期收益：'}}</span>
+                    <span ng-class="{'assertive': item.status!=3}">{{item.fee}}元</span>
+                  </li>
+                  <li ng-class="{'assertive': item.status!=3}" ng-if="item.status==0 || item.status==3">有效期至<span>{{item.invalidDate}}</span></li>
+                  <li ng-class="{'assertive': item.status!=3}" ng-if="item.status==1 || item.status==2">计息结束：<span>{{item.endDate}}</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <ion-infinite-scroll ng-if="welfare.hasMorePPList" on-infinite="welfare.loadMore('pp')" spinner="bubbles" immediate-check="false" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page class="coin-slider">
+        <div class="list info">
+          <div class="item item-icon-left">
+            <i class="icon iconfont icon-nuobi gray"></i> 您的诺币
+            <span class="item-note">
+              <span class="assertive amount">{{welfare.coin}}</span>
+            <small>NB</small>
+            </span>
+          </div>
+          <div class="item item-icon-left item-icon-right" ui-sref="mall:level({number:walfare.level})">
+            <i class="icon iconfont icon-zhuanshufuli gray"></i> 我的专属福利
+            <i class="icon ion-ios-arrow-right gray"></i>
+          </div>
+          <div class="item item-icon-left item-icon-right" ui-sref="mall:nbRules">
+            <i class="icon iconfont icon-gonglve gray"></i> 诺币赚取攻略
+            <i class="icon ion-ios-arrow-right gray"></i>
+          </div>
+        </div>
+        <div class="total">共{{welfare.coinLogCount}}笔</div>
+        <ion-scroll>
+          <div class="list log dark">
+            <div class="row row-no-padding" ng-repeat="log in welfare.coinLogList">
+              <div class="col">
+                {{log.name}}
+                <br>
+                <span class="gray small">{{log.date}}</span>
+              </div>
+              <div class="col col-center text-right gray">
+                <span class="assertive amount">{{log.amount}}</span> <small>NB</small>
+              </div>
+            </div>
+          </div>
+          <ion-infinite-scroll ng-if="welfare.hasMoreCoin" on-infinite="welfare.loadMore('coin')" spinner="bubbles" immediate-check="false" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page>
+        <ion-scroll>
+          <div class="coupon-wrapper " ng-repeat="rp in welfare.redPackets track by $index" >
+            <div class="coupon row row-center" ng-class="{expired:rp.isExpired == 3,used:rp.isExpired == 2}">
+              <div class="col padding-left">
+                <p class="assertive"> <span class="amount">{{rp.amount}}</span></p>
+                <div class="small gray">{{rp.desc}}</div>
+                <div class="small gray">{{rp.expireDate}}</div>
+              </div>
+              <div class="type col-center text-center" ng-class="{'gray':rp.isExpired}">
+                现<br/>金<br/>红<br/>包
+              </div>
+            </div>
+          </div>
+        </ion-scroll>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-pane>
+</ion-view>

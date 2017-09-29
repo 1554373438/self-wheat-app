@@ -1,0 +1,90 @@
+<ion-view view-title="邀请好友" id="envoy_view">
+  <ion-content class="has-footer" ng-cloak>
+    <img src="assets/images/envoy/banner.png" id="banner">
+    <section>
+      <div class="section-title">我的奖励</div>
+      <div class="light-bg dbl-padding-left">
+        <div class="item item-icon-right item-borderless" ng-click="envoy.goRewardDetail()">
+          好友1年内任意投资
+          <i class="icon ion-ios-arrow-right positive"></i>
+          <div class="item-note positive">已获<span>{{envoy.info.earnings}}</span>元 </div>
+        </div>
+        <div class="item item-avatar item-borderless border-top">
+          <img src="assets/images/envoy/icon_invest.png">
+          <h2><span class="assertive">1%</span>&nbsp;投资返现</h2>
+          <p>按好友投资年化本金计</p>
+        </div>
+      </div>
+      <div class="light-bg margin-top dbl-padding-left">
+        <div class="item item-icon-right item-borderless" ng-click="envoy.goMyBonus()">
+          好友投资满5,000元
+          <i class="icon ion-ios-arrow-right positive"></i>
+          <div class="item-note positive">我的现金券</div>
+        </div>
+        <div class="item item-avatar item-borderless border-top">
+          <img src="assets/images/envoy/icon_cash.png">
+          <h2><span class="assertive">50元</span>&nbsp;现金券</h2>
+          <p>5000元起投
+            <br/>限贴心计划3-36月期</p>
+        </div>
+      </div>
+      <div class="section-title">好友奖励</div>
+      <div class="light-bg dbl-padding-left" id="friend_award">
+        <div class="item item-avatar item-borderless">
+          <img src="assets/images/envoy/icon_cash.png">
+          <h2><span class="assertive">888元</span>&nbsp;现金券</h2>
+          <p>注册即送</p>
+        </div>
+        <div class="item item-avatar item-borderless">
+          <img src="assets/images/envoy/icon_interest.png">
+          <h2><span class="assertive">2%</span>加息券</h2>
+          <p>首投满5,000元返券</p>
+        </div>
+        <div class="item item-avatar item-borderless">
+          <img src="assets/images/envoy/icon_interest.png">
+          <h2><span class="assertive">1%</span>加息券</h2>
+          <p>首投到期返券</p>
+        </div>
+      </div>
+    </section>
+    <section class="light-bg margin-top dbl-padding-bottom" id="activity" ng-if="envoy.info.haveRedPacket">
+      <div class="dbl-margin-horizontal content">
+        <div class="item item-avatar item-borderless">
+          <img src="assets/images/envoy/icon_package.png">
+          <h2>特权本金<span class="assertive font-22">88,800元</span>礼包</h2>
+          <p>拼手气 10人瓜分</p>
+        </div>
+        <div class="row row-center">
+          <div class="col small">
+            <div>余额：<span>{{envoy.info.redPacket.remainingBalance || 0}}</span>/88800元</div>
+            <div>有效期：至<span>{{envoy.info.redPacket.invalidDate}}</span></div>
+          </div>
+          <div class="button-record" ui-sref="envoy:record({balance: envoy.info.shareBalance, haveRedPacket: envoy.info.haveRedPacket})">
+            领取记录
+            <i class="padding-left icon ion-ios-arrow-right positive"></i>
+          </div>
+        </div>
+        <div class="rule-box">
+          <h5>如何发礼包？</h5>
+          <ul>
+            <li>2017.06.28前，单笔投资金额 ≥ 5000元(3月期及以上期限、计划类产品），可获得88800元特权本金礼包</li>
+            <li>2017.06.28(含)后，当礼包余额为0时、单笔投资金额 ≥5000元(3月期及以上期限、计划类产品），可获得88800元特权本金礼包</li>
+            <li>邀请好友即可发放礼包</li>
+          </ul>
+          <h5>如何领红包？</h5>
+          <ul>
+            <li>好友注册成功后可领取随机金额特权本金，共10名</li>
+            <li>好友领取红包后30天内投资(不含诺诺盈、债转)可激活特权本金</li>
+            <li>特权本金激活后按年化利率8.8%计活动收益，连续计算5天</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div class="positive text-center dbl-margin-top" ng-click="envoy.getMore()">了解更多规则&gt;&gt;</div>
+  </ion-content>
+  <div class="bar bar-footer dbl-padding-horizontal">
+    <button class="button button-block button-positive" ng-click="envoy.invite()">
+      <span class="font-18">邀请好友</span>
+    </button>
+  </div>
+</ion-view>

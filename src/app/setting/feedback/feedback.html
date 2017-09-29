@@ -1,0 +1,12 @@
+<ion-view view-title="我要反馈">
+  <ion-content class="padding">
+    <label class="item item-input">
+      <textarea rows="4" placeholder="感谢您对麦子金服财富的支持，我们期待您的宝贵意见" ng-model="feedback.content"></textarea>
+    </label>
+    
+    <div class="dbl-margin-top">
+      <button class="button button-positive button-block" ng-disabled="!feedback.content" ng-click="feedback.submit()">马上反馈</button>
+    </div>
+    
+  </ion-content>
+</ion-view>

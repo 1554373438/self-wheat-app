@@ -1,0 +1,29 @@
+<ion-view view-title="镑客大使" id="envoy_record">
+  <ion-content class="text-center light-bg has-footer">
+    <div class="text-center title">礼包领取记录</div>
+    <div class="row row-center empty" ng-if="!record.list.length">
+      <div class="col">
+        <img src="assets/images/envoy/empty.png" width="120">
+        <p>{{record.invalid? '没有好友领取特权本金':'还没有好友领取特权本金'}}</p>
+        <p ng-if="!record.invalid">快去邀请好友吧</p>
+      </div>
+    </div>
+    <div class="list margin-horizontal" ng-if="record.list.length">
+      <div class="row row-center " ng-repeat="item in record.list">
+        <div class="col-50 text-left">
+          <div>{{::item.mobile | phoneEncrypt}}</div>
+          <span class="gray small">{{::item.registerTime}}</span>
+        </div>
+        <div class="col-50 text-right positive">
+          ￥<span>{{::item.amount | currency:''}}</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+  <div class="bar bar-footer dbl-padding-horizontal" >
+    <button class="button button-block button-positive" ng-click="record.invite()" ng-if="!record.invalid">
+      <span class="font-18">邀请好友</span>
+    </button>
+  </div>
+</ion-view>

@@ -1,0 +1,68 @@
+.set-pay-pwd-popup {
+  $gray-bg: #fafafa;
+  $border-color-dark: #b4b4b4;
+  .popup{
+    width: 85%;
+    background-color:$gray-bg;
+    border-radius:2px;
+  }
+  .popup-head{
+    border:none;
+    padding:22px 0 0 0;
+    h3{
+      color:#6D6D6D;
+      font-size:16px;
+      margin: 0 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+  
+  .popup-body {
+    padding-top: 0;
+  }
+  .popup-body .item-input > input {
+    width: 100%;
+    height: 42px;
+    line-height: normal;
+    background-color:$gray-bg;
+    border:1px solid $border-color-dark;
+    border-radius:3px;
+    padding:0 10px;
+    box-sizing:border-box;
+  }
+   .item-input-wrapper {
+    background-color:$gray-bg;
+    border:1px solid $border-color-dark;
+    border-radius:3px;
+    padding:0 10px;
+    input {
+      border: none;
+    }
+  }
+
+
+  .item-icon-right .icon {
+    right: 0;
+  }
+  .icon-close{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right:5px;
+    top:5px;
+    font-size:18px;
+    color:#A9A9A9;
+    text-align: center;
+  }
+  .button{
+    margin-top:20px;
+  }
+  .button.button-small{
+    margin-top: 0;
+  }
+
+  .button.button-small.forget-pwd {
+    width: auto;
+  }
+}

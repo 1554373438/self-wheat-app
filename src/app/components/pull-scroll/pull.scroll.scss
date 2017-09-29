@@ -1,0 +1,11 @@
+.pull-scroll-container {
+  // height: 100%;
+  // overflow: hidden;
+  .hide {
+    display: none;
+  }
+  .hide.show {
+    display: block;
+  }
+
+}

@@ -1,0 +1,110 @@
+#exchange_view {
+  .scroll-content {
+    bottom: 147px;
+  }
+  background: #fff;
+  .banner {
+    border-bottom: #f4f4f4 .5px solid;
+    position: relative;
+    text-align: center;
+    .new {
+      width: 24px;
+      height: 14px;
+      line-height: 14px;
+      background: #FF3543;
+      position: absolute;
+      left: 5px;
+      top: 5px;
+    }
+    img {
+      width: 180px;
+    }
+    .follow1,
+    .follow2 {
+      width: 24px;
+      height: 24px;
+      background: url($img-path + "mall/follow1.png") no-repeat;
+      background-size: cover;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+    .follow2 {
+      background: url($img-path + "mall/follow2.png") no-repeat;
+      background-size: cover;
+    }
+  }
+  .introduce {
+    position: relative;
+    padding-top: 15px;
+    p:nth-child(1) {
+      color: #1E1E1E;
+    }
+    p:nth-child(2) {
+      color: #2D87DC;
+      font-size: 12px;
+    }
+    p:nth-child(3) {
+      @extend .small,
+      .gray;
+    }
+    .ion-ios-arrow-right {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+    }
+  }
+  .infor {
+    border-top: 3px solid #f4f4f4;
+    p {
+      overflow: hidden;
+      color: $dark;
+      font-size: 12px;
+    }
+    .getLimit {
+      padding-left: 10px;
+    }
+    .division {
+      position: relative
+    }
+    .division:after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      clear: both;
+      border-right: 1px solid #ddd;
+      position: absolute;
+      top: 10px;
+      right: 0px;
+    }
+  }
+  .limit {
+    color: #FF5019;
+    font-size: 12px;
+    background: #FFF0D8;
+    border-bottom: 1px solid #ddd;
+  }
+  .exchange-msg {
+    background: #FFF0D8;
+    color: #FF3543;
+    padding: 0 10px;
+  }
+  .btn {
+    min-height: 35px;
+    max-height: 35px;
+    line-height: 35px;
+  }
+  .cost {
+    color: rgba(121, 177, 230, 1);
+    border: 1px solid rgba(121, 177, 230, 1);
+  }
+  .money {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    z-index: 10;
+    background: #fff;
+    border-top: 1px solid #eee;
+  }
+}

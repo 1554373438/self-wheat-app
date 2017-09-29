@@ -1,0 +1,46 @@
+#invest_counter {
+  .button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-color: #B4B4B4;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 0 8px;
+    min-width: initial;
+    min-height: 40px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 40px;
+    opacity: .4;
+    .icon:before {
+      font-size: 20px;
+      line-height: 40px;
+    }
+  }
+  .button.active {
+    background-color: #CCE6FF;
+    border-color: #247BCB;
+  }
+  .item-input {
+    flex: 1;
+    margin: 0 10px;
+  }
+  .small {
+    font-size: 12px;
+  }
+}
+
+.invest-counter {
+  .item-input {
+    padding-top: 0;
+    padding-bottom: 16px;
+  }
+  input {
+    height: 44px;
+    line-height: normal;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    padding-left: $content-padding;
+  }
+}

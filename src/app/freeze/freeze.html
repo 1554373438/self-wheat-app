@@ -1,0 +1,27 @@
+<ion-view view-title="冻结金额" id="freeze_history">
+  <ion-content>
+    
+    <section class="dbl-padding-horizontal light-bg margin-top" ng-if="freeze.freezeData.length">
+        <div class="row row-center text-center item-freeze" ng-repeat="item in freeze.freezeData track by $index" ng-click="freeze.goHscg(item)">
+          <div class="col text-left">
+            <div class="dark">{{::item.typeDesc}}</div>
+            <span class="small gray">{{::item.time}}</span>
+          </div>
+          <div class="text-right">
+            <div class="dark" ng-class="{'dbl-padding-right':item.isOper!=1}">{{::item.amount |currency:''}}元</div>
+            <span class="small positive" ng-if="item.isOper==1">{{item.status}}</span>
+          </div>
+          <i ng-if="item.isOper==1" class="icon ion-ios-arrow-right gray icon-right"></i>
+        </div>
+    </section>
+    <div class="text-center dbl-margin-top" ng-if="!freeze.freezeData.length">
+      <img src="assets/images/err_empty.png" width="96">
+      <div class="gray">暂无内容</div>
+    </div>
+    <div class="intro dbl-margin-top dbl-padding-horizontal">
+      <h3>交易冻结说明：</h3> 为保障用户账户安全，如您未在徽商银行输完交易密码：
+      <br> 1）如您进行的是提现交易，账户余额将被暂时冻结，直到您完成该笔提现。同时，您无法发起新的提现申请。
+      <br> 2）如您进行的是投资交易，账户余额将被暂时冻结，直到您购买的这期产品满标后，我们将为您的账户进行资金解冻。
+    </div>
+  </ion-content>
+</ion-view>

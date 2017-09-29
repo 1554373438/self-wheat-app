@@ -1,0 +1,29 @@
+<ion-modal-view class="login-view">
+  <ion-content class="light-bg">
+    <div class="top-bar relative">
+      <i class="icon icon-back" ng-click="fn.goBack(true)"></i>
+      <span class="right-text"  ng-click="fn.registerBtn()">注册</span>
+    </div>
+    <div class="text-center margin-free">
+      <img src="assets/images/logo.png" width="60">
+    </div>
+    <section class="dbl-margin-horizontal">
+      <form name="loginForm">
+        <div class="list">
+          <div class="item item-input dbl-margin-bottom">
+            <input type="text" placeholder="请输入手机号" ng-model="user.userTel" maxlength="11"  required clear-input>
+          </div>
+          <div class=" row code-f dbl-margin-bottom self" >
+            <div class="col code-t col-60">
+              <input id="main_paste" type="text" ng-model="user.userVcode" maxlength="6" placeholder="请输入验证码" ng-disabled="fn.registerLog&&!data.sureCaptaha" clear-input>
+            </div>
+
+            <button ng-if="fn.countdown>0 &&!fn.registerLog " class="col col-40 no-padding">重新发送({{fn.countdown}}s)</button>
+            <button ng-if="fn.countdown==0 &&!fn.registerLog" class="col col-40 no-padding main-positive-color" ng-click="fn.sendMsg()" ng-disabled="!user.userTel||user.userTel.length!==11 || fn.countdown>0">{{fn.btnText}}</button>
+          </div>
+        </div>
+        <button class="button button-block button-positive margin-top-30" ng-disabled="!user.userTel||user.userTel.length!==11 || !user.userVcode || user.userVcode.length!==6" ng-click="fn.doLogin()">登录</button>
+      </form>
+    </section>
+  </ion-content>
+</ion-modal-view>

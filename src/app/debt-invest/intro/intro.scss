@@ -1,0 +1,82 @@
+.invest-intro {
+  .white-bg {
+    background: #fff;
+  }
+  .scroll {
+    height: 100%;
+  }
+  .swiper-slide .scroll-view {
+    height: 100%;
+  }
+  .swiper-pagination {
+    display: none;
+  }
+  .row +.row {
+    margin-top: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+  .list {
+    border-bottom: 1px solid #eee;
+  }
+  .margin-b5{
+    margin-bottom: 5px;
+  }
+  .list > .row {
+    margin-bottom: 1px;
+  }
+  .plan-list {
+    .list > .row {
+      margin-bottom: -1px;
+    }
+    .name {
+      min-width: 100px;
+      @extend .dbl-padding-left;
+    }
+    .detail {
+      line-height: 1.4;
+    }
+    .name,
+    .detail {
+      color: $gray;
+      @extend .gray,
+      .small;
+    }
+  }
+  .tos-list {
+    .item:first-child {
+      margin-top: 0px;
+      margin-bottom: 2px;
+    }
+  }
+  .tab {
+    background: #fff;
+    padding: 5px 10px 0;
+  }
+  .light-grey {
+    color: #9E9E9E;
+  }
+  .grey {
+    color: #616161;
+  }
+  ul {
+    font-size: 12px;
+    border: 1px solid #eee;
+    li {
+      span:nth-child(1) {
+        height: 100%;
+        width: 60px;
+        text-align: center;
+        display: inline-block;
+        border-right: 1px solid #eee;
+      }
+    }
+    li:nth-child(2n+1) {
+      line-height: 25px;
+      background: #FAFAFA;
+    }
+  }
+  .empty{
+    margin-top: 100px;
+  }
+}

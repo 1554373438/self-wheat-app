@@ -1,0 +1,26 @@
+<ion-view view-title="收货地址" id="address">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-input item-select">
+        <span class="input-label">省份</span>
+        <select ng-model="address.info.province" ng-options="p.name for p in address.provinceList track by p.id">
+        </select>
+      </ion-item>
+      <ion-item class="item-input item-select">
+        <span class="input-label">城市</span>
+        <select ng-model="address.info.city" ng-options="c.name for c in address.cityList track by c.id" ng-class="{gray:!address.info.city}">
+          <option value="" disabled>请选择所在城市</option>
+        </select>
+      </ion-item>
+      <ion-item class="item-input">
+        <span class="input-label">详细地址</span>
+        <input type="text" ng-model="address.info.detail" placeholder="xx路xx号">
+      </ion-item>
+    </ion-list>
+    
+    <div class="padding">
+      <button class="button button-block button-positive" ng-disabled="!address.info.city || !address.info.detail" ng-click="address.save()">提交</button>
+    </div>
+    
+  </ion-content>
+</ion-view>

@@ -1,0 +1,14 @@
+<ion-view view-title="账户安全" id="setting">
+  <ion-content>
+    <ion-list>
+      <div class="item item-icon-right" ui-sref="password:update({type:'login'})">
+        登录密码
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+      <div class="item item-icon-right" ng-click="security.setPayPwd()">
+        {{security.text}}
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,120 @@
+#discover_view {
+  .item-avatar-right {
+    min-height: 84px;
+    h4 {
+      // padding-top: 5px;
+    }
+    img:first-child {
+      max-width: 64px;
+      max-height: 64px;
+      top: 50%;
+      margin-top: -32px;
+      right: 10px;
+    }
+  }
+  .item {
+    margin: 0;
+    p {
+      font-size: 12px;
+      color: #9b9b9b;
+    }
+    h4 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  }
+  .border-right {
+    border-right: 1px solid #e0e0e0;
+  }
+  .border-left {
+    border-left: 1px solid #e0e0e0;
+  }
+  .border-bottom {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .item-avatar {
+    padding-left: 60px;
+    z-index: 0;
+    position: relative;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    img:first-child {
+      top: 50%;
+      margin-top: -20px;
+    }
+  }
+  #about {
+    .col {
+      position: relative;
+      p {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        line-height: 90px;
+      }
+    }
+  }
+  .mall-label {
+    position: absolute;
+    right: -40px;
+    padding: 2px 6px;
+    font-size: 12px;
+    color: #fff;
+    background: url(#{$img-path}discovery/mall_label_bg.png) no-repeat;
+    background-size: 100% 100%;
+    transform: scale(.8);
+  }
+  .icon-circle {
+    position: relative;
+    z-index: 0;
+    &:after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #e53935;
+      right: 16px;
+      top: 16px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+  }
+  .banners {
+    overflow-x: hidden; // fix extra space
+    height: 160px;
+    .item {
+      height: 100%;
+      width: 100%;
+    }
+    .swiper-container {
+      overflow: visible;
+    }
+    .swiper-wrapper {
+      position: relative;
+    }
+    .swiper-pagination {
+      bottom: -15px;
+      .swiper-pagination-bullet {
+        width: 5px;
+        height: 5px;
+        opacity: 0.1;
+      }
+      .swiper-pagination-bullet-active {
+        opacity: 0.3;
+      }
+    }
+  }
+  .swiper-pagination {
+    display: none;
+  }
+  .swiper-slide img {
+    width: 100%;
+  }
+  .scroll-list {
+    overflow-x: hidden; // fix extra space
+  }
+}

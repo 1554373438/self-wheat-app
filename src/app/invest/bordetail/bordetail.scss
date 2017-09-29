@@ -1,0 +1,43 @@
+#invest_bordetail{
+  .empty {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+    img{
+      width:96px;
+    }
+  }
+  .list{
+    .item{
+      padding:0;
+      .infor-title{
+        padding:0 16px;
+        position: relative;
+        background: #fff;
+        .line{
+          display:block;
+          width:2px;
+          height:60%;
+          background: #2196F3;
+          position: absolute;
+          left:16px;
+        }
+        h3{
+          height:30px;
+          padding-left: 10px;
+          font-size: 16px;
+          color:#616161;
+        }
+      }
+      .infor-detail{
+        padding-left:21px;
+        span{
+          padding:5px 5px 5px 0;
+        }
+      }
+    }
+  } 
+}

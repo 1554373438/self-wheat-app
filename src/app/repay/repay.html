@@ -1,0 +1,67 @@
+<ion-view view-title="回款计划" id="repay_view">
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" ng-click="repay.toggle()">{{repay.titleButton?"列表":"日历"}}</a>
+  </ion-nav-buttons>
+  <ion-content class="light-bg">
+    <section ng-if="repay.titleButton">
+      <sign-data repayinfor="repay.info"></sign-data>
+      <ion-list class="repay-list" ng-if="repay.repayMonthItems.length != 0">
+        <div class="row row-center row-no-padding repayList listBg positive" ng-if="repay.month_expect">
+          本月待回款{{repay.month_expect | currency: ''}}元
+        </div>
+        <ion-item class="item-borderless row-no-padding" ng-repeat="repayMonthItem in repay.repayMonthItems track by $index">
+          <div class="row row-center row-no-padding repayList">
+            <small class="col col-10 "><b>{{repayMonthItem.repay_date | date:'dd'}}日</b><br>{{repayMonthItem.week_date}}</small>
+            <div class="col col-30">
+              <b>{{repayMonthItem.price | currency: '' }} 元</b>
+              <br>
+              <small class="gray">{{repayMonthItem.title}}</small>
+            </div>
+            <small class="col text-right" ng-if="repayMonthItem.collection_mode == 0">先息后本<br><span ng-if="!repayMonthItem.status">逾期</span></small>
+            <small class="col text-right" ng-if="repayMonthItem.collection_mode == 1">到期本息<br><span ng-if="!repayMonthItem.status">逾期</span></small>
+            <small class="col text-right" ng-if="repayMonthItem.collection_mode == 2">每月本息<br><span ng-if="!repayMonthItem.status">逾期</span></small>
+          </div>
+        </ion-item>
+      </ion-list>
+      <ion-list class="repay-list" ng-if="repay.repayMonthItems.length == 0">
+        <div class="row row-center row-no-padding gray repayList noRepay">本月无回款哦～</div>
+      </ion-list>
+    </section>
+    <section ng-if="!repay.titleButton">
+      <ion-list class="repay-list" ng-if="repay.repayDetailItems.length == 0">
+        <div class="empty">
+          <img src="assets/images/repay_err_empty.png" alt="" style="width:150px;">
+          <p class="font-16 dbl-padding-top dbl-margin-top positive">没有任何记录</p>
+        </div>
+      </ion-list>
+      <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="repay.loadPlanDetail(true)">
+          </ion-refresher>
+      <ion-list class="repay-list" ng-if="repay.repayDetailItems.length != 0">
+        <ion-item class="item-borderless row-no-padding" ng-repeat="repayItem in repay.repayDetailItems track by $index">
+          <div class="row row-center row-no-padding gray repayList">
+            <b class="col col-10 nowDatas month">{{repayItem.month_items[0].repay_date | date:'MM'}}</b>
+            <small class="col col-30 nowDatas">
+                {{repayItem.month_items[0].repay_date | date:'yyyy'}}<br>
+                月
+              </small>
+            <b class="col text-right">待回款{{repayItem.month_expect | currency: ''}}元</b>
+          </div>
+          <div class="row row-center row-no-padding no-margin repayList" ng-repeat="month_item in repayItem.month_items track by $index">
+            <small class="col col-10" ng-if="month_item.flag"><small><b>{{month_item.repay_date | date:'dd'}}日</b><br>{{month_item.week_date}}</small></small>
+             <small class="col col-10" ng-if="month_item.flag != false"><b>{{month_item.repay_date | date:'dd'}}日</b><br>{{month_item.week_date}}</small>
+            <div class="col col-30" ng-class="{'dbl-padding':month_item.flag == false}">
+              <b>{{month_item.price | currency: ''}}元</b>
+              <br>
+              <small class="gray">{{month_item.title}}</small>
+            </div>
+            <small class="col text-right" ng-if="month_item.collection_mode == 0">先息后本<br><span ng-if="!month_item.status">逾期</span></small>
+            <small class="col text-right" ng-if="month_item.collection_mode == 1">到期本息<br><span ng-if="!month_item.status">逾期</span></small>
+            <small class="col text-right" ng-if="month_item.collection_mode == 2">每月本息<br><span ng-if="!month_item.status">逾期</span></small>
+          </div>
+        </ion-item>
+      </ion-list>
+      <ion-infinite-scroll ng-if="repay.hasMorePlanDetail" on-infinite="repay.loadPlanDetail()" distance="1%">
+      </ion-infinite-scroll>
+    </section>
+  </ion-content>
+</ion-view>

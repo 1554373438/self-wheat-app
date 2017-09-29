@@ -1,0 +1,44 @@
+#rename_modal{
+  z-index:14;
+  background:rgba(0,0,0,.5);
+  .scroll {
+    height: 100%;
+  }
+  .icon-close {
+    position: absolute;
+    width: 25px;
+    height: 56px;
+    background: url(#{$img-path}home_popup_close.png) no-repeat;
+    background-size: 100% 100%;
+    right: 10px;
+    top: -40px;
+    z-index: 0;
+  }
+  .icon-close + img {
+    position: relative;
+    z-index: 1;
+  }
+
+  .light-bg {
+    padding: 40px 25px;
+    border-radius: 0 0 4px 4px;
+  }
+  button{
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    text-align: center;
+    background: #2196F3;
+
+  }
+  .row{
+    @include justify-content(center);
+  }
+  .rename-img{
+    display: block;
+    width: 270px;
+    height: auto;
+    border-radius: 4px 4px 0 0;
+  }
+  
+}

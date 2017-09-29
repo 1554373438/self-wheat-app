@@ -1,0 +1,11 @@
+<ion-view view-title="高管介绍" id="about_team_view">
+	<ion-content>
+		<div class="list">
+	    <div class="item item-text-wrap item-thumbnail-left" ng-repeat="i in team.list">
+	    	<img ng-src="{{i.avatar}}">
+	    	<h2>{{i.name}}<span>{{i.co}}</span></h2>
+      	<p ng-bind-html="i.desc"></p>
+	    </div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view id="purchase_success" class="has-footer">
+  <ion-nav-title>购买成功</ion-nav-title>
+  <ion-content>
+    <section class="light-bg">
+      <div class="text-center dbl-padding-horizontal border-bottom ">
+        <i class="icon icon-success"></i>
+        <p class="font-16 dbl-margin-top">您成功投资{{success.order.title}}</p>
+      </div>
+      <ul class="info dbl-padding-horizontal">
+        <li class="active">
+          <i class="icon-step"></i> 成功投资{{success.order.amount}}元
+        </li>
+        <li class="gray">
+          <i class="icon-step"></i> {{success.order.startDate}} 开始计算收益
+        </li>
+        <li class="gray">
+          <i class="icon-step"></i> 
+          <!-- <span ng-if="success.order.productType != 15">到期后1-2个工作日到账</span> -->
+          <span >退出成功后一次性还本付息</span>
+        </li>
+      </ul>
+    </section>
+   <!--  <section class="item item-icon-right item-borderless margin-top" ng-click="detail.goToIntro()" ng-if="success.order.productType != 15">
+      回款日历
+      <i class="icon ion-ios-arrow-right gray"></i>
+    </section> -->
+  </ion-content>
+  <div class="bar bar-footer no-bg">
+    <button class="button button-positive button-block" ng-click="success.goHome()">
+      <span>完成</span>
+    </button>
+  </div>
+</ion-view>

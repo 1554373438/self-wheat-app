@@ -1,0 +1,52 @@
+.pick {
+  .item {
+    border-width: 0;
+  }
+  .item-checkbox {
+    padding-left: 16px;
+  }
+  .item-checkbox .checkbox {
+    left: inherit;
+  }
+  .space-between {
+    @include display-flex();
+    @include justify-content(space-between);
+  }
+  .scroll-content {
+    margin-bottom: 110px;
+  }
+  .money {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    padding-bottom: 15px;
+    background: #fff;
+  }
+  .is-checkbox {
+    .checkbox {
+      left: -9999px;
+    }
+  }
+  .auto {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+  }
+  .prompt {
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 1px;
+    height: 16px;
+    line-height: 14px;
+    border: 1px #999 solid;
+    border-radius: 3px;
+    .icon {
+      position: absolute;
+      right: -6px;
+      top: -10px;
+      color: #80B6E0;
+    }
+  }
+}

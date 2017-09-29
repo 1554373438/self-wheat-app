@@ -1,0 +1,68 @@
+<ion-view view-title="{{detail.productName}}" id="sepec_invest_detail">
+  <ion-nav-bar class="bar-light" align-title="center">
+    <ion-nav-back-button back-button class="button-clear">
+      <i class="icon ion-ios-arrow-left"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <img dataurl-src="{{detail.banner[0]}}" alt="" width="100%">
+    <section>
+      <p>{{detail.product.fp_title}}</p>
+      <p class="small gray">{{detail.product.fp_earnings_intro}}</p>
+      <div class="row no-padding gray">
+        <div class="col no-padding small">
+          商品价格：<strong class="assertive ">{{detail.product.fp_product_nono_price}}</strong>元
+        </div>
+        <!-- <div class="col no-padding small">
+          市场价：<strong class="assertive line-through">{{detail.product.fp_product_price | number:2}}</strong><span>元</span>
+        </div> -->
+      </div>
+    </section>
+    <section class="part2">
+      <div class="row row-center small no-padding">
+        <div class="title gray small">存入期限：</div>
+        <div class="col">
+          <span class="btn" ng-class="{active:detail.duration==d}" ng-repeat="d in detail.product.expect_collection" ng-click="detail.selectDuration($index)">{{d}}{{detail.product.fp_expect_unit=="0" ? "月期" : "天"}}</span>
+        </div>
+      </div>
+      <div class="row row-center small no-padding">
+        <div class="title gray small">存入金额：</div>
+        <div class="col assertive"><strong>{{detail.product.fp_price_increment}}</strong>元</div>
+      </div>
+      <div class="row row-center small no-padding">
+        <div class="title gray small">预期年化：</div>
+        <div class="col assertive"><strong>{{detail.product.fp_rate_show}}</strong></div>
+      </div>
+    </section>
+    <ion-list id="detail_intro">
+      <ion-item class="item-icon-left" ng-repeat="intro in detail.intro" ng-click="product.select($index)">
+        <i class="icon" ng-class="intro.icon"></i>
+        <div>
+          {{intro.title}}
+          <br/>
+          <small class="gray">{{intro.desc}}</small>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div ng-bind-html="detail.product.explanation" class="explanation"></div>
+  </ion-content>
+  <ion-footer-bar align-title="left" class="row row-center padding-horizontal">
+    <div class="col col-50" ng-show="!detail.isShare">
+      <label>数量</label>
+      <div class="row row-center row-no-padding margin-top">
+        <button class="button button-outline " ng-click="detail.minusNum()">
+          <i class="icon ion-ios-minus-empty positive bold"></i>
+        </button>
+        <div class="item no-padding item-input">
+          <input type="tel" class="text-center no-padding bold" ng-model="detail.buyNum" required />
+        </div>
+        <button class="button button-outline " ng-click="detail.addNum()">
+          <i class="icon ion-ios-plus-empty positive bold"></i>
+        </button>
+      </div>
+    </div>
+    <div class="col" ng-class="{'col-50':!detail.isShare}">
+      <button class="button  button-positive button-block" ng-disabled="detail.product.fp_status!=3"  ng-click="detail.buyProduct()">{{detail.statusText}}</button>
+    </div>
+  </ion-footer-bar>
+</ion-view>

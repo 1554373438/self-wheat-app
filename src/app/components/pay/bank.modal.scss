@@ -1,0 +1,17 @@
+.pay-card-list {
+  .item-icon-left {
+    padding-left: 43px;
+  }
+  .item-icon-left .icon {
+    left: 0px;
+  }
+  .icon-selected {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    top: -2px;
+    background: url(#{$img-path}pay/card_checked_blue.png) no-repeat;
+    background-size: 100% auto;
+  }
+}

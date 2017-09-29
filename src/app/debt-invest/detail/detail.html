@@ -1,0 +1,49 @@
+<ion-view class="has-footer invest-detail" id="debt_invest">
+  <ion-nav-title>{{::detail.info.title}}</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" ui-sref="limit">
+      限额说明
+    </a>
+  </ion-nav-buttons>
+  <ion-content>
+    <section class="item no-margin">
+      <div class="flex margin-bottom">
+        <span class="assertive font-24">{{::detail.info.rate_show}}</span>
+        <span class="font-16">{{::detail.info.expect_show}}/{{::detail.info.transfer_rate_show}}</span>
+      </div>
+      <div class="flex  dbl-margin-bottom">
+        <span class="gray">借款年化利率</span>
+        <span class="gray">投资期限/转让折扣</span>
+      </div>
+      <div class="flex margin-bottom">
+        <span class="font-16">{{::detail.info.residue_price | currency:''}}元</span>
+        <span class="font-16">{{detail.info.profit * detail.info.residue_count  | currency:''}}元</span>
+      </div>
+      <div class="flex margin-bottom">
+        <span class="gray">债转本金</span>
+        <span class="gray">预期收益</span>
+      </div>
+    </section>
+    <section class="item no-margin">
+      <p><span class="gray margin-right">逾期情况</span><span>{{::detail.info.overdue_desc}}</span> </p>
+      <p><span class="gray margin-right">最近收款日</span><span>{{::detail.info.rec_accept_date}}</span> </p>
+      <p><span class="gray margin-right">收益说明</span><span>{{::detail.info.acc_type}}</span> </p>
+      <p><span class="gray margin-right">保障方式</span><span>{{::detail.info.safe_guard_type}}</span> </p>
+      <p><span class="gray margin-right">提前退出</span><span class="assertive">买入后可随时转让</span> </p>
+    </section>
+    <section class="item item-icon-left item-icon-right item-borderless half-margin-vertical" ng-click="detail.goToIntro()">
+      <i class="icon iconfont icon-chanpin gray"></i>  债权介绍
+      <i class="icon ion-ios-arrow-right gray"></i>
+    </section>
+    <ion-item class="item-borderless item-tos">
+      <div class="padding-vertical">相关协议</div>
+      <small class="positive block" ui-sref="instructions({type: 6, collectionMode: ''})">《债权转让说明书》</small>
+      <small class="positive block" ng-click="detail.showTemplate()">《债权转让协议》</small>
+    </ion-item>
+  </ion-content>
+  <div class="bar bar-footer no-bg">
+    <button class="button button-positive button-block" ng-click="detail.purchase()" ng-disabled="detail.info.status!=3">
+      <span>{{detail.info.status ==3 ? '马上投资' : '已结束'}}</span>
+    </button>
+  </div>
+</ion-view>

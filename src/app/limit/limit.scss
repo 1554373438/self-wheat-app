@@ -1,0 +1,95 @@
+
+.bank-logo {
+  display: inline-block; 
+  width: 32px;
+  height: 32px;
+  overflow: hidden; 
+  background-repeat: no-repeat;
+  background-image: url(#{$img-path}pay/bank_logo.png);
+  background-size: 32px auto;
+  background-position: 40px 0;
+  &.small{
+    transform: scale(.5);
+  }
+}
+
+.bank-logo[code="CITIC"] {
+  background-position: -0px -0px;
+}
+
+.bank-logo[code="BOC"] {
+  background-position: -0px -32px;
+}
+
+.bank-logo[code="CEB"]{
+  background-position: -0px -64px;
+}
+.bank-logo[code="BOCOM"] {
+  background-position: -0px -96px;
+}
+.bank-logo[code="CIB"] {
+  background-position: -0px -128px;
+}
+.bank-logo[code="ABC"] {
+  background-position: -0px -160px;
+}
+.bank-logo[code="HXB"] {
+  background-position: -0px -192px;
+}
+.bank-logo[code="ICBC"] {
+  background-position: -0px -226px;
+}
+.bank-logo[code="PAB"] {
+  background-position: -0px -256px;
+}
+.bank-logo[code="GDB"] {
+  background-position: -0px -288px;
+}
+.bank-logo[code="CCB"] {
+  background-position: -0px -320px;
+}
+.bank-logo[code="CMB"] {
+  background-position: -0px -352px;
+}
+.bank-logo[code="CMBC"] {
+  background-position: -0px -384px;
+}
+.bank-logo[code="SPDB"] {
+  background-position: -0px -416px;
+}
+.bank-logo[code="PSBC"] {
+  background-position: -0px -448px;
+}
+
+.item-icon-left.bank-item {
+  padding: 10px 16px 10px 60px;
+  h2{
+    font-size: 14px;
+  }
+  p{
+    font-size: 12px;
+  }
+ 
+}
+
+.item-icon-right.card-item{
+  &:not(.has-option), .item-content {
+    padding: 10px 70px;
+    &.no-desc h2{
+      @include display-flex();
+      @include align-items(center);
+      position: absolute;
+      top: 0;
+      height: 100%;
+    }
+    h2{
+      font-size: 14px;
+    }
+    p{
+      font-size: 12px;
+    }
+    .icon{
+      right: 5px;
+    }
+  }
+}

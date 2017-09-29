@@ -1,0 +1,9 @@
+<section class="invest-counter">
+  <div class="item item-borderless dbl-padding-horizontal">
+    投资金额(元)
+    <div class="item-note">预期收益<span class="assertive">{{order.earnings}}</span></div>
+  </div>
+  <div class="item item-borderless item-input dbl-padding-horizontal">
+    <input placeholder="{{order.priceMin | number:0}}元起购，只能购买{{order.increment|number:0}}的整数倍" type="tel" class="text-left font-16" ng-model="order.price" required>
+  </div>
+</section>

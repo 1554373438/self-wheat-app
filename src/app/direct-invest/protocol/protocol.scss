@@ -1,0 +1,16 @@
+.protocol  {
+  table {
+    width: 100%;
+    border: 1px solid #000;
+    table-layout: fixed;
+    font-size: 12px;
+
+    tr, th, td {
+      border: 1px solid #000;
+      min-height: 20px;
+      text-align: center;
+      word-wrap: break-word;
+      vertical-align: middle;
+    }
+  }
+}

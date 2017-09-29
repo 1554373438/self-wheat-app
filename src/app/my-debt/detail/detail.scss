@@ -1,0 +1,52 @@
+#mydebt_detail {
+  // height: 100%;
+  .space-between {
+    @include display-flex();
+    @include justify-content(space-between);
+  }
+  .black {
+    color: #4A4A4A;
+  }
+  .input-label {
+    width: 20%;
+  }
+  .item-input {
+    border: 0;
+    padding: 8px;
+    margin: 0;
+  }
+  .item {
+    padding-left: 8px;
+    padding-right: 8px;
+    &.border-vertical {
+      border-right: 0;
+      border-left: 0;
+    }
+  }
+  .line {
+    position: relative;
+    &:after {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 1px;
+      background: $border-color;
+    }
+  }
+  .bar-footer {
+    padding: 8px;
+  }
+}
+
+.mydebt-prompt {
+  .popup-body {
+    padding-bottom: 5px;
+  }
+  .space-between {
+    @include display-flex();
+    @include justify-content(space-between);
+  }
+}

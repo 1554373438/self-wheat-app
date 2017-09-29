@@ -1,0 +1,62 @@
+<ion-view view-title="提现" id="withdraw">
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" ui-sref="withdraw:history">
+      提现记录
+    </a>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-item class="item-borderless">
+      <span class="">账户余额</span>
+      <span class="item-note assertive">{{::withdraw.info.nonoAvlBalance |currency:''}}</span>
+    </ion-item>
+    <div class="item item-icon-left item-icon-right card-item no-desc">
+      <i class="icon">
+        <div class="bank-logo small" code="{{::withdraw.info.bankCode}}"></div>
+      </i>
+      <h2>{{::withdraw.info.bankName}}(尾号{{::withdraw.info.bankTail}})</h2>
+    </div>
+    <ion-item class="row padding-vertical cash">
+      <span class="col col-25 input-label no-padding text-left">金额(元)</span>
+      <div class="col col-50 cash-in item-icon-right">
+        <input  type="number"  placeholder="提现金额>=3"  ng-model="withdraw.info.amount" ng-readonly="widthdraw.info.status === 'APPROVAL_PASS'">
+        <i class="icon clear-val" ng-show="withdraw.info.amount || withdraw.info.amount>=0" ng-click="withdraw.info.amount=''"></i>
+      </div>
+      <span class="col col-25 no-padding cash-span text-right" ng-click="withdraw.info.amount=withdraw.info.nonoAvlBalance;withdraw.isShow=true;">全部提现</span>
+    </ion-item>
+    <div class="cash-role" ng-if="withdraw.info.amount>=0 || withdraw.isShow">
+      {{withdraw.info.amount>withdraw.info.largeAmount?withdraw.info.largePrompt:withdraw.info.littlePrompt}}
+    </div>
+    <div ng-if="withdraw.info.amount>withdraw.info.largeAmount">
+      <ion-item class="row padding-vertical cash cash-2">
+        <div class="col col-75 cash-in item-icon-right">
+          <input  type="text" placeholder="请输入电子联行号" ng-model="withdraw.info.cnapsCode" >
+          <i class="icon clear-val" ng-show="withdraw.info.cnapsCode.length>0" ng-click="withdraw.info.cnapsCode =''"></i>
+        </div>
+      <a class="col col-25 no-padding cash-span text-center" target="_blank" href="http://www.lianhanghao.com">查询</a>
+      </ion-item>
+      <span class="what" ng-click="withdraw.showPop()">什么是电子联行号</span>
+    </div>
+
+  </ion-content>
+  <ion-footer-bar>
+    <div class="box">
+      <div class="xieyi times" >
+        <div ng-if="withdraw.info.isNonFee && withdraw.getUserLevel >0" ng-click="withdraw.toggleFee();">
+          <span class="check" ng-class="{'on':withdraw.useFree}"></span>
+          <span >免费提现(本月剩余1次，VIP会员专享)</span>
+        </div>
+        <div class="dark-over" ng-if="!withdraw.info.isNonFee || withdraw.getLevel==0">本月免提现手续费次数已用尽</div>
+      </div>
+      <div class="row  money-cash">
+        <div class="col col-50  dark small">
+          <span >手续费</span> <img class="case" src="assets/images/info.png" alt="" ui-sref="withdraw:fee" ><span class="assertive">{{withdraw.info.fee | currency:''}}</span> 元
+          <br/>
+          <span class="mar-right-6">实际到账</span> <span class="assertive">{{withdraw.info.arrivalAmount | currency:'' }}</span> 元
+        </div>
+        <div class=" col col-50 no-padding">
+          <button class="button button-block button-positive" ng-disabled="!withdraw.info.amount" ng-click="withdraw.submit()">确认提现</button>
+        </div>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>>

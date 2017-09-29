@@ -1,0 +1,26 @@
+#withdraw_history{
+  .header{
+    margin-top: 44px;
+    margin-bottom: 4px;
+    .platform-cordova &{
+      margin-top: 64px;
+    }
+  }
+  .scroll-content{
+    top: 88px;
+    .platform-cordova &{
+      top: 108px;
+    }
+  }
+  .amount{
+    color: #F99000;
+  }
+
+  .status.positive{
+    color: $positive;
+  }
+  .status.grey{
+    color: #999;
+  }
+
+}

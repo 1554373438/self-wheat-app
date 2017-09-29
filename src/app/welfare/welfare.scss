@@ -1,0 +1,176 @@
+#welfare_view {
+  scroll-x {
+    display: block;
+    width: 100%;
+    background: $light;
+  }
+  .scroll {
+    height: 100%;
+  }
+  ion-slides {
+    position: absolute;
+    top: 64px;
+    bottom: 0;
+    height: auto;
+    .swiper-pagination {
+      display: none;
+    }
+    .scroll-view {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 0;
+      bottom: 0;
+    }
+  }
+  .scroll-tabs {
+    line-height: 60px;
+    text-align: center;
+    color: $dark;
+    margin-bottom: 4px;
+    * {
+      background: $light;
+    }
+    > .active {
+      position: relative;
+      z-index: 1;
+      color: $positive;
+      &:before {
+        content: '';
+        display: block;
+        background: $stable;
+        padding: 7px 14px;
+        border-radius: 30px;
+        min-width: 88px;
+        height: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -15px;
+        margin-left: -44px;
+        z-index: -1;
+      }
+    }
+    .col-28{
+      -webkit-box-flex: 0;
+      flex: 0 0 28%;
+      max-width: 28%;
+    }
+  }
+  .iconfont {
+    font-size: 22px;
+  }
+  .coin-slider {
+    .info {
+      margin-bottom: 0;
+      .item {
+        border: 0;
+        margin-top: 0;
+        margin-bottom: 1px;
+      }
+      .amount {
+        font-size: 20px;
+      }
+    }
+    .total {
+      position: relative;
+      font-size: 12px;
+      height: 40px;
+      text-align: center;
+      color: $gray;
+      @include display-flex();
+      @include align-items(center);
+      @include justify-content(space-between);
+      &:before,
+      &:after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        min-width: 20px;
+        height: 1px;
+        background: rgba(151, 151, 151, .2);
+        @include flex(1);
+        margin: 0 8%;
+      }
+    }
+    .scroll-view {
+      // position: absolute;
+      // width: 100%;
+      // height: auto;
+      top: 204px;
+      // bottom: 0;
+    }
+    .log {
+      .amount {
+        font-size: 20px;
+      }
+      .row {
+        padding: 10px 16px;
+        background: $light;
+        margin-top: 0;
+        margin-bottom: 1px;
+      }
+    }
+  }
+  .pp-slider {
+    .font-26 {
+      font-size: 22px;
+    }
+    .row {
+      padding: 16px 5px;
+    }
+    .col {
+      padding: 0;
+
+    }
+    .coupon-box {
+      margin: 12px 15px;
+    }
+    .pp-coupon {
+      position: relative;
+      background: url(#{$img-path}ticket_pp.png) no-repeat;
+      background-size: 100% 100%;
+      &.disabled {
+        background: url(#{$img-path}ticket_pp_disabled.png) no-repeat;
+        background-size: 100% 100%;
+       .assertive {
+        color:#e0e0e0;
+       }
+        button{
+          border: 1px solid #e0e0e0;
+
+        }
+       .title {
+        color: #e0e0e0;
+       }
+      }
+      .use{
+        position: absolute;
+        top: 43%;
+        right: 5%;
+        border: 1px solid #e74c3c;
+        padding: 3px 5px;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 12px;
+
+      }
+
+    }
+    .title {
+      font-size: 16px;
+      color: #212121;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .tip {
+      border: 1px solid #2196F3;
+      border-radius: 4px;
+      padding: 2px  5px;
+      margin-left: 10px;
+    }
+
+  }
+}

@@ -1,0 +1,26 @@
+<ion-modal-view class="login-view">
+  <ion-content>
+    <div class="top-bar relative">
+      <i class="icon icon-back" ng-click="fn.goBack(true)"></i>
+    </div>
+    <section class="dbl-margin-horizontal register ">
+      <div class="text-center  mar-bot-24">
+        <p class="font-18">{{fn.registerLog?'请输入您的手机号':'找回密码'}}</p>
+        <span class="small-font" ng-if="!fn.registerLog">请输入你注册时的手机号</span>
+      </div>
+
+      <div class="item item-input dbl-margin-bottom">
+        <input class="main-input-fill" type="text" ng-model="user.userTel" maxlength="11" placeholder="手机号" required clear-input>
+      </div>
+      <div class="read" ng-if="fn.registerLog ">
+        <span class="check-agree" ng-class="{'on':fn.agree}" ng-click="fn.agree = !fn.agree"></span>
+        <span ng-click="fn.agree = !fn.agree" >阅读并同意</span>
+        <span class="positive" ng-click="fn.goPage('introduce.html')">《注册协议与隐私条款》</span>
+      </div>
+
+
+      <button class="button button-block button-positive margin-top-30" ng-disabled="fn.registerLog?!fn.agree ||!user.userTel : !user.userTel" ng-click="fn.checkPhone()">下一步</button>
+    </section>
+
+  </ion-content>
+</ion-modal-view>

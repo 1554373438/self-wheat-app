@@ -1,0 +1,25 @@
+
+#about_team_view{
+  p{
+    font-size: 12px;
+    word-break: break-all;
+  }
+  img{
+    border-radius:50%;
+  }
+  h2{
+    color: #00B0F0;
+    border-bottom: 1px solid #00B0F0;
+    span{
+      float:right;
+      color:#444;
+      font-size: 14px;
+    }
+  }
+}
+
+#about_intro{
+  p{
+    line-height: 1.8;
+  }
+}

@@ -1,0 +1,42 @@
+#month_up_inst {
+  .list {
+    border: 1px dashed #e0e3e5;
+    .item {
+      border: none;
+      background: transparent;
+      p{font-size: 12px;}
+      padding-left: 106px;
+    }
+    .item:first-child {
+      background:url(#{$img-path}yys/icon2.png) 10px center no-repeat;
+      background-size: 80px 80px;
+    }
+    .item:last-child {
+      background:url(#{$img-path}yys/icon3.png) 10px center no-repeat;
+      background-size: 80px 80px;
+    }
+  }
+  .footer {
+    position: relative;
+    color: $positive;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -45%;
+      height: 1px; 
+      width: 90%;
+      background: $positive;
+    }
+    span {
+      position: relative;
+      padding: 0 20px;
+      background: #fff;
+      display: inline-block;
+      z-index: 2;
+    }
+
+  }
+}

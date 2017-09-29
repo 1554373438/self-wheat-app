@@ -1,0 +1,26 @@
+/* ----------------------------------------------------
+   created with http://www.codeandweb.com/texturepacker 
+   ----------------------------------------------------
+   $TexturePacker:SmartUpdate:6934f1809aa93db84343dc1d5350950d:13188cad8003605b9f2505113cd0e384:27ca57f72a6ee94e92d4ecd7c6ef249a$
+   ----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+
+.sprite {display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url(safe_icon.png);}
+
+.part1_icon1 {width:80px; height:81px; background-position: -0px -0px}
+.part1_icon2 {width:80px; height:81px; background-position: -0px -81px}
+.part1_icon3 {width:80px; height:81px; background-position: -0px -162px}
+.part1_icon4 {width:80px; height:81px; background-position: -0px -243px}
+.part1_icon5 {width:80px; height:80px; background-position: -0px -324px}
+.part2_icon1 {width:80px; height:81px; background-position: -0px -404px}
+.part2_icon2 {width:80px; height:81px; background-position: -0px -485px}
+.part2_icon3 {width:80px; height:81px; background-position: -0px -566px}
+.part3_icon1 {width:80px; height:81px; background-position: -0px -647px}
+.part3_icon2 {width:80px; height:81px; background-position: -0px -728px}
+.part3_icon3 {width:80px; height:81px; background-position: -0px -809px}
+.part4_icon1 {width:80px; height:81px; background-position: -0px -890px}

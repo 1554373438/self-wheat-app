@@ -1,0 +1,33 @@
+<ion-view view-title="资金明细">
+  <ion-content>
+    <ion-refresher
+      spinner="bubbles"
+      pulling-icon="ion-ios-arrow-thin-down"
+      pulling-text="下拉刷新"
+      on-refresh="balance.doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-text-wrap no-padding" ng-repeat="item in balance.items track by item.id">
+        <div class="row">
+          <div class="col col-75">{{item.foName}}</div>
+          <div class="col col-25 text-right">
+            <span class="positive" ng-if="item.income">+{{item.income}}</span>
+            <span class="assertive" ng-if="item.expend">-{{item.expend}}</span>
+          </div>
+        </div>
+        <div class="row gray small">
+          <div class="col col-75">{{item.opTime}}</div>
+          <div class="col col-25 text-right">{{item.balance}}</div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll
+      ng-if="balance.hasMoreData"
+      on-infinite="balance.loadMore()"
+      spinner="bubbles"
+      immediate-check="false" 
+      distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

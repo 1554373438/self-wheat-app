@@ -1,0 +1,26 @@
+<ion-view view-title="商品列表页" id="product_list">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="productlist.goMyBackExchange()" ng-if="productlist.typeId!=2">
+      我能兑换的
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="productlist.doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-thumbnail-left item-icon-right margin-bottom no-border" ng-repeat="itme in productlist.items track by $index" ng-click="productlist.goBackExchange(productlist.items[$index].cb_id)">
+        <img ng-src="https://www.nonobank.com/Public/Files/Chaobang/{{itme.cb_app_pic}}" class="small-icon">
+        <h3 class="padding-left padding-top">{{itme.cb_title}}</h3>
+        <div class="margin-left dbl-margin-top"><i class="ion-nob"></i><small>{{itme.cb_need_coins}}诺币</small><span class="discount">{{itme.cb_discount_coins}}</span></div>
+        <i class="icon ion-ios-arrow-right fabulous" ng-class="{0: 'ion-follow1', 1: 'ion-follow2'}[itme.praise_type]" ng-click="productlist.fabulous($index,$event)" c_id="{{itme.cb_id}}" t_id="{{itme.praise_type}}"></i>
+        <i class="ion-new" ng-if="itme.cb_icon != 0">{{itme.cb_icon | iconStatus}}</i>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll spinner="bubbles" immediate-check="false" ng-if="productlist.hasMoreData" pulling-icon="ion-ios-arrow-thin-down" on-infinite="productlist.loadMore()" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+  <div class="money padding-left padding-right">
+    <p class="padding-top text-center title-center" ng-if="!productlist.hasMoreData"><small>没有更多了</small></p>
+    <button class="button button-outline new-btn col" ng-click="productlist.goBack()">诺币不够用？马上查看攻略 </button>
+  </div>
+</ion-view>

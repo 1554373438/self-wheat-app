@@ -1,0 +1,26 @@
+<ion-view view-title="诺币规则" id="nb_rules_view">
+	<ion-content >
+		<div>
+			<p class="light-bg item-divider no-margin dbl-padding-left normal"><i class="icon"></i>{{::rule.info[0]['title']}}</p>
+			<p class="small dbl-padding-horizontal padding-vertical opacity-half">{{::rule.info[0]['content']}}</p>
+		</div>
+		<div>
+			<p class="light-bg item-divider no-margin dbl-padding-left normal"><i class="icon"></i>{{::rule.info[1]['title']}}</p>
+			
+			<div class="dbl-padding-horizontal">
+				<div ng-repeat="item in rule.info[1]['content']">
+					<div class="small padding-vertical small-title"><span class="assertive padding-left">方法{{::$index+1}}</span>：{{::item['title']}}</div>
+					<div class="small opacity-half" ng-if="item['text']" ng-bind-html="item['text']"></div>
+					<div ng-if="item['img']">
+						<img class="full-image" ng-src="{{item['img']}}">
+					</div>
+				</div>
+				
+			</div>
+		</div>		
+		
+	</ion-content>
+</ion-view>
+
+
+

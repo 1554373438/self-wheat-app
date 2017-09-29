@@ -1,0 +1,69 @@
+<ion-view view-title="兑换页" id="exchange_view" cache-view="false">
+  <ion-content>
+    <div class="exchange-msg" ng-if="exchanges.getDate.exchangeMsg">
+      <marquee ng-if="exchanges.getDate.exchangeMsg.length > 16"><span class="small">{{exchanges.getDate.exchangeMsg}}</span></marquee>
+      <span class="small" ng-if="exchanges.getDate.exchangeMsg.length < 16">{{exchanges.getDate.exchangeMsg}}</span>
+    </div>
+    <div class="col banner no-padding">
+      <div class="new white" ng-if="exchanges.getDate.cb_icon != 0">
+        <small>{{exchanges.getDate.cb_icon | iconStatus}}</small>
+      </div>
+      <img ng-src="https://www.nonobank.com/Public/Files/Chaobang/{{exchanges.getDate.cb_app_pic}}">
+      <div ng-class="{0: 'follow1', 1: 'follow2'}[exchanges.getDate.praise_type]" ng-click="exchanges.fabulous()"></div>
+    </div>
+    <div class="padding-left introduce" ng-click="exchanges.goBack(exchanges.getDate.cb_app_detail_pic)">
+      <p>{{exchanges.getDate.cb_title}}</p>
+      <p>{{exchanges.getDate.cb_description}}</p>
+      <p>结束时间:{{exchanges.getDate.cb_end_time}}</p>
+      <i class="icon ion-ios-arrow-right gray"></i>
+    </div>
+    <div class="infor">
+      <div class="row">
+        <div class="col col-50 division dbl-padding-right">
+          <p><span class="pull-left">商品原价：</span><span class="pull-right"><span class="assertive">{{exchanges.getDate.cb_cost}}</span>元</span>
+          </p>
+          <p class="no-margin"><span class="pull-left">剩余件数：</span><span class="pull-right"><span class="assertive">{{exchanges.getDate.cb_reaminnum}}</span>件</span>
+          </p>
+        </div>
+        <div class="col dbl-padding-left">
+          <p><span class="pull-left">以兑换人数：</span><span class="pull-right"><span class="assertive">{{exchanges.getDate.cb_receivenum}}</span>人</span>
+          </p>
+          <p class="no-margin"><span class="pull-left">每人限购：</span><span class="pull-right"><span class="assertive">{{exchanges.getDate.cb_upper_limit}}</span>件</span>
+          </p>
+        </div>
+      </div>
+      <p class="getLimit"><span class="pull-left">购买限制：</span><span class="assertive"></span></p>
+      <div class="col dbl-padding-left assertive small">
+        <span>VIP{{exchanges.getDate.cb_members_class}}及其以上等级可兑换;</span>
+        <br>
+        <span>{{exchanges.getDate.cb_investment_time_s}}到{{exchanges.getDate.cb_investment_time_e}}投资满{{exchanges.getDate.getDatecb_amount}}元可兑换;</span>
+      </div>
+    </div>
+  </ion-content>
+  <div class="money padding-left padding-right">
+    <div class="row">
+      <div class="col dbl-padding-top">
+        <p>
+          <span class="pull-left">所需诺币：</span>
+          <span class="pull-right assertive">{{exchanges.getDate.cb_need_coins}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>
+          <span class="pull-left">持有诺币：</span>
+          <span class="pull-right assertive">{{exchanges.getDate.totalcoin}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="button button-positive  button-block btn" ng-click="exchanges.getlw()">
+          <i ng-if="exchanges.getDate.cb_first_type !=2">立即兑换</i>
+          <i ng-if="exchanges.getDate.cb_first_type == 2">马上抽奖</i>
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-view>

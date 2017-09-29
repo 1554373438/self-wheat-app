@@ -1,0 +1,144 @@
+#mall_level_view_right_btn{
+  border:1px solid #ccdff0;
+  border-radius:15px;
+  background: #ccdff0;
+  height: 30px;
+  width:80px;
+  line-height: 30px;
+  padding-left: 10px;
+  font-size: 12px;
+  .iconfont {
+    color: #fff;
+  }
+
+}
+
+#mall_level_view{
+  .user-info{
+    background: $positive url($img-path + "mall/mall_lv_bg@2x.png") no-repeat;
+    background-size: cover; 
+    @for $i from 0 through 3{
+      .avatar-box.level-#{$i}{
+        background: $positive url($img-path + "mall/avatar_v#{$i}@2x.png") no-repeat;
+        background-size:cover;
+      }
+    
+    }
+    .avatar-box{
+      position: relative;
+      width: 48px;
+      height: 48px;
+      margin:0px auto 10px auto;
+      .icon-level{
+        position: absolute;
+        right:-5px;
+        bottom:0;
+        width: 18px;
+        height:18px;
+        line-height:18px;
+        text-align: center;
+        background: $balanced;
+        border-radius: 50%;
+        color:$light;
+      }
+    } 
+    small{opacity: .6;}
+    
+  }
+ 
+  .scroll-view{
+    background: #f4f4f4;
+    height: 75px;
+    &.scroll-x {
+      // overflow-x: hidden;
+    }
+    .col{   
+      position: relative;
+      padding: 10px 0;
+      width: 25%;
+      // &:after {
+      //   position: absolute;
+      //   content: '';
+      //   bottom: 0;
+      //   left: 0;
+      //   height: 2px;
+      //   width: 100%;
+      //   background: $positive;
+      // }
+      .icon{
+        display: block;
+        margin:0 auto;
+        width: 32px;
+        height: 32px;
+        background:url($img-path + "mall/icon_privilege.png") no-repeat;
+        background-size:34px 564px;
+      }
+      .icon-addCom{background-position: 0 0}
+      .icon-birth{background-position: 0 -66px}
+      .icon-freeWd{background-position: 0 -169px}
+      .icon-invCon{background-position: 0 -235px}
+      .icon-nbEx{background-position: 0 -301px}
+      .icon-ticket{background-position: 0 -367px}
+      .icon-vipAct {background-position: 0 -433px}
+      .icon-vipEx{background-position: 0 -499px}
+
+      .icon-addCom.gray{background-position: 0 -33px}
+      .icon-birth.gray{background-position: 0 -99px}
+      .icon-freeWd.gray{background-position: 0 -202px}
+      .icon-invCon.gray{background-position: 0 -268px}
+      .icon-nbEx.gray{background-position: 0 -334px}
+      .icon-ticket.gray{background-position: 0 -400px}
+      .icon-vipAct.gray{background-position: 0 -466px}
+      .icon-vipEx.gray{background-position: 0 -532px}
+    }
+    .col.tab-item-active{
+      border-bottom:2px solid $positive;
+      
+    }
+     
+  }
+  .list{padding-bottom:20px;background:#fff;}
+  .item{
+    text-overflow:inherit;
+    white-space: inherit;
+    overflow: inherit;
+    padding-left: 40px;
+    padding-right: 10px;
+    padding-bottom: 0;
+    border: none;
+  }
+  .item-icon-left{
+    padding-left:40px;
+  }
+  .item-icon-left .icon{
+    font-size:20px;
+    height: auto;
+    top:15px;
+    left:5px;
+    align-items:flex-start;
+  }
+
+#detail_list.active .list{
+  animation:slideLeft .5s ease-out;
+}
+
+@keyframes slideLeft{
+  0%{
+    transform:translateX(100%);
+    opacity:0;
+  }
+  50%{
+    transform:translateX(0);
+    // opacity:1;
+  }
+  90%{
+    transform:translateX(10%);
+    // opacity:.9;
+  }
+  100%{
+    transform:translateX(0%);
+    opacity:1;
+  }
+}
+
+}

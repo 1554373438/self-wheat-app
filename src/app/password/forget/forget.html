@@ -1,0 +1,30 @@
+<ion-view view-title="忘记密码">
+  <ion-content>
+    <form name="forgetPwdForm" ng-submit="forget.findPwd()" class="light-bg">
+      <div class="padding">
+        <div class="padding-vertical">
+          <div class="item item-input">
+            <input type="tel" ng-model="forget.user.mobile" placeholder="请输入手机号" maxlength="11" ng-change="forget.invalid=false"  required clear-input>
+          </div>
+        </div>
+        <div class="padding-bottom">
+          <div class="row row-no-padding">
+            <div class="col col-60  margin-right">
+              <div class="item item-input">
+                  <input type="tel" ng-model="forget.user.messageCode" placeholder="验证码" maxlength="4" ng-change="forget.invalid=false"   required clear-input>
+              </div>
+            </div>
+              <button class="col button button-positive" ng-disabled="forget.countdown" ng-click="forget.sendValidateMobile()">{{forget.sendMsgText}}</button>
+          </div>
+        </div>
+        <div class="padding-bottom">
+          <div class="item item-input">
+            <input type="text" ng-model="forget.user.idCard" placeholder="请输入身份证号" maxlength="19" ng-change="forget.invalid=false" ng-blur="forget.checkIDNum()" required clear-input>
+          </div>
+        </div>
+        <div class="submit padding-horizontal">
+          <button type="submit" class="button button-block button-positive" ng-disabled="forgetPwdForm.$invalid || forget.invalid">确认</button>
+        </div>
+    </form>
+  </ion-content>
+</ion-view>

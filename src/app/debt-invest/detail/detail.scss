@@ -1,0 +1,17 @@
+  #debt_invest {
+    .flex {
+      @include display-flex();
+      @include justify-content(space-between);
+    }
+    .item {
+      border: 0;
+      font-size: 12px;
+      p {
+        font-size: 12px;
+      }
+    }
+    .item-tos {
+      padding-top: 0;
+      padding-bottom: $content-padding;
+    }
+  }

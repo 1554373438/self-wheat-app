@@ -1,0 +1,40 @@
+<ion-view view-title="充值" id="top_up">
+  <ion-nav-buttons side="right">
+     <a class="button button-clear" ui-sref="limit">
+      限额说明
+    </a>
+  </ion-nav-buttons>
+  <ion-content>
+    <form name="topupForm" ng-submit="topup.submit()">
+      <div class="light-bg">
+        <ion-item class="item-borderless">
+          <div class="row no-padding align-items-center">
+            <i class="ion-hs"></i>
+            <p>
+              <span class="black">{{::topup.eBank.accountNo}}</span>
+              <br> {{::topup.userName}}
+              <span class="margin-left positive small border">徽商银行电子交易账户</span>
+            </p>
+            <i class="positive icon absolute align-items-center" ng-click="topup.showAmount=!topup.showAmount">
+              账户余额
+              <i class="icon gray font-24 margin-left" ng-class="{'ion-ios-arrow-up':!topup.showAmount,'ion-ios-arrow-down':topup.showAmount}"></i>
+            </i>
+          </div>
+        </ion-item>
+        <div class="gray-bg">徽商银行股份有限公司合肥花园街支行</div>
+        <ion-item class="item-borderless border-bottom" ng-if="topup.showAmount">
+          <span>账户余额(元)</span>
+          <span class="item-note assertive">{{topup.nonoAvlBalance || 0 | currency:''}}元</span>
+        </ion-item>
+        <ion-item class="item-input item-stacked-label padding-vertical item-borderless">
+          <span class="input-label">充值金额(元)</span>
+          <input type="tel" placeholder="请输入充值金额" maxlength="8" ng-model="topup.amount" required ng-disabled="topup.hasAmount" >
+
+        </ion-item>
+      </div>
+      <div class="dbl-margin">
+        <button class="button button-block button-positive" ng-disabled="topupForm.$invalid">立即充值</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

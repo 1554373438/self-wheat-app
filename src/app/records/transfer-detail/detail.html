@@ -1,0 +1,85 @@
+<ion-view view-title="转让详情" class="has-footer mydebt-detail" id="mydebt_detail" cache-view="false">
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-back-button back-button class="button-clear">
+      <i class="icon ion-ios-arrow-left"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <section class="padding small positive-bg white">
+      <div class="border-bottom padding-bottom font-16" ng-if="transferDetail.obj.type == 0">
+        {{::transferDetail.obj.info.title}}
+      </div>
+      <div class="border-bottom padding-bottom font-16" ng-if="transferDetail.obj.type == 1">
+        {{::transferDetail.obj.debtPick.title}}
+      </div>
+      <div class="dbl-padding-top dbl-margin-bottom">
+        <span>
+          借款年化利率(%)
+           <i class="font-24 dbl-margin-left" ng-if="transferDetail.obj.type == 0">
+            {{::transferDetail.obj.info.expectRate}}
+           </i>
+           <i class="font-24 dbl-margin-left" ng-if="transferDetail.obj.type == 1">
+            {{::transferDetail.rateMinShow}}<span ng-if="transferDetail.rateMinShow != transferDetail.rateMaxShow">~{{::transferDetail.rateMaxShow}}</span>
+        </i>
+        </span>
+        <br>
+      </div>
+      <div class="row no-padding dbl-margin-bottom">
+        <p class="col col-50 no-margin no-padding">
+          待收本金(元)
+          <i class="dbl-margin-left" ng-if="transferDetail.obj.type == 0">{{::transferDetail.obj.info.remainPrincipal | currency:''}}</i>
+          <i class="dbl-margin-left" ng-if="transferDetail.obj.type == 1">{{::transferDetail.obj.pick.pickSum | currency:''}}</i>
+        </p>
+        <p class="col col-50 no-margin no-padding">
+          剩余期限
+          <i class="dbl-margin-left" ng-if="transferDetail.obj.type == 0">{{::transferDetail.obj.info.remainExpect}}期</i>
+          <i class="dbl-margin-left" ng-if="transferDetail.obj.type == 1">{{::transferDetail.obj.pick.pickMin}}<span ng-if="transferDetail.obj.pick.pickMin != transferDetail.obj.pick.pickMax">~{{::transferDetail.obj.pick.pickMax}}</span>期</i>
+        </p>
+      </div>
+      <div class="row no-padding">
+        <p class="col no-padding">
+          待收利息(元)
+          <i class="dbl-margin-left" ng-if="transferDetail.obj.type == 0">{{::transferDetail.obj.info.remainInterest | currency:''}}</i>
+          <i class="dbl-margin-left" ng-if="transferDetail.obj.type == 1">{{::transferDetail.obj.pick.pickEarnings | currency:''}}</i>
+        </p>
+      </div>
+    </section>
+    <section class="margin-top">
+      <div class="item item-input line padding-right">
+        <span class="input-label">转让理由</span>
+        <input type="text" placeholder="请输入债权转让理由" class="no-padding" ng-model="transferDetail.obj.reason">
+      </div>
+      <div class="item item-input">
+        <span class="input-label">转让折扣(%)</span>
+        <input type="tel" placeholder="折扣范围90～100" class="no-padding" ng-model="transferDetail.obj.discount" ng-blur="transferDetail.obj.discountBlur();">
+      </div>
+    </section>
+    <section class="item item-icon-right  no-margin border-vertical" ui-sref="instructions({type: 6, collectionMode: ''})">
+      <span class="positive">《债权转让说明书》</span>
+      <i class="icon ion-ios-arrow-right gray"></i>
+    </section>
+    <section class="item item-borderless no-margin small" ng-if="transferDetail.obj.isFlag == true">
+      <div class="text-left no-margin  gray" ng-if="transferDetail.obj.type == 0">
+        受让人预期年化利率
+        <span class="margin-left energized">{{transferDetail.anAnnual | currency:''}}%</span>
+      </div>
+      <div class="text-left no-margin small gray" ng-if="transferDetail.obj.type == 1">
+        受让人预期年化利率
+        <span class="margin-left energized">{{transferDetail.min | currency:''}}%<i ng-if="transferDetail.min!=transferDetail.max">~{{transferDetail.max | currency:''}}%</i></span>
+      </div>
+      <div class="text-left no-margin small gray">受让人预期收益<span class="margin-left energized">{{transferDetail.earnings | currency:''}}元</span></div>
+    </section>
+    <nono-agree agree="transferDetail.agreeProtocol" type="10" ></nono-agree>
+  </ion-content>
+  <div class="bar bar-footer">
+    <div class="col col-50 small">
+      <p>转让总价&nbsp;&nbsp;<span class="energized">{{+transferDetail.amount | currency:''}}元</span></p>
+      <p class="no-margin">转让手续费&nbsp;&nbsp;<span class="energized">{{+transferDetail.poundage | currency:''}}元</span></p>
+    </div>
+    <div class="col col-50 col-center">
+      <button class="button button-block button-positive" ng-click="transferDetail.obj.submit()" ng-disabled="!transferDetail.agreeProtocol">
+        <span>确定转让</span>
+      </button>
+    </div>
+  </div>
+</ion-view>

@@ -1,0 +1,34 @@
+.nono-tabs {
+  .tabs {
+    position: relative;
+    // height: 60px;
+    // line-height: 60px;
+    padding:0 16px;
+    border: 0;
+    background-image: none;
+    .tab-item {
+      max-width: 50%;
+      font-size: 16px;
+      color: #616161;
+    }
+    .tab-item-active {
+      position: relative;
+      color: $positive;
+      border-bottom: 2px solid $positive;
+      font-size: 18px;
+    }
+  }
+  &.tabs-top {
+    .tabs {
+      position: absolute;
+    }
+  }
+}
+
+.nono-tabs.tabs-top+.scroll-content,
+nono-tabs+.scroll-content {
+  top: 108px;
+  .platform-cordova.platform-ios &.has-header {
+    top: 128px;
+  }
+}

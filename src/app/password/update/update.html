@@ -1,0 +1,29 @@
+<ion-view view-title="登录密码修改">
+  <ion-content class="light-bg">
+    <form name="changeForm" ng-submit="pwd.submit()">
+      <div class="padding">
+        <div class="padding-vertical">
+          <div class="item item-input">
+            <input type="password" ng-model="pwd.user.oriPassword" placeholder="请输入原始密码" maxlength="16" required>
+          </div>
+        </div>
+        <div class="padding-bottom">
+          <div class="item item-input">
+            <input type="password" ng-model="pwd.user.newPassword" placeholder="请输入新密码" ng-change="pwd.nInvalid=false" maxlength="16" ng-blur="pwd.checkNew()" required>
+          </div>
+        </div>
+        <div class="padding-bottom">
+          <div class="item item-input">
+            <input type="password" ng-model="pwd.user.confirm" placeholder="请输入确认新密码" ng-change="pwd.nMismatch=false" maxlength="16" ng-blur="pwd.checkConfirm()" required>
+          </div>
+          <p class="padding-top small positive">
+            <i class="icon icon-tip"></i> 密码6-16位，至少包含数字、字母或下划线中的两种！
+          </p>
+        </div>
+      </div>
+      <div class="submit padding-horizontal">
+        <button type="submit" class="button button-block button-positive" ng-disabled="changeForm.$invalid  || pwd.nMismatch || pwd.nInvalid">提交</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

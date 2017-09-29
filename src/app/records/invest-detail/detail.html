@@ -1,0 +1,155 @@
+<ion-view id="records_detail">
+  <ion-nav-title>{{+investDetail.info.productType == 7 ? '0元计划' : investDetail.info.title}}</ion-nav-title>
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-back-button back-button class="button-clear">
+      <i class="icon ion-ios-arrow-left"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content ng-switch on="investDetail.info.type" ng-class="{'has-footer': (+investDetail.info.productType != 15 && investDetail.info.appShowStatus != 1) ||  (+investDetail.info.productType == 15 && investDetail.info.appShowStatus != 2)}">
+    <article ng-switch-when="plan">
+      <section class="text-center white info-top positive-bg dbl-padding-vertical">
+        <div class="row dbl-padding-bottom" ng-if="+investDetail.info.productType == 7">
+          <p class="col text-center no-padding no-margin">{{investDetail.info.title}}</p>
+        </div>
+        <div class="row">
+          <div class="col col-50 amount">
+            <p class="font-26">{{+investDetail.info.appShowStatus == 1 ? (+investDetail.info.amount|number:2) :(+investDetail.info.residueAmount|number:2)}}</p>
+            <small>{{+investDetail.info.appShowStatus == 1 ? '投资本金' : '持有本金'}}(元)</small>
+          </div>
+          <div class="col col-50">
+            <p class="font-26">{{+investDetail.info.appShowStatus == 1 ? (+investDetail.info.profit|number:2) :(+investDetail.info.anticipatedIncome|number:2)}}</p>
+            <small>{{+investDetail.info.appShowStatus == 1 ? '已获收益' : '预期收益'}}(元)</small>
+          </div>
+        </div>
+      </section>
+      <section class="dbl-padding-left light-bg margin-bottom" ng-if="investDetail.singleTransferInfo.totalCount">
+        <div class="item item-icon-right item-borderless" ui-sref="records:transfer({type:0})">
+          <span class="font-16 dark">转让记录</span>
+          <div class="item-note" ng-if="investDetail.singleTransferInfo.saledPrincipalTotal >= 0">
+            <span> 已转让本金&nbsp;</span>
+            <span class="energized">{{investDetail.singleTransferInfo.saledPrincipalTotal|number:2}}元</span>
+          </div>
+          <i class="icon ion-ios-arrow-right gray"></i>
+        </div>
+        <div class="dbl-padding-vertical dbl-padding-right" ng-click="investDetail.goDebtDetail()">
+          <p class="padding-bottom-20 font-16">最近一笔转让</p>
+          <div class="row row-center row-no-padding font-16 dark padding-top">
+            <div class="col col-50">
+              <p class="font-16 dark">{{investDetail.singleTransferInfo.lastDebtSale.discountPrice|number:2}}</p>
+              <small class="small gray">转让价格</small>
+            </div>
+            <div class="col col-50 text-right">
+              <p class="font-16 dark">{{investDetail.singleTransferInfo.lastDebtSale.saledPrice|number:2}}</p>
+              <small class="small gray">已成交</small>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="dbl-padding-left light-bg">
+        <div class="item item-icon-right item-borderless">
+          <div class="inline-block font-16 dark" ng-switch on="investDetail.info.appShowStatus">
+            <span ng-switch-when="0">持有中</span>
+            <span ng-switch-when="1">已结束</span>
+            <span ng-switch-when="2">可转让</span>
+          </div>
+          <div class="item-note" ng-click="investDetail.showProgress()">
+            <span class="energized">{{investDetail.info.finishDate}}</span>&nbsp;到期
+          </div>
+          <i class="icon ion-ios-arrow-right gray" ng-click="investDetail.showProgress()"></i>
+        </div>
+      </section>
+    </article>
+    <article ng-switch-when="monUp">
+      <section class="text-center white info-top positive-bg dbl-padding-vertical">
+        <div class="row">
+          <div class="col col-50 amount">
+            <p class="font-26">{{+investDetail.info.appShowStatus == 2 ? (+investDetail.info.amount|number:2) :(+investDetail.info.residueAmount|number:2)}}</p>
+            <small>{{+investDetail.info.appShowStatus == 2 ? '投资本金' : '在投本金'}}(元)</small>
+          </div>
+          <div class="col col-50">
+            <p class="" ng-class="{'font-26':investDetail.info.profit != null }">{{investDetail.info.profit == null ? '计算中' : (investDetail.info.profit|number:2)}}</p>
+            <small>{{+investDetail.info.appShowStatus == 2 ? '已获收益' : '累计收益'}}(元)</small>
+          </div>
+        </div>
+      </section>
+    <!--   <section class="dbl-padding light-bg margin-bottom">
+        <div class="font-16 dark"><span>{{investDetail.info.appShowStatus==1 ||investDetail.info.appShowStatus==2?'实际':'当前' }}</span>收益率&nbsp;<span class="energized">{{investDetail.info.rateShow}}</span><span class="small gray">（距下次增息还有{{investDetail.info.nextStageDay}}天）</span></div>
+        <div id="chart_box">
+          <histogram options="investDetail.info.chartData"></histogram>
+        </div>
+      </section> -->
+      <section class="dbl-padding-left light-bg">
+        <div class="item item-icon-right item-borderless">
+          <div class="inline-block font-16 dark" ng-switch on="investDetail.info.appShowStatus">
+            <span ng-switch-when="0">持有中</span>
+            <span ng-switch-when="1">退出中</span>
+            <span ng-switch-when="2">已退出</span>
+            <span ng-switch-when="3">锁定中</span>
+            <span ng-switch-when="4">持有中</span>
+          </div>
+          <div class="item-note" ng-click="investDetail.showProgress()">
+            <span class="energized">{{investDetail.info.finishDate}}</span>&nbsp;到期
+          </div>
+          <i class="icon ion-ios-arrow-right gray" ng-click="investDetail.showProgress()"></i>
+        </div>
+      </section>
+    </article>
+    <section class="dbl-padding light-bg">
+      <p class="row row-no-padding gray">
+        <span class="col col-50">预期年化</span>
+        <span class="col col-50 text-right dark">{{investDetail.info.rateShow}}&nbsp;<span ng-if="investDetail.isWelfareTip">(不含加息券)</span></span>
+      </p>
+      <p class="row row-no-padding gray">
+        <span class="col col-50 ">收益方式</span>
+        <span class="col col-50 text-right  dark">{{investDetail.info.collectionMode}}</span>
+      </p>
+      <div class="row row-no-padding" ng-if="investDetail.isWelfare">
+        <p class="col col-20  gray">福利卡券</p>
+        <div class="col text-right ">
+          <p class="dark" ng-repeat="secondItem in investDetail.planSecondLists track by $index">
+            <span class="dark block" ng-if="investDetail.planSecondLists.length > 1">投资{{secondItem.amountPayed}}元用券</span>
+            <i class="welfare-tip small" ng-if="secondItem.cashCoupon">{{secondItem.cashCoupon}}</i>
+            <i class="welfare-tip small" ng-if="secondItem.interestCoupon">{{secondItem.interestCoupon}}</i>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="margin-top dbl-padding-left light-bg">
+      <div class="item item-borderless item-icon-right" ui-sref="records:debtor({id: investDetail.info.vaId})">
+        <span class="font-16 dark">债权列表</span>
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+      <div class="item item-borderless item-icon-right" ng-click="investDetail.showProtocol()">
+        <span class="font-16 dark">{{+investDetail.info.productType == 7 ? '0元计划' : investDetail.info.title}}协议书</span>
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+    </section>
+  </ion-content>
+  <div class="bar bar-footer" ng-if="+investDetail.info.productType != 15 && investDetail.info.appShowStatus != 1 ">
+    <div class="row row-center no-padding">
+      <div class="col dbl-padding-left gray small" ui-sref="debt:instruction">
+        <span class="instr"></span> 债转说明
+      </div>
+      <div class="col col-33 no-padding">
+        <button class="button button-positive button-block" ng-click="investDetail.goTransferAlert(investDetail.info.transferStatus)">
+          <span>{{+investDetail.info.transferStatus == 1  ? '可转让' : (+investDetail.info.transferStatus == 0 ? '不可转让' : '暂不可转让')}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="bar bar-footer" ng-if="+investDetail.info.productType == 15 && investDetail.info.appShowStatus != 2">
+    <div class="row row-center no-padding">
+      <div class="col dbl-padding-left gray small">
+        <span class="instr mon-up"></span>
+        <p class="tip no-margin">
+          <span ng-if="investDetail.info.appShowStatus == 3">距离锁定期结束还有{{investDetail.info.leftDay}}天</span>
+          <span ng-if="investDetail.info.appShowStatus == 0 || investDetail.info.appShowStatus == 4">退出后，最晚5天到账到余额</span>
+          <span ng-if="investDetail.info.appShowStatus == 1">预计最晚{{investDetail.info.yysLastQuitDate.slice(5, 7)}}月{{investDetail.info.yysLastQuitDate.slice(8, 10)}}日到账到余额</span>
+        </p>
+      </div>
+      <div class="col col-33 no-padding">
+        <button class="button button-positive button-block" ng-click="investDetail.quitConfirm()" ng-disabled="investDetail.info.appShowStatus == 1 || investDetail.info.appShowStatus == 3"><span>{{+investDetail.info.appShowStatus == 1 ? '退出中' : (+investDetail.info.appShowStatus == 3 ? '暂不可退' : '退出')}}</span></button>
+      </div>
+    </div>
+  </div>
+</ion-view>

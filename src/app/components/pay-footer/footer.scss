@@ -1,0 +1,46 @@
+.pay-footer {
+  display: block;
+  .item-border-bottom {
+    border: none;
+    border-bottom: 1px solid $border-color;
+  }
+  .item.item-icon-left {
+    padding-top: 0;
+    padding-bottom: 10px;
+    padding-left: 28px;
+  }
+  .row {
+    padding-top: 12px;
+    padding-bottom: 0;
+  }
+  .row,
+  .col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .amount {
+    padding-bottom: 16px;
+  }
+  .button {
+    margin: 0;
+    font-size: 16px;
+    line-height: 44px;
+  }
+  .icon-checkbox {
+    width: 24px;
+    height: 24px;
+    background: url(#{$img-path}pay/icon_checkbox.png);
+    background-size: 24px auto;
+    left: 0;
+    &.check-off {
+      background-position: -0px -0px;
+    }
+    &.check-on {
+      background-position: -0px -24px;
+    }
+  }
+}
+
+// &.has-footer .scroll-content {
+//   bottom: 120px;
+// }

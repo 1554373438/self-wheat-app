@@ -1,0 +1,10 @@
+<ion-view view-title="债权说明" id="debt_inst">
+  <ion-content>
+    <div class="list">
+      <div class="item item-text-wrap" ng-repeat="item in ::inst.items">
+        <header class="title positive">{{::item.title}}</header>
+        <div class="content" ng-bind-html="::item.content">{{}}</div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

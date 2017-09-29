@@ -1,0 +1,100 @@
+<ion-view id="invest_bordetail">
+  <ion-nav-title>借款人信息</ion-nav-title>
+  
+  <ion-content>  
+      <ion-list>
+        <ion-item class="item-borderless">
+          <div class="row row-center infor-title">
+            <span class="line"></span> 
+            <h3 class="row row-center">借款理由</h3>
+          </div>
+          <div class="padding-left gray">
+            <small class="row row-center  item-text-wrap">{{::bordetail.info.bo_title}}</small >
+          </div>
+        </ion-item>
+
+        <ion-item class="item-borderless">
+          <div class="row row-center infor-title">
+            <span class="line"></span> 
+            <h3 class="row row-center">借款人身份</h3>
+          </div>
+          <div class="padding-left gray">
+            <small class="row row-center"><span>用户：</span>{{::bordetail.info.user_name}}({{::bordetail.info.real_name}})</small >
+            <small class="row row-center" ng-if="bordetail.info.user_type != '学生'"><span>身份：</span>{{::bordetail.info.user_type}}</small >
+            <small class="row row-center"><span>性别：</span>{{::bordetail.info.gender}}</small >
+            <small class="row row-center"><span>年龄：</span>{{::bordetail.info.age}}</small >
+            <small class="row row-center"><span>籍贯：</span>{{::bordetail.info.register_province}}&nbsp;&nbsp;{{::bordetail.info.register_city}}</small >
+            <small class="row row-center"><span>所在地：</span>{{::bordetail.info.current_province}}&nbsp;&nbsp;{{::bordetail.info.current_city}}</small >
+          </div>
+        </ion-item>
+
+       <!--  <ion-item class="item-borderless" ng-if="bordetail.info.user_type == '学生'">
+          <div class="row row-center infor-title">
+            <span class="line"></span> 
+            <h3 class="row row-center">借款人学历</h3>
+          </div>
+          <div class="padding-left gray">
+            <small class="row row-center"><span>学校名称：</span>{{::bordetail.info.academy}}</small >
+            <small class="row row-center"><span>入学年份：</span>{{::bordetail.info.edu_start_date}}</small >
+          </div>
+        </ion-item> -->
+
+        <ion-item class="item-borderless" ng-if="bordetail.info.user_type != '学生'">
+          <div class="row row-center infor-title">
+            <span class="line"></span> 
+            <h3 class="row row-center">工作／学历信息</h3>
+          </div>
+          <div class="padding-left gray">
+            <small class="row row-center"><span>单位／学校名称：</span>{{::bordetail.info.academy}}</small >
+            <small class="row row-center"><span>学历：</span>{{::bordetail.info.education}}</small >
+          </div>
+        </ion-item>
+
+        <ion-item class="item-borderless">
+          <div class="row row-center infor-title">
+            <span class="line"></span> 
+            <h3 class="row row-center">认证信息</h3>
+          </div>
+          <div class="padding-left gray">
+            <small class="row row-center" ng-if="bordetail.info.cardCertified == 1">
+              <span class="col col-33">身份证明</span>
+              <span class="col col-33 text-center">已认证</span>
+              <span class="col col-33 text-right">{{::bordetail.info.cardCertifiedTime}}</span>
+            </small >
+            <small class="row row-center" ng-if="bordetail.info.friendCertified == 1">
+              <span class="col col-33">好友关系</span>
+              <span class="col col-33 text-center">已认证</span>
+              <span class="col col-33 text-right">{{::bordetail.info.friendCertifiedTime}}</span>
+            </small >
+            <small class="row row-center" ng-if="bordetail.info.parentCertified == 1">
+              <span class="col col-33">父母关系</span>
+              <span class="col col-33 text-center">已认证</span>
+              <span class="col col-33 text-right">{{::bordetail.info.parentCertifiedTime}}</span>
+            </small >
+           <!--  <small class="row row-center" ng-if="bordetail.info.teacherCertified == 1">
+              <span class="col col-33">辅导员关系</span>
+              <span class="col col-33 text-center">已认证</span>
+              <span class="col col-33 text-right">{{::bordetail.info.teacherCertifiedTime}}</span>
+            </small > -->
+          </div>
+        </ion-item>
+
+        <ion-item class="item-borderless">
+          <div class="row row-center infor-title">
+            <span class="line"></span> 
+            <h3 class="row row-center">借款情况</h3>
+          </div>
+          <div class="padding-left gray">
+            <small class="row row-center">本平台借款笔数：{{::bordetail.info.loanMessage.count}}笔</small >
+            <small class="row row-center">本平台借款总金额：{{::bordetail.info.loanMessage.amount}}元</small >
+            <small class="row row-center">已还款：{{::bordetail.info.loanMessage.repayAmount}}元</small >
+            <small class="row row-center">正常还清：{{::bordetail.info.loanMessage.normalCount}}次&nbsp;&nbsp;(其中提前还清{{::bordetail.info.loanMessage.advanceCount}}次)</small >
+            <small class="row row-center">逾期已还次数：{{::bordetail.info.loanMessage.overdueCount}}次</small >
+            <small class="row row-center">逾期未还次数：{{::bordetail.info.loanMessage.overdueNotPayCount}}次</small >
+          </div>
+        </ion-item>
+      </ion-list>
+  <ion-content>
+</ion-view>
+
+

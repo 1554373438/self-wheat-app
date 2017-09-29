@@ -1,0 +1,54 @@
+<ion-view view-title="奖励详情" id="envoy_reward">
+  <ion-content class="text-center">
+    <section class="positive-bg white">
+      <div class="dbl-padding-top padding-bottom" id="info_content">
+        <div class="row">
+          <div class="col col-50 division">
+            <span class="lable">已结算(元)</span>
+            <p>{{reward.info.payedFee || 0 |currency:''}}</p>
+          </div>
+          <div class="col col-50">
+            <span  class="lable">预期待结算(元)<i class="icon ion-ios-help  icons ion-help-circled" ng-click="reward.showAlert()"></i></span>
+            <p>{{reward.info.expectFee || 0 |currency:''}}</p>
+            <span class="small label">今日<span>{{reward.info.todayFee || 0 |currency:''}}</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section ng-if="reward.friendList.length" class="friend-box relative">
+      <section class="row small">
+        <div class="col">
+          注册好友(人) <span class="dbl-padding-left ">{{reward.info.count}}</span>
+        </div>
+        <div class="col">
+          投资好友(人) <span class="dbl-padding-left ">{{reward.info.countInvest}}</span>
+        </div>
+      </section>
+      <div class="row friend-list-title light-bg">
+        <div class="col text-left">投资用户</div>
+        <div class="col">预期待结算(元)</div>
+        <div class="col text-right">已结算(元)</div>
+      </div>
+      <div class="friend-list flex relative light-bg">
+        <ion-scroll>
+           <div class="">
+            <div class="row padding small" ng-repeat="u in reward.friendList track by u.userId">
+              <div class="col text-left">{{u.userName}}</div>
+              <div class="col energized">{{u.expectFee|currency:''}}</div>
+              <div class="col energized text-right dbl-padding-right">{{u.payedFee|currency:''}}</div>
+            </div>
+          </div>
+          <ion-infinite-scroll ng-if="reward.hasMoreData" on-infinite="reward.loadMore()" distance="1%" immediate-check="false">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </div>
+    </section>
+    <article class="flex row light-bg" ng-if="!reward.friendList.length">
+      <div class="col col-center positive">
+        <img src="assets/images/envoy/nofriends.png" width="100" alt="" class="margin-bottom">
+        <div>暂无奖励记录</div>
+        <div>快去邀请好友</div>
+      </div>
+    </article>
+  </ion-content>
+</ion-view>

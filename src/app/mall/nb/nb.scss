@@ -1,0 +1,63 @@
+#nb_list {
+  .info {
+    margin-bottom: 0;
+    .item {
+      border: 0;
+      margin-top: 0;
+      margin-bottom: 1px;
+      .iconfont{
+        font-size: 22px;
+      }
+    }
+    .amount {
+      font-size: 20px;
+    }
+  }
+  .total {
+    position: relative;
+    font-size: 12px;
+    height: 40px;
+    text-align: center;
+    color: $gray;
+    @include display-flex();
+    @include align-items(center);
+    @include justify-content(space-between);
+    &:before,
+    &:after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      min-width: 20px;
+      height: 1px;
+      background: rgba(151, 151, 151, .2);
+      @include flex(1);
+      margin: 0 8%;
+    }
+  }
+  .scroll-view {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 204px;
+    bottom: 0;
+    .list {
+      position: relative;
+      padding-top: 1px;
+      padding-bottom: 1px;
+      padding-left: 0;
+      margin-bottom: 20px;
+    }
+  }
+  .log {
+    .amount {
+      font-size: 20px;
+    }
+    .row {
+      padding: 10px 16px;
+      background: $light;
+      margin-top: 0;
+      margin-bottom: 1px;
+    }
+  }
+}

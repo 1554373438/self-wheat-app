@@ -1,0 +1,45 @@
+#wallet{
+  .banner{
+    height: 100px;
+    line-height: 100px;
+    color: $light;
+    text-align: center;
+    background: #0477E2 url($img-path + "wallet-banner.png") no-repeat;
+    background-size: cover;
+    font-size: 16px;
+    margin-top: 2px;
+    .rate{
+      font-size: 20px;
+    }
+  }
+  img{
+    display: block;
+  }
+  .item{
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    h1{
+      margin-top: 0;
+    }
+    .col{
+      position: relative;
+    }
+    .col:not(:last-child):after{
+      content: '';
+      display: block;
+      width: 1px;
+      height: 26px;
+      background: $border-color;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -13px;
+    }
+  }
+  .product-desc{
+    .icon, .iconfont{
+      font-size: 20px;
+    }
+  }
+}

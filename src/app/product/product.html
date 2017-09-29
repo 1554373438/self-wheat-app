@@ -1,0 +1,124 @@
+<ion-view view-title="产品" id="product_view" hide-back-button="true" hide-nav-bar="true">
+  <!-- <ion-pane> -->
+  <nono-tabs type="positive" ng-model="product.sliderIndex">
+    <nono-tab title="计划" value="0"></nono-tab>
+    <nono-tab title="月月升" value="1"></nono-tab>
+    <nono-tab title="散标" value="2"></nono-tab>
+  </nono-tabs>
+  <ion-content class="main-content">
+    <ion-slides options="product.options" slider="data.slider" showPager="false">
+      <ion-slide-page>
+      <div class="info-null" ng-show="product.planInfoNull"><img src="assets/images/product/list_info_null.png" alt=""></div>
+        <ion-scroll>
+          <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="product.fn.getJhList({refresh:true})">
+          </ion-refresher>
+         
+          <div class="banner jh-banner" ng-if="product.info.jh.list.length">
+            <p class="font-20">智能<span class="energized">债转退出</span></p>
+            <span>分散投资</span> 
+          </div>
+          <product-list>
+            <product-item ng-repeat='p in product.info.jh.list track by $index' product="p" type="jh" ng-click="product.fn.goDetail($index)"></product-item>
+          </product-list>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page class="light-bg">
+        <ion-scroll>
+          <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="product.fn.getYysList({refresh:true})">
+          </ion-refresher>
+        <div class="yys-info-box" ng-click="product.fn.goDetail()">
+          <p class="top">{{product.info.yys.suffix}}</p>
+          <div class="middle col">
+            <div class="small relative item-icon-right full-width no-padding">
+              <p class="small" ng-bind-html="product.info.yys.rateShow"></p>
+              <i class="icon ion-ios-arrow-right"></i>
+            </div>
+            <span class="light-energized">历史年化收益率约</span>
+          </div>
+          <div class="text-center bottom">
+            <span class="border-right dbl-padding-right">{{product.info.yys.price_min}}元&nbsp;起投</span>
+            <span class="dbl-padding-left">锁定期&nbsp;{{product.info.yys.expect}}{{product.info.yys.expect_unit?'月':'天'}}</span>
+          </div>
+        </div>
+        <div class="yys-btn-box">
+          <div class="full-width dbl-margin-bottom dbl-margin-horizontal dbl-padding-left padding-right">
+            <nono-progress value="{{product.info.yys.percent}}"></nono-progress>
+          </div>
+          <button class="full-width button button-block button-energized" ng-disabled="product.info.yys.status==99" ng-click="product.fn.goDetail()">{{product.info.yys.status==99?'已售罄':'立即投资'}}</button>
+        </div>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page>
+        <section class="row row-center text-center light-bg santou-tabs">
+          <div class="col positive tab">散标直投</div>
+          <div class="col tab relative" ng-click="product.toggleTab(2)">债权转让</div>
+        </section>
+        <div class="info-null" ng-show="product.nnyInfoNull"><img src="assets/images/product/list_info_null.png" alt=""></div>
+        <ion-scroll class="nny-scroll">
+          <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="product.fn.getNnyList({refresh:true})">
+          </ion-refresher>
+          <div class="banner nny-banner" ng-if="product.info.nny.list.length">
+            <p class="font-20">每月<span class="energized">等额本息</span></p>
+            <span>新标直投</span> 
+          </div>
+          <product-list>
+            <product-item ng-repeat='p in product.info.nny.list track by $index' product="p" type="nny" ng-click="product.fn.goDetail($index)"></product-item>
+          </product-list>
+          <ion-infinite-scroll ng-if="product.info.nny.hasMoreData" on-infinite="product.fn.getNnyList({loadmore:true})" distance="1%" immediate-check="false">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page>
+        <section class="row row-center text-center light-bg santou-tabs">
+          <div class="col tab" ng-click="product.toggleTab(1)">散标直投</div>
+          <div class="col tab positive relative">债权转让</div>
+        </section>
+        <div class="info-null" ng-show="product.debtInfoNull"><img src="assets/images/product/list_info_null.png" alt=""></div>
+        <ion-scroll class="nny-scroll" >
+          <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="product.fn.getDebtList({refresh:true})">
+          </ion-refresher>
+          <div class="banner nny-banner" ng-if="product.info.debt.list.length">
+            <p class="font-20">每月<span class="energized">等额本息</span></p>
+            <span>买卖随意</span> 
+          </div>
+          <product-list>
+            <product-item ng-repeat='p in product.info.debt.list track by $index' product="p" type="debt" ng-click="product.fn.goDetail($index)"></product-item>
+          </product-list>
+          <ion-infinite-scroll ng-if="product.info.debt.hasMoreData" on-infinite="product.fn.getDebtList({loadmore:true})" distance="1%" immediate-check="false">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+    </ion-slides>
+    <div class="empty" ng-show="product.info.noData">
+      <img src="assets/images/product/empty.png" alt="" width="112">
+      <p class="gray margin-top ">产品被抢光了<br/>去逛逛其他产品吧</p>
+    </div>
+  </ion-content>
+  <div id="filter_icon" class="positive" ng-click="product.toolbar.showModal()" ng-class="{'on':product.toolbar.show, 'down': !product.toolbar.show}" ng-show="product.toolbar.show">
+  </div>
+  <div class="range-box" ng-if="product.toolbar.rangeShow">
+    <div class="bg">
+      <div class="modals">
+        <div class="border-bottom padding">
+          <i class="icon ion-android-close font-18" ng-click="product.toolbar.closeModal()"></i>
+          <span class="item-note" ng-click="product.toolbar.reset()" ng-class="{'light-positive':product.toolbar.isClass}">重置</span>
+        </div>
+        <p class="font-16 light-gray dbl-margin-top padding-left">期限</p>
+        <div>
+          <div class="range" style="margin-right: 30px;">
+            <input type="range" min="1" max="{{product.toolbar.rangeMax}}" ng-model="product.info.minExpect" >
+          </div>
+          <div class="range" style="margin-top: -57px;margin-left: 30px">
+            <input type="range" min="1" max="{{product.toolbar.rangeMax}}" ng-model="product.info.maxExpect" >
+          </div>
+        </div>
+        <p class="font-16 light-gray padding-left dbl-margin-bottom">期限区间(月)<span class="qj margin-left"><i class="v1">{{product.info.minExpect}}</i>-<i class="v2">{{product.info.maxExpect}}</i></span></p>
+        <div class="padding-left padding-right">
+          <button class="button button-block button-positive" ng-click="product.toolbar.search()">查看</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <bottom-nav-tabs active="1"></bottom-nav-tabs>
+  <!-- </ion-pane> -->
+</ion-view>

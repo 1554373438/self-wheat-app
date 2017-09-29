@@ -1,0 +1,87 @@
+<h4 class="text-center dbl-margin-bottom border-bottom dbl-padding-bottom ">债权转让协议</h4>
+<p>转让方：{{::protocol.transferor.realname}}&nbsp;身份证号码：{{::protocol.transferor.idnum}}</p>
+<p>受让方：{{::protocol.transferee.realname}}&nbsp;身份证号码：{{::protocol.transferee.idnum}}</p>
+<p>协议编号：{{::protocol.debtRow.dbl_extno}}</p>
+<p>服务方：上海诺诺镑客金融信息服务有限公司&nbsp;注册号：310104000438225</p>
+<p>为本协议之目的,转让方、受让方、服务方合称为“各方”;转让方、受让方、服务方的任何一方简称为“一方”。</p>
+<div>
+	<p>鉴于: </p>
+	<p>1、转让方、受让方均为具有完全民事行为能力并持有中华人民共和国身份证的自然人，目前以合法拥有的少额自有闲散资金通过服务方（下称“麦子金服财富”）运营的麦子金服财富金融信息服务平台（平台网站网址为www.mzlicai.com, 下称“网站平台”）用于合法的个人资金借贷以实现其资金的保值增值。</p>
+	<p>2、麦子金服财富是一家知名的在线平台运营商，通过与第三方支付机构（下称“支付机构”）或银行的合作运营支持个人资金借贷服务功能的网站平台，以提供在线技术支持并定制解决方案。</p>
+	<p>3、截至【{{::protocol.debtRow.dbl_year}}】年【{{::protocol.debtRow.dbl_month}}】月【{{::protocol.debtRow.dbl_day}}】日，转让方在网站平台上享有应收债权金额【{{::protocol.debtRow.dbl_price}}】元（下称“被转让债权”）。现经过平台网站的投标程序，各方一致同意按照投标的结果，由转让方将其在网站平台上所享有的被转让债权转让给受让方。据此，各方本着公平合理的原则，经友好协商达成如下协议：</p>
+</div>
+<div>
+	<h5>第一条 债权转让及交割</h5>
+	<p>1、转让方向受让方转让债权的明细如下：</p>
+	<section class="text-center table">
+	  <div class="row">
+	    <div class="col col-25">序号</div>
+	    <div class="col col-25">借款编号</div>
+	    <div class="col col-25">债务人姓名</div>
+	    <div class="col col-25">债务人用户名</div>
+	  </div>
+	  <div class="row">
+	    <div class="col col-25">1</div>
+	    <div class="col col-25">{{::protocol.debtRow.bo_extno}}</div>
+	    <div class="col col-25">{{::protocol.debtRow.realname}}</div>
+	    <div class="col col-25">{{::protocol.debtRow.m_username}}</div>
+	  </div>
+	</section>
+	<section class="text-center table margin-vertical">
+	  <div class="row">
+	    <div class="col col-40">债务人身份证号码</div>
+	    <div class="col col-30">转让债权额（元）</div>
+	    <div class="col col-30">需支付的对价（元）</div>
+	  </div>
+	  <div class="row" >
+	    <div class="col col-40">{{::protocol.debtRow.idnum}}</div>
+	    <div class="col col-30">{{::protocol.debtRow.dbl_price}}</div>
+	    <div class="col col-30">{{::protocol.debtRow.dbl_price_in}}</div>
+	  </div>
+	</section>
+	<p>2、转让方同意按照前款所述金额向受让方转让债权，受让方同意按照前款所述金额自转让方受让债权。转让方与受让方同意并授权麦子金服财富指定的支付机构或银行于【{{::protocol.debtRow.dbl_year}}】年【{{::protocol.debtRow.dbl_month}}】月【{{::protocol.debtRow.dbl_day}}】日将前述需支付的对价等额的资金（下称“转让价款”）自受让方账户划转至转让方账户并向被转让债权所对应的各债务人（下称“债务人”）以电子邮件或其他方式发送债权转让通知。麦子金服财富在被转让债权有关的所有合同项下约定的技术服务费、罚息、违约金、损害赔偿金等相关原有费用收取的权利和程序不受本次转让的影响。</p>
+	<p>3、若因任何原因，出现转让价款扣划不成功的情况，本次债权转让在扣划不成功的受让方与转让方之间不产生效力。对于转让价款扣划不成功部分对应的债权，转让方仍作为债权人享有原有的权利义务。</p>
+	<h5>第二条 转让方的声明与保证</h5>
+	<p>转让方对受让方、麦子金服财富作出下列不可撤销之声明和保证：</p>
+	<p>1、转让方是被转让债权的合法债权人，有权订立并履行本协议；</p>
+	<p>2、转让方订立本协议不违反有关法律、法规之规定，亦不违反转让方与第三人签署的任何合同、协议或其他类似文件的约定。</p>
+	<p>3、转让人是平台网站的合法用户，遵守平台网站所有已经或将要制定的各项规则。</p>
+	<h5>第三条 受让方的声明及保证</h5>
+	<p>受让方对转让方、麦子金服财富作出下列不可撤销之声明和保证：</p>
+	<p>1、受让方有权订立并履行本协议。</p>
+	<p>2、受让方订立及履行本协议，不违反有关法律、法规之规定，亦不违反各受让方与任何第三方签署的任何合同、协议或其他类似文件的约定。
+	</p>
+	<p>3、受让方是平台网站的合法用户，遵守平台网站所有已经或将要制定的各项规则。</p>
+	<h5>第四条 免责条款</h5>
+	<p>1、麦子金服财富仅提供在线服务、技术维护及支持以及定制IT解决方案的服务，不对资金保值增值承担责任，不承担本合同约定之外的任何投资风险。</p>
+	<p>2、麦子金服财富应保证平台网站的正常运转，但若因不可抗力（本条所称“不可抗力”系指不能预见、不能避免或不能克服的客观事件，包括但不限于自然灾害：如洪水、火灾、爆炸、雷电、地震和风暴等；以及社会事件：如基础电信运营商网络出现严重电力或网络故障，战争、动乱、政府行为、国家政策的突然变动和罢工等）引起网站无法正常运转，麦子金服财富不承担任何责任。麦子金服财富在进行网络调整和维护时需要短时间中断服务，或者由于Internet上通路的阻塞造成平台网站服务器访问速度下降，不属于麦子金服财富违约。鉴于计算机及互联网的特殊性，因黑客、病毒、电信部门技术调整和骨干线路中断等引起的事件，转让方与各受让方亦认同不属于麦子金服财富违约。</p>
+	<h5>第五条 其他约定</h5>
+	<p>1、麦子金服财富作为服务方，将就提供债权转让服务向转让人收取转让金额一定比例的服务费，目前该比例按转让金额的0.5%确定，但麦子金服财富保留根据市场行情和运营情况的变化对服务费比例进行调整的权利，并在《麦子金服财富债权转让说明书》中明确公示。</p>
+	<p>2、转让方、受让方或其授权的麦子金服财富均应可以口头、书面、电子邮件抑或法律允许的其他形式通知借款人、担保人标的债权转让之事实；履行通知义务后，借款人和担保人均不能以未收到通知为由拒绝履行还款和担保义务，借款人仍应在转让债权的范围内向受让人继续履行债务，担保人亦应在转让债权的范围内继续向受让人承担担保责任。</p>
+	<p>3、本协议自转让价款划转至转让方账户之日起生效。转让方与受让方认可并同意，本协议的书面版本由麦子金服财富保管，转让方与受让方有权要求查看，相关费用自行承担。</p>
+	<p>4、各方之间的一切通知可通过专人送达、邮递、特快专递、电子邮件、电话等方式进行，各方同意各方之间的电子邮件、电话录音可作为送达的有效证据。各方在本合同中填写的联系地址即为其有效的通讯地址，各方均有权在任何时候更改其通讯地址，但应按本条约定的送达方式在变更后7个工作日内向其他各方进行告知，其他各方在实际收到该变更通知时该地址变更方始生效。如一方未按前述约定有效更改通讯地址的，其他各方按照本合同确定或之前有效更改确定的通讯地址发送通知或确认应视为有效送达。</p>
+	<p>5、因本协议发生的一切争议，各方应平等、友好协商解决；协商不成，任何一方均有权将争议事项提交服务方所在地法院即上海市徐汇区人民法院，通过诉讼方式解决纠纷。</p>
+	<p>6、本协议的订立、效力、解释、履行和争议的解决均适用中华人民共和国法律。（以下无正文）</p>
+	<p>转让方签字：</p>
+	<p>受让方签字：</p>
+	<p>日期：&nbsp;年 &nbsp;月 &nbsp;日</p>
+</div>
+<div>
+	<h4 class="text-center dbl-margin-vetical border-bottom dbl-padding-bottom ">债权转让通知</h4>
+	<p>关于【{{::protocol.transferor.m_username}}】与【{{::protocol.transferee.m_username}}】于【{{::protocol.debtRow.dbl_year}}】年【{{::protocol.debtRow.dbl_month}}】月【{{::protocol.debtRow.dbl_day}}】日【签署/确认】的《债权转让协议》 。</p> 
+	<p>根据前述《债权转让协议》,本网站被授权向您告知,自【{{::protocol.debtRow.dbl_year}}】年【{{::protocol.debtRow.dbl_month}}】月【{{::protocol.debtRow.dbl_day}}】日(“基准日”)起,您对 【{{::protocol.transferor.m_username}}】对应于【{{::protocol.debtRow.dbl_price}}】元借款项下的所有还款义务及其他相关义务将按照如下比例改为向各受让方履 行: </p>
+	<section class="text-center table margin-vertical">
+	  <div class="row">
+	    <div class="col col-33">序号</div>
+	    <div class="col col-33">受让方用户名</div>
+	    <div class="col col-33">受让比例（%）</div>
+	  </div>
+	  <div class="row" >
+	    <div class="col col-33">1</div>
+	    <div class="col col-33">{{::protocol.transferee.m_username}}</div>
+	    <div class="col col-33">{{::protocol.debtRow.buy_percent}}</div>
+	  </div>
+	</section>
+	<p>本通知自基准日起生效,本网站将按照《债权转让协议》的要求,将您于基准日后支付或清偿的款项自动按照前述比例向各受让方进行划转。如您有任何疑问,请与本网站管理员联系。感谢配合。</p>
+
+</div>

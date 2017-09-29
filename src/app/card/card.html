@@ -1,0 +1,25 @@
+<ion-view view-title="银行卡列表">
+  <ion-content ng-cloak>
+    <ion-list>
+      <ion-item class="item-icon-left item-icon-right item-text-wrap card-item has-option" ng-click="card.goDetail()">
+        <i class="icon">
+          <div class="bank-logo" code="{{::card.data.bankCode}}"></div>
+        </i>
+        <h2>{{::card.data.bankName}}(尾号{{::card.data.tail}})</h2>
+        <div class="small">
+          <span>单笔{{card.data.singleLimit/10000}}万，单日{{card.data.dayLimit?card.data.dayLimit/10000+'万元':'无限额'}}，单月{{card.data.monthLimit?card.data.monthLimit:'无限额'}}</span>
+        </div>
+        <i class="icon">
+          <img src="assets/images/quickpay@2x.png" height="20" alt="">
+        </i>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item class="text-center vertical-center item-borderless"  ng-if="!card.data" ng-click="card.goDetail()">
+        <span class="icon-plus">
+          <i class="icon ion-ios-plus-empty positive"></i>
+        </span> 添加银行卡
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

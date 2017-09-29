@@ -1,0 +1,140 @@
+[
+	{
+		"name":"诺币兑换",
+		"icon":"icon-nbEx",
+		"level":[0,1,2,3],
+		"detail": [
+			{
+				"icon": "iconfont icon-shuoming",
+				"name":"权益介绍",
+				"content": "可通过<诺币>,在<会员商城>中兑换礼品"
+			},
+			{
+				"icon": "iconfont icon-shuoming1",
+				"name":"使用须知",
+				"content": "用户持有诺币必须大于等于商品兑换所需诺币<br/>诺币可在网站和app上均可兑换<br/>商品兑换成功后，系统将对您的诺币自动进行相应扣减"
+			}
+		]
+	},
+	{
+		"name":"VIP专属兑换",
+		"icon":"icon-vipEx",
+		"level":[1,2,3],
+		"detail": [
+			{
+				"icon": "iconfont icon-shuoming",
+				"name":"权益介绍",
+				"content": "VIP有机会通过<诺币>进行专属礼品的兑换"
+			},
+			{
+				"icon": "iconfont icon-shuoming1",
+				"name":"使用须知",
+				"content": "VIP可享受专享的商品兑换<br/>VIP用户持有诺币必须大于等于商品兑换所需诺币<br/>诺币可在网站和APP上均可兑换<br/>商品兑换成功后，系统将对您的诺币自动进行相应扣减"
+			}
+		]
+	},
+	{
+		"name":"免费提现",
+		"icon":"icon-freeWd",
+		"level":[1,2,3],
+		"detail": [
+			{
+				"icon": "iconfont icon-shuoming",
+				"name":"权益介绍",
+				"content": "此项特权可减免1次提现手续费"
+			},
+			{
+				"icon": "iconfont icon-shuoming1",
+				"name":"使用须知",
+				"content": "VIP可享有每月一次的提现免手续费特权<br/>网站与app内提现可选择是否使用该特权"
+			}
+		]
+	},
+	{
+		"name":"诺币加成",
+		"icon":"icon-addCom",
+		"level":[1,2,3],
+		"detail": [
+			{
+				"icon": "iconfont icon-shuoming",
+				"name":"权益介绍",
+				"content": "投资<麦子金服财富>投资项目可获得<诺币>，此项权益可增加投资返还的<诺币>数量"
+			},
+			{
+				"icon": "iconfont icon-shuoming1",
+				"name":"使用须知",
+				"content":"<img width='100%' src='assets/images/mall/nb_rules_pic1.png'>"
+			}
+		]
+	},
+	
+	{
+		"name":"生日礼遇",
+		"icon":"icon-birth",
+		"level":[1,2,3],
+		"detail": [
+			{
+				"icon": "iconfont icon-shuoming",
+				"name":"权益介绍",
+				"content": "生日可获得<麦子金服财富>特别赠送的“寿星”<现金券>"
+			},
+			{
+				"icon": "iconfont icon-shuoming1",
+				"name":"使用须知",
+				"content": "VIP1:生日可获得<麦子金服财富>特别赠送的50元<现金券><br/>VIP2:生日可获得<麦子金服财富>特别赠送的100元<现金券><br/>VIP3:生日可获得<麦子金服财富>特别赠送的200元<现金券>"
+			}
+		]
+	},
+	
+	{
+		"name":"专享现金券",
+		"icon":"icon-ticket",
+		"level":[2,3],
+		"detail": [
+			{
+				"icon": "iconfont icon-shuoming",
+				"name":"权益介绍",
+				"content": "不定期给VIP客户发送现金券红包，现金券红包由单张或多张现金券组成。"
+			},
+			{
+				"icon": "iconfont icon-shuoming1",
+				"name":"使用须知",
+				"content": "现金券红包为单张或多张现金券，将不定期发送至您的注册账号<br/>现金券发送后，麦子金服财富将以短信形式通知您<br/>现金券使用产品范围、期限及起投金额详见<我的福利>现金券<br/>现金券均有有效期限制，请在有效期前使用"
+			}
+		]
+	},
+	{
+		"name":"VIP活动",
+		"icon":"icon-vipAct",
+		"level":[2,3],
+		"detail": [
+			{
+				"icon": "iconfont icon-shuoming",
+				"name":"权益介绍",
+				"content": "VIP客户有机会参与<麦子金服财富>组织的线上或线下增值活动"
+			},
+			{
+				"icon": "iconfont icon-shuoming1",
+				"name":"使用须知",
+				"content": "麦子金服财富会不定期为尊贵的您定制VIP线上或线下活动，敬请期待"
+			}
+		]
+	},
+	{
+		"name":"投资顾问",
+		"icon":"icon-invCon",
+		"level":[3],
+		"detail": [
+			{
+				"icon": "iconfont icon-shuoming",
+				"name":"权益介绍",
+				"content": "专业投资顾问，为您答疑解惑，赚取更多收益。"
+			},
+			{
+				"icon": "iconfont icon-shuoming1",
+				"name":"使用须知",
+				"content": "为您安排专属一对一投资顾问，全方位解决您的资产配置问题"
+			}
+		]
+	}
+]	

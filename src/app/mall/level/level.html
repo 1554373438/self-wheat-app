@@ -1,0 +1,47 @@
+<ion-view view-title="更多特权" id="mall_level_view" >
+  <ion-nav-buttons side="right">
+    <a class="button" id="mall_level_view_right_btn" ui-sref="mall:nbRules">
+      <i class="icon-left iconfont icon-nuobi"></i>
+      赚诺币
+    </a>
+  </ion-nav-buttons>
+
+  <ion-content class="light-bg">
+    <div class="user-info text-center white text-center padding-vertical"  >
+      <div class="avatar-box level-{{::level.info.number}}" >
+        <i class="icon-level" ng-if="level.info.number">V{{::level.info.number}}</i>
+      </div>
+      
+      <p>您好，{{::level.info.showName}}</p>
+      <p>会员等级：{{level.info.number ? "VIP"+level.info.number : "普通"}}</p>
+    </div>
+
+    
+    <div class="row row-center">
+      <p class="col no-margin"><i class="icon icon-left"></i>我的会员特权</p>
+      <small class=" col-50 text-right gray">左滑查看更多</small>
+    </div>
+    
+    <ion-scroll direction="x">
+      <div class="row row-no-padding">
+        <div class="col col-25 text-center"  ng-class="{'tab-item-active': tab.active}" ng-repeat="tab in level.tabs" ng-click="level.select($index);tab.slideLeft=!tab.slideLeft">
+          <i class="icon" ng-class="[{'gray':tab.grayIcon}, tab.icon]"></i>
+          <small>{{tab.name}}</small>
+        </div>
+      </div>
+    </ion-scroll>
+
+    <ion-list ng-class="{'active':level.slideLeft}" id="detail_list">
+      <ion-item class="item-icon-left" ng-repeat="d in level.detail">
+        <i class="icon gray" ng-class="d.icon"></i>
+        <div>
+          <h5>{{d.name}}</h5>
+          <small ng-bind-html="d.content"></small>
+        </div>
+      </ion-item>
+      
+    </ion-list>
+
+   
+  </ion-content>
+</ion-view>

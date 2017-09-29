@@ -1,0 +1,270 @@
+#mall_view_right_btn{
+  background: url($img-path + "mall/signBtn@2x.png") no-repeat;
+  background-size: 100% 100%;
+  height: 30px;
+  line-height: 30px;
+  width:70px;
+  padding-left: 25px;
+  color: #fff;
+}
+
+.new-popup-container {
+  .popup {
+    .popup-body {
+      p {
+        text-align: center;
+        height:20px;
+        line-height:20px;
+        img {
+          width: 20px;
+          vertical-align: middle;
+        }
+        b {
+          color: red;
+          font-size: 20px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+
+#mall_view {
+  .user-info {
+    background: url($img-path + "mall/mall_lv_bg@2x.png") no-repeat;
+    background-size: cover;
+    .vip-item {
+      position: relative;
+      .line {
+        position: absolute;
+        top: 15px;
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, .4);
+      }
+      @for $i from 0 through 3 {
+        .icon-v#{$i}.blue {
+          background: url($img-path + "mall/avatar_v#{$i}_blue@2x.png") no-repeat;
+          background-size: cover;
+        }
+      }
+      @for $i from 0 through 3 {
+        .icon-v#{$i} {
+          background: url($img-path + "mall/avatar_v#{$i}@2x.png") no-repeat;
+          background-size: cover;
+        }
+      }
+      .icon {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        margin: 0 auto;
+        .icon-level {
+          position: absolute;
+          right: -3px;
+          bottom: -3px;
+          width: 15px;
+          height: 15px;
+          line-height: 15px;
+          border-radius: 50%;
+          text-align: center;
+          font-size: 50%;
+          background: #6bd1b7;
+        }
+        .vipBlue {
+          background: rgba(12, 141, 236, 0.85);
+        }
+      }
+    }
+  }
+  .title-infor {
+    background: #EEF0F5;
+    height: 40px;
+    padding: 0 10px;
+  }
+  .icon-item {
+    height: 150px;
+    flex-wrap: wrap;
+    .col {
+      padding: 10px 0;
+      height: 50%;
+      .icon {
+        display: block;
+        margin: 0 auto;
+        width: 32px;
+        height: 32px;
+        background: url($img-path + "mall/icon_privilege.png") no-repeat;
+        background-size: 34px 564px;
+      }
+      .icon-addCom {
+        background-position: 0 0
+      }
+      .icon-birth {
+        background-position: 0 -66px
+      }
+      .icon-freeWd {
+        background-position: 0 -169px
+      }
+      .icon-invCon {
+        background-position: 0 -235px
+      }
+      .icon-nbEx {
+        background-position: 0 -301px
+      }
+      .icon-ticket {
+        background-position: 0 -367px
+      }
+      .icon-vipAct {
+        background-position: 0 -433px
+      }
+      .icon-vipEx {
+        background-position: 0 -499px
+      }
+      .icon-addCom.gray {
+        background-position: 0 -33px
+      }
+      .icon-birth.gray {
+        background-position: 0 -99px
+      }
+      .icon-freeWd.gray {
+        background-position: 0 -202px
+      }
+      .icon-invCon.gray {
+        background-position: 0 -268px
+      }
+      .icon-nbEx.gray {
+        background-position: 0 -334px
+      }
+      .icon-ticket.gray {
+        background-position: 0 -400px
+      }
+      .icon-vipAct.gray {
+        background-position: 0 -466px
+      }
+      .icon-vipEx.gray {
+        background-position: 0 -532px
+      }
+    }
+  }
+  .nb-infor {
+    border-top: 2px solid #EEF0F5;
+    border-bottom: 3px solid #EEF0F5;
+    p:nth-child(2) {
+      border-left: 1px solid #EEF0F5;
+      padding-top: 5px;
+    }
+    .NBicon {
+      width: 30%;
+      display: inline-block;
+      background: url($img-path + "mall/memStoreNbIcon.png") no-repeat right center;
+      background-size: 20px 20px;
+      margin-right: 10px;
+    }
+    .ExRecIcon {
+      width: 30%;
+      display: inline-block;
+      background: url($img-path + "mall/memStoreExRecIcon.png") no-repeat right center;
+      background-size: 20px 20px;
+      margin-right: 10px;
+    }
+  }
+  .banners {
+    padding: 20px 0;
+    .swiper-container {
+      overflow: visible;
+    }
+    .swiper-wrapper {
+      position: relative;
+    }
+    .swiper-pagination {
+      bottom: -15px;
+      .swiper-pagination-bullet {
+        width: 5px;
+        height: 5px;
+        opacity: 0.1;
+      }
+      .swiper-pagination-bullet-active {
+        opacity: 0.3;
+      }
+    }
+  }
+  .topScroll {
+    position: relative;
+    height: 40px;
+    border-top: 3px solid #EEF0F5;
+    // margin-top: 20px;
+    overflow: hidden;
+    ul {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      li {
+        width: 99%;
+        height: 40px;
+        line-height: 40px;
+        color: gray;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 0 auto;
+      }
+    }
+  }
+  .product-item {
+    .box {
+      .item {
+        text-overflow: inherit;
+        white-space: inherit;
+        position: relative;
+        border: none;
+        .new {
+          width: 24px;
+          height: 12px;
+          left: 5px;
+          top: 5px;
+          position: absolute;
+          background: url($img-path + "mall/mark_new@2x.png") no-repeat;
+          background-size: cover;
+        }
+        .hot {
+          width: 24px;
+          height: 12px;
+          left: 5px;
+          top: 5px;
+          position: absolute;
+          background: url($img-path + "mall/hotMark@2x.png") no-repeat;
+          background-size: cover;
+        }
+        img {
+          width: 116px;
+          height: 114px;
+        }
+        p {
+          height: 20px;
+          .NBicon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 16px;
+            height: 16px;
+            background: url($img-path + "mall/memStoreNbIcon.png") no-repeat;
+            background-size: cover;
+          }
+          small {
+            display: inline-block;
+            vertical-align: middle;
+            width: 12px;
+            height: 12px;
+            background: url($img-path + "mall/discount@2x.png") no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      .swiper-wrapper {
+        position: relative;
+      }
+      .swiper-pagination {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<ion-view class="rules" >
+  <ion-nav-title>月月升投资服务协议</ion-nav-title>
+  <ion-content class="padding light-bg">
+  	<p>合同编号：【{{::protocol.data.agreementNo}}】</p>
+    <p>“月月升”投资服务（下称“本服务”）是诺诺镑客平台开发的在投资人授权委托下进行投资并为了使得投资的收益随着投资期限的增加而提高的服务。《月月升投资服务协议》（下称“本协议”）系您与诺诺镑客平台运营方签署的关于“月月升”服务具体内容的协议。</p>
+    <p>您充分阅读、理解、确认本协议全部内容并点击“投资”后，本协议即在您与诺诺镑客之间发生法律效力。</p>
+    <p>
+      本协议由以下两方签署：<br/>
+      甲方：{{::protocol.data.realName}} <br/>
+      身份证号码： {{::protocol.data.idNum}}<br/>
+      平台用户名：{{::protocol.data.userName}} <br/>
+      乙方：上海诺诺镑客金融信息服务有限公司<br/>
+      住所：上海市徐汇区肇嘉浜路1033号徐家汇国际大厦19-20层<br/>
+    </p>
+    <p>甲乙双方本着实事求是、平等互利、共同发展的原则，就甲方加入本服务并根据本服务交易设计参与相关借贷或债权转让交易，基于真实意思表示，达成如下协议： </p>
+    <article ng-include="protocol.template"></article>
+  </ion-content>
+</ion-view>

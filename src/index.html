@@ -1,0 +1,92 @@
+<!doctype html>
+<html ng-app="nonoApp">
+  <head>
+    <meta charset="utf-8">
+    <title>麦子金服财富</title>
+    <meta name="description" content="NONObank">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <!-- safari full screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta id="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="麦子金服财富">
+
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+    <link rel="icon" href="assets/images/logo.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+    <script>
+      //声明_czc对象:
+      var _czc = _czc || [];
+      //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
+      _czc.push(["_setAccount", "1260047326"]);
+    </script>
+    <script type="text/javascript" src="https://m.nonobank.com/nonoutil/js/tongdun.js?ver=1"></script> 
+    <script type="text/javascript" src="https://m.nonobank.com/tingYun/tingyun-rum-nono-app.js" async></script> 
+    <script>
+      if(/\/tab\//.test(location.href)) {
+        location.href = location.href.replace('/tab', '');
+      }
+    </script>
+
+  </head>
+  <body>
+
+    <ion-nav-bar class="bar-light" align-title="center">
+      <ion-nav-back-button back-button class="button-clear">
+        <i class="icon ion-ios-arrow-left"></i>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view></ion-nav-view>
+
+    <script src="sw.controller.js"></script>
+    <script>
+      var standalone = window.navigator.standalone,
+          userAgent = window.navigator.userAgent.toLowerCase(),
+          ios = /iphone|ipod|ipad/.test(userAgent);
+
+      if(/terminal=4/.test(window.location.href) || ios && standalone) {
+        document.querySelector('body').className += ' platform-cordova platform-ios ';
+      }
+
+      /nonobank/.test(location.hostname) && new SwController();
+    </script>
+    <script >
+      if(/micromessenger/.test(navigator.userAgent.toLowerCase())) {
+      document.write(unescape("%3Cscript  src=https://res.wx.qq.com/open/js/jweixin-1.2.0.js%3E%3C/script%3E"));
+      }
+    </script>
+
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- run `gulp inject` to automatically populate bower script dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <!-- js files will be automatically insert here -->
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+    <script>
+      var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan style='display:none' id='cnzz_stat_icon_1260047326'%3E%3C/span%3E%3Cscript async src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1260047326' %3E%3C/script%3E"));
+    </script>
+
+  </body>
+</html>

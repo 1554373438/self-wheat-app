@@ -1,0 +1,11 @@
+<section class="tabs-background-light nono-tabs tabs-top">
+  <div class="tab-nav tabs">
+    <a class="tab-item" ng-class="{'tab-item-active': tab.active}" ng-repeat="tab in tabset.tabs" ng-click="tabset.select($index)">
+      <span class="tab-title">{{tab.title}}</span>
+    </a>
+  </div>
+</section>
+
+<ion-content>
+  <div class="nono-tab-content" ng-transclude></div>
+</ion-content>

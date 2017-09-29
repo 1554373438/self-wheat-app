@@ -1,0 +1,82 @@
+<ion-view view-title="诺诺钱包" id="wallet" class="has-footer">
+  <ion-content>
+    <section class="banner">
+      诺诺钱包，躺着都赚钱
+    </section>
+
+    <section class="item text-center">
+      <div class="gray small">预期年化</div>
+      <h1 class="assertive">{{wallet.info.rate}}%</h1>
+      <div class="row no-padding">
+        <div class="col">
+          1元 <br> <small class="gray">起投金额</small>
+        </div>
+        <div class="col">
+          {{wallet.info.plan_amount/10000 || 0}}万元 <br> <small class="gray">单日限额</small>
+        </div>
+        <div class="col">
+          每日00:30 <br> <small class="gray">收益时间</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-desc margin-top">
+      <div class="row">
+        <div class="col col-10 text-center">
+          <i class="iconfont icon-huoqi gray"></i>
+        </div>
+        <div class="col">
+          产品说明
+          <p class="gray small">
+            诺诺钱包是系统支持下依照分散进行自动投标，并在收到用户指令的情况下由系统自动发起债权转让，通过转让持有的债权满足资金流动性的需求，实现灵活投资并获取收益为目的衍生出的一款产品。
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 text-center">
+          <i class="iconfont icon-zijinquxiang1 gray"></i>
+        </div>
+        <div class="col">
+          资金去向
+          <p class="gray small">
+            诺诺钱包的投资范围主要是大学生实践金融的小额分散现金借款类资产和房屋抵押类资产。
+          </p>
+        </div>
+      </div>
+     <!--  <div class="row">
+        <div class="col col-10 text-center">
+          <i class="iconfont icon-nianhuashouyi gray"></i>
+        </div>
+        <div class="col">
+          预期年化收益
+          <p class="gray small">
+            {{wallet.info.rate}}%
+          </p>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col col-10 text-center">
+          <i class="iconfont icon-jiarutiaojian gray"></i>
+        </div>
+        <div class="col">
+          加入条件
+          <p class="gray small">
+            1元起投，每位用户最高投资金额为5W <br>
+            每日提取资金限额：该项设置是为避免平台发生流动性风险，一旦当日可提取额度用尽，用户无法发起新的提取动作，次日可重新发起提取本金。每日提取金额限5W。
+          </p>
+        </div>
+      </div>
+    </section>
+  </ion-content>
+
+  <div class="bar bar-footer">
+    <button class="button button-positive button-block" disabled>暂停发售</button>
+    <!-- <button class="button button-positive button-block" ng-click="wallet.invest()" ng-disabled="wallet.info.csyyPlanStatus!=1" ng-switch="wallet.info.csyyPlanStatus">
+      <span ng-switch-when="0">已售罄</span>
+      <span ng-switch-when="1">马上投资</span>
+      <span ng-switch-when="2">今日{{wallet.info.planTime}}开抢</span>
+    </button> -->
+  </div>
+    
+
+</ion-view>

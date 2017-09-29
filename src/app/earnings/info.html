@@ -1,0 +1,18 @@
+<ion-modal-view id="earnings_info-view">
+  <ion-content class="light-bg">
+      <h4 class="text-center font-20">昨日收益说明</h4>
+      <div>
+        <p class="font-16 dark dbl-margin-bottom">昨日收益是根据你您持有产品的本金、平台福利(现金券/加息券)、预期年化收益率估算出昨日的当日收益。此数据仅供参考，实际收益以具体到账为准。</p>
+        <p class="font-16 dark dbl-margin-bottom">昨日收益保留到小数点后2位，小数点后第3位按去尾原则处理</p>
+        <h5 class="font-16 dark">计划产品昨日收益</h5>
+        <p class="gray">昨日收益 = 持有本金 x 预期年化收益率 x 总期数 / (12期 x 总锁定天数 )</p>
+        <p class="gray">持有资产不含精选计划、懒人计划</p>
+        <h5 class="font-16 dark">月月升昨日收益</h5>
+        <p class="gray">昨日收益 = 持有本金 x 当前预期年化收益率 / 365</p>
+        <h5 class="font-16 dark">诺诺盈/债转昨日收益</h5>
+        <p class="gray">昨日收益 = 当期利息 / 当期天数</p>
+        <p class="gray">当期本息已提前还款时，昨日收益为0</p>
+      </div>
+      <div class="icon-close" ng-click="close()"></div>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,37 @@
+<ion-view view-title="特色投资" id="sepec_invest">
+  <ion-nav-bar class="bar-light" align-title="center">
+    <ion-nav-back-button back-button class="button-clear">
+      <i class="icon ion-ios-arrow-left"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="list.share()" >
+      <i class="icon ion-android-share-alt"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <img dataurl-src="{{list.banner}}" placeholder="assets/images/specific-invest-banner.jpg" alt="" width="100%">
+
+    <ion-list class="product-list">
+      <ion-item class="product-item padding-horizontal" ng-repeat="p in list.products track by p.productName">
+        <h4>{{p.productName}}</h4>
+
+        <img dataurl-src="{{p.productMobileImg}}" placeholder="assets/images/mall_pro_load.jpg" alt="">
+        <div class="small"><span class="gray">{{p.productIncrement|number:2}}元存</span>{{p.expect}}个{{p.expectUnit == 0 ? "月" : "天"}}</div>
+        <div class="gray small">预期年化: <span class="assertive">{{p.rateShow}}</span></div>
+        <div class="button button-small button-block" ng-class="{'disabled':p.status!=3, 'button-outline':p.status==0, 'button-positive':p.status!=1, 'button-disabled': p.status==1}" ng-click="list.goToDetail($index)">
+          <div ng-if="p.status==3">立即加入</div>
+          <div ng-if="p.status==0">还剩<span class="positive half-margin-horizontal" count-down unit="dhms" diff="p.diffPublishDate"  callback="list.changeStatus($index)"></span>开始</div>
+          <div ng-if="p.status==1">已结束</div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll
+      ng-if="list.hasMoreData"
+      on-infinite="list.loadMore()"
+      distance="1%">
+    </ion-infinite-scroll>
+    
+  </ion-content>
+</ion-view>

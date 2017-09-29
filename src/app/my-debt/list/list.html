@@ -1,0 +1,83 @@
+<ion-view class="mydebt-intro">
+  <ion-nav-title>我的债权</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" ui-sref="debt:instruction">
+      债权说明
+    </a>
+  </ion-nav-buttons>
+  <nono-tabs type="positive" ng-model="list.sliderIndex" tabs-top="true">
+    <nono-tab title="债权列表" value="0"></nono-tab>
+    <nono-tab title="债转记录" value="1"></nono-tab>
+  </nono-tabs>
+  <ion-content srcoll="false">
+    <ion-slides options="options" slider="data.slider" showPager="false">
+      <ion-slide-page>
+        <ion-scroll>
+          <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="list.doRefresh()">
+    </ion-refresher>
+          <div class="empty text-center" ng-if="list.borInvestedUsers.length == 0">
+            <img src="assets/images/err_empty.png" alt="" style="width: 96px">
+            <p class="font-16 light-grey">暂无记录</p>
+          </div>
+          <ion-list ng-if="list.borInvestedUsers.length != 0">
+            <ion-item class="item-borderless dbl-padding-right gray" ng-repeat="item in list.borInvestedUsers track by $index" ng-click="list.goBack($index)">
+              <div class="space-between  dbl-padding-right dbl-margin-bottom">
+                <span ng-class="{'black':item.transferFlag == 1}">{{::item.title}}</span>
+                <span class="small prompt relative" ng-class="{'up':item.transferFlag == 1}" ng-click="list.goTo($index,$event)">
+                {{::item.transferStatus}}
+                <i class="icon ion-ios-help font-16"></i></span>
+              </div>
+              <div class="space-between  dbl-padding-right margin-bottom small">
+                <span class="flex text-left" ng-class="{'assertive':item.transferFlag != 0 && item.transferFlag != 2 && item.transferFlag != 4}">{{::item.rateShow}}</span>
+                <span class="flex text-center" ng-class="{'black':item.transferFlag != 0 && item.transferFlag != 2 && item.transferFlag != 4}">{{::item.sumAmount | currency:''}}元</span>
+                <span class="flex text-right" ng-class="{'black':item.transferFlag != 0 && item.transferFlag != 2 && item.transferFlag != 4}">{{::item.residueExpect}}期</span>
+              </div>
+              <div class="space-between  dbl-padding-right small">
+                <span class="flex text-left">{{+item.type == 1 ? '借款年化利率':'历史年化收益率约';}}</span>
+                <span class="flex text-center">待收本息</span>
+                <span class="flex text-right">剩余期限</span>
+              </div>
+              <i class="icon ion-ios-arrow-right gray auto"></i>
+            </ion-item>
+          </ion-list>
+          <ion-infinite-scroll ng-if="list.borHasMoreData" on-infinite="list.borLoadMore()" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page>
+        <ion-scroll>
+        <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="list.doRefresh()">
+    </ion-refresher>
+          <div class="empty text-center" ng-if="list.investedUsers.length == 0">
+            <img src="assets/images/err_empty.png" alt="" style="width: 96px">
+            <p class="font-16 light-grey">暂无记录</p>
+          </div>
+          <ion-list class="touzi-list" ng-if="list.investedUsers.length != 0">
+            <ion-item class="item-borderles margin-bottom" ng-repeat="item in list.investedUsers track by $index" ng-click="list.accounts($index)">
+              <div class="no-padding">
+                <div class="border-bottom padding-bottom margin-bottom space-between"><span><i ng-if="item.extno">{{::item.extno}}/</i>{{::item.title}}</span><span class="small down" ng-click="list.downs($index,$event)" ng-if="item.status == 3">下架</span></div>
+                <div class="space-between"><span>{{::item.sumPrice | currency:''}}元/{{::item.transferRate}}%</span><span>{{::item.createTime}}</span></div>
+                <div class="space-between small gray margin-bottom"><span>转让原始价格/转让折扣</span><span>提交时间</span></div>
+                <div class="assertive">{{::item.sumPrice * item.transferRate /100 | currency:''}}元/{{::item.numSaled| currency:''}}元</div>
+                <div class="space-between small gray">
+                  <span>转让总价格/成交金额</span>
+                  <div>
+                    <span class="orange white margin-right text-center" ng-if="item.tradingStatus == 0">未成交 </span>
+                    <span class="orange white margin-right text-center" ng-if="item.tradingStatus == 1">部分成交 </span>
+                    <span class="orange white margin-right text-center" ng-if="item.tradingStatus == 2">全部成交 </span>
+                    <span class="cyan white text-center">
+                    {{::item.status == 3 ? '上架中' : '已下架'}}
+                  </span>
+                  </div>
+                </div>
+              </div>
+              <i class="icon ion-ios-arrow-right gray auto"></i>
+            </ion-item>
+          </ion-list>
+          <ion-infinite-scroll ng-if="list.hasMoreData" on-infinite="list.loadMore()" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-content>
+</ion-view>

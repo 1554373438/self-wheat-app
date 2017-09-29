@@ -1,0 +1,20 @@
+#reset_pwd_modal {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  .bar .button.button-clear.button-small {
+    font-size: 12px;
+  }
+  .scroll-content {
+    top: 44px;
+  }
+  .item-input {
+    border-radius: 4px;
+  }
+  .button-vcode {
+    width: 120px;
+  }
+}

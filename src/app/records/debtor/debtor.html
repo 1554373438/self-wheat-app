@@ -1,0 +1,24 @@
+<ion-view view-title="债权列表" id="debtor">
+  <ion-pane>
+    <div class="tip">当借款人还款后，系统将自动为您匹配新的借款债权</div>
+    <div class="item item-divider item-borderless padding-vertical">您的投资债权列表</div>
+    <ion-scroll>
+      <div class="item item-text-wrap item-borderless" ng-repeat="item in debtor.list track by $index">
+        <div class="row small">
+          <div class="col col-30">借款人 <span class="padding-left">{{::item.boName}}</span></div>
+          <div class="col col-25 text-center no-padding-horizontal">{{::item.boTitle}}</div>
+          <div class="col text-right assertive no-padding-horizontal">投资金额 {{::item.investPrice|currency:''}}</div>
+        </div>
+        <div class="row small ">
+          <div class="col positive">
+            <span ng-if="item.agreementType==1" ng-click="debtor.showProtocol($index)">债转协议</span>
+            <span ng-if="item.agreementType==2" ng-click="debtor.showProtocol($index)">借款协议</span>
+          </div>
+          <div class="col text-right gray">{{item.transTime && item.transTime.slice(0,10)}}</div>
+        </div>
+      </div>
+      <ion-infinite-scroll ng-if="debtor.hasMoreData" on-infinite="debtor.loadMore()" distance="1%" immediate-check="false">
+      </ion-infinite-scroll>
+    </ion-scroll>
+  </ion-pane>
+</ion-view>

@@ -1,0 +1,24 @@
+<ion-view view-title="收款记录" id="collect">
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-back-button back-button class="button-clear">
+      <i class="icon ion-ios-arrow-left"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="item item-text-wrap margin-1 item-borderless" ng-repeat="item in collect.listInfo track by $index">
+      <div class="row no-padding gray">
+        <div class="col no-padding">第{{::item.expectNum}}期</div>
+      </div>
+      <div class="row main no-padding">
+        <div class="col col-33 no-padding">{{::item.acceptTime}}</div>
+        <div class="col col-33 no-padding text-left">{{::item.price|currency:''}}</div>
+        <div class="col col-33 no-padding text-right">{{::item.status}}</div>
+      </div>
+      <div class="row no-padding gray small">
+        <span class="col col-33 no-padding">收款时间</span>
+        <span class="col col-33 text-left no-padding">收款金额(元)</span>
+        <span class="col col-33 text-right no-padding">收款状态</span>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

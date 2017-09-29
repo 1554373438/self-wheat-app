@@ -1,0 +1,106 @@
+<ion-view view-title="麦子金服财富" hide-back-button="true" id="home_view" hide-nav-bar="home.hideNavBar">
+  <div class="login-show small" ng-if="!home.user.sessionId" ng-click="home.login()">登录</div>
+  <ion-nav-buttons side="right">
+    <div class="login-show active positive small" ng-if="!home.user.sessionId" ng-click="home.login()">登录</div>
+  </ion-nav-buttons>
+  <ion-content class="has-tabs" delegate-handle="mainScroll">
+  <div class="info-null" ng-show="home.infoNull"><img src="assets/images/home/info_null.png" alt=""></div>
+    <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="home.doRefresh()">
+    </ion-refresher>
+    <!-- <banner-scroll> -->
+    <ion-slides options="options" slider="data.slider" auto-play="true" class="banners">
+      <ion-slide-page ng-repeat="banner in home.banners track by banner.id">
+        <ion-item class="item-borderless no-padding no-margin" ng-click="home.bannerDetail($index)">
+          <img http-src="{{banner.path}}" placeholder="assets/images/home_banner.png" class="block">
+        </ion-item>
+      </ion-slide-page>
+    </ion-slides>
+    <!-- </banner-scroll> -->
+    <section class="light-bg text-center dbl-margin dbl-padding-vertical new-plan" ng-if="!home.nonoAppInfo.isLogin || home.nonoAppInfo.isXinke">
+      <div ng-click="home.goRegPage(true,true)">
+        <div class="row row-center no-padding dbl-margin-bottom">
+          <div class="title col col-40 white no-margin relative">新手专享计划<span class="arrow"></span></div>
+          <div class="title-tip col no-padding text-center dark">{{home.nonoAppInfo.xinke.des}}</div>
+        </div>
+        <p class="gray small col no-margin">历史年化收益率约</p>
+        <h1 class="assertive no-margin energized font-30" ng-bind-html="home.xinKeRateShow"></h1>
+        <div class="dbl-margin-vertical">
+          <p class="gray small no-margin">持满<span class="energized">{{home.nonoAppInfo.xinke.fp_expect}}</span>可申请债转退出</p>
+        </div>
+      </div>
+      <div class="reg-btn white font-16 dbl-margin-bottom" ng-click="home.goRegPage(home.nonoAppInfo.isLogin,home.nonoAppInfo.isXinke)">{{home.nonoAppInfo.xinke.button}}</div>
+    </section>
+
+    <section class="light-bg know-wheat" ng-if="!home.nonoAppInfo.isLogin || home.nonoAppInfo.isXinke">
+      <div class="text-center more" ng-click="home.goPage('safe')">了解麦子金服财富&nbsp;<img src="assets/images/home/know_arrow.png" alt=""></div>
+      <scroll-x class="scroll-list full-width">
+        <div class="row no-padding gray">
+          <div class="item item-avatar item-borderless" ng-repeat="item in home.nonoAppInfo.modules" ng-click="home.goToIconDetail($index)">
+            <img ng-src="{{item.icon}}">
+            <h2 class="bold energized text-center">{{item.title}}</h2>
+            <p class="small text-center">{{item.content}}</p>
+          </div>
+        </div>
+      </scroll-x>
+    </section>
+
+    <section class="light-bg" ng-if="home.nonoAppInfo.isLogin && !home.nonoAppInfo.isXinke">
+      <div class="row no-padding gray">
+        <div class="col col-50 task border-right" ng-click="home.goPage('task')">
+          <div class="item item-avatar item-borderless">
+            <img src="assets/images/home/icon_task.png">
+            <h2 class="dark bold">我的任务</h2>
+            <p class="small" ng-if="home.nonoAppInfo.taskCount"><span class="energized">{{home.nonoAppInfo.taskCount}}</span>个任务待完成</p>
+            <p class="small" ng-if="!home.nonoAppInfo.taskCount">完成任务 拿大奖</p>
+          </div>
+        </div>
+        <div class="col col-50 envoy" ng-click="home.goPage('envoy')">
+          <div class="item item-avatar item-borderless">
+            <img src="assets/images/home/icon_invite.png">
+            <h2 class="dark bold">邀请好友</h2>
+            <p class="small">享<span class="energized">1%</span>返现</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-list">
+      <h4 class="item item-divider item-borderless row row-center"><span class="line"></span>为您推荐<p class="col text-right no-padding small gray">市场有风险 投资需谨慎</p></h4>
+      <div class="light-bg dbl-padding margin-bottom" ng-repeat="item in home.hotRecommend" ng-click="home.goToProduct($index)">
+        <p class="title no-margin font-16 dark bold">{{item.title}}<span class="title-tip small white" ng-if="item.suffix">{{item.suffix}}</span></p>
+        <div class="row row-center no-padding">
+          <div class="col no-padding small energized" ng-bind-html="item.rateShow"></div>
+          <div class="invest-btn white">立即投资</div>
+        </div>
+        <div class="row row-center no-padding">
+          <p class="col gray small no-margin">{{+item.proType == 3 || +item.proType == 4 ? '借款年化利率' : '历史年化收益率'}}</p>
+          <div ng-switch on="item.proType">
+            <p ng-switch-when="0" class="col text-right gray small no-margin">持满<span class="energized">{{item.expect}}{{item.expectUnit}}</span>可申请债转退出</p>
+            <p ng-switch-when="1" class="col text-right gray small no-margin">持满<span class="energized">{{item.expect}}{{item.expectUnit}}</span>可申请债转退出</p>
+            <p ng-switch-when="2" class="col text-right gray small no-margin">持满<span class="energized">{{item.expect}}{{item.expectUnit}}</span>可申请债转退出</p>
+            <p ng-switch-when="3" class="col text-right gray small no-margin">借款期限<span class="energized">{{item.expect}}{{item.expectUnit}}</span></p>
+            <p ng-switch-when="4" class="col text-right gray small no-margin">剩余期限<span class="energized">{{item.expect}}{{item.expectUnit}}</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="light-bg know-wheat" ng-if="home.nonoAppInfo.isLogin && !home.nonoAppInfo.isXinke">
+      <div class="text-center more" ng-click="home.goPage('safe')">了解麦子金服财富&nbsp;<img src="assets/images/home/know_arrow.png" alt=""></div>
+      <scroll-x class="scroll-list full-width">
+        <div class="row no-padding gray">
+          <div class="item item-avatar item-borderless" ng-repeat="item in home.nonoAppInfo.modules" ng-click="home.goToIconDetail($index)">
+            <img ng-src="{{item.icon}}">
+            <h2 class="bold energized text-center">{{item.title}}</h2>
+            <p class="small text-center">{{item.content}}</p>
+          </div>
+        </div>
+      </scroll-x>
+    </section>
+  
+    <div class="scroll-bottom">哎呀，露底了</div>
+  </ion-content>
+  <div id="toastr-tip" class="row row-center" ng-class="{active: home.tipInfo}">
+    <p class="no-margin">{{::home.tipInfo}}</p>
+  </div>
+  <bottom-nav-tabs active="0"></bottom-nav-tabs>
+</ion-view>

@@ -1,0 +1,44 @@
+.coupon-checkbox{
+  $border-color:    #F0F0F0;
+  $border-color-dark: #B4B4B4;
+  .font-20 {
+    font-size: 20px;
+  }
+  .font-36 {
+    font-size: 36px;
+  }
+  .row{
+    border-radius: 2px;
+    box-shadow:rgba(216,216,216,.5) 0 0 4px 0 inset;
+    background: url(#{$img-path}tic.png) top left no-repeat;
+    background-size:auto 100%;
+    height: 96px;
+    box-sizing:border-box;
+    p{margin-bottom:0;}
+  }
+
+  .col-66{
+    border-left:1px dashed $border-color;
+  }
+
+  .item-icon-right {
+    padding-right: 54px!important;
+
+    .icon{
+      right:0px;
+    }
+  }
+  .row.disabled{
+    background: url(#{$img-path}tic_gray.png) top left no-repeat;
+    background-size:auto 100%;
+    .assertive, .light-positive{
+      color: $border-color-dark;
+    }
+    .font-20{
+      color: $gray;
+    }
+  }
+}
+.coupon-checkbox:last-child .row{
+   margin-bottom: 0;
+}

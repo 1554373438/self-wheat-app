@@ -1,0 +1,29 @@
+#envoy_record {
+  .title {
+    color: #1e1e1e;
+    background: #EEF0F5;
+    padding: 9px 0;
+  }
+  .empty {
+    color: #616161;
+    padding-top: 25%;
+  }
+  .list .row {
+    border-bottom: 1px solid #e0e0e0;
+    padding:8px 0;
+  }
+  .bar-footer {
+    height: 72px;
+    padding-top: 15px;
+    padding-bottom: 13px;
+  }
+  .has-footer.scroll-content {
+    bottom: 72px;
+  }
+  .font-18 {
+    font-size: 18px;
+  }
+  .row + .row {
+    margin-top: 0;
+  }
+}

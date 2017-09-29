@@ -1,0 +1,19 @@
+<ion-modal-view class="pay-modal pay-pwd-modal">
+  <div class="bar bar-header">
+    <button class="button button-icon icon ion-ios-arrow-left gray" ng-click="fn.back()"></button>
+    <div class="h1 title">输入支付密码</div>
+    <button class="button button-clear button-positive button-right" ng-disabled="!data.pay.pwd" ng-click="fn.next()">下一步</button>
+  </div>
+  <ion-content>
+    <section>
+      <div class="modal-content">
+        <form class="pwd-form">
+          <div class="item item-input item-borderless">
+            <input type="password" maxlength="16" placeholder="请输入支付密码" ng-model="data.pay.pwd" clear-input>
+          </div>
+          <div class="pull-right positive margin-top" ng-click="fn.resetPayPwd()">忘记密码?</div>
+        </form>
+      </div>
+    </section>
+  </ion-content>
+</ion-modal-view>

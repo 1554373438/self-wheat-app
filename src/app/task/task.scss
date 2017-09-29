@@ -1,0 +1,87 @@
+#task {
+  ul{
+    position: relative;
+  }
+  li{
+    margin-bottom: 1px;
+  }
+  .item-icon-left {
+    padding-left: 50px;
+    p{
+      white-space: normal;
+    }
+  }
+  .item h4 {
+    font-size: 16px;
+  }
+  .gray {
+    color: #919191!important;
+  }
+  .margin-30{
+    margin-bottom: 30px;
+  }
+  .padding-30{
+    padding-bottom: 30px;
+  }
+  .icon {
+    width: 37px;
+    height: 37px;
+    display: block;
+    top: 50%;
+    margin-top: -18px;
+    left: 0;
+    background: url(#{$img-path}task/icon.png) no-repeat;
+    background-size: 40px auto;
+  }
+  .icon-count {
+    background-position: -0px 0px;
+  }
+  .icon-date {
+    background-position: -0px -38px;
+  }
+  .icon-invite {
+    background-position: -0px -76px;
+  }
+  .icon-money {
+    background-position: -0px -114px;
+  }
+  .icon-month-money {
+    background-position: -0px -152px;
+  }
+  .button-small {
+    padding: 2px 2px;
+    border-radius: 16px;
+    border: none;
+    width:72px;
+  }
+  .mask{
+    position: absolute;
+    height:100%;
+    width:100%;
+    left:0;
+    top:0;
+    z-index: 100;
+    background: rgba(255, 255, 255, .7);
+  }
+  .rule {
+    position: relative;
+    @include display-flex();
+    @include align-items(center);
+    // @include justify-content(space-between);
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      vertical-align: middle;
+      // text-align: center;
+      min-width: 20px;
+      height: 1px;
+      background: rgba(151, 151, 151, .2);
+      @include flex(1);
+      margin: 0 3%;
+    }
+    p{
+      text-align: justify;
+    }
+  }
+}

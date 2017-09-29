@@ -1,0 +1,123 @@
+<ion-view view-title="{{::nnyDetail.listInfo.title}}" id="records_detail_nny">
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-back-button back-button class="button-clear">
+      <i class="icon ion-ios-arrow-left"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content ng-class="{'btm-46':!nnyDetail.isEnd}">
+    <section class="row text-center white info-top dbl-padding-vertical" ng-click="nnyDetail.goAlert()">
+      <div class="col col-50 amount">
+        <p class="font-26">{{nnyDetail.isEnd?nnyDetail.listInfo.amount:nnyDetail.colInfo.noPayPrincipal |currency:''}}</p>
+        <small>{{nnyDetail.isEnd?'投资本金(元)':'待收本金(元)'}}</small>
+      </div>
+      <div class="col col-50">
+        <p class="font-26">{{nnyDetail.isEnd?nnyDetail.listInfo.totalIncome:nnyDetail.colInfo.noPayProfit|currency:''}}</p>
+        <small>{{nnyDetail.isEnd?'已获收益(元)':'待收收益(元)'}}</small>
+      </div>
+    </section>
+    <div class="line-10" ng-hide="!nnyDetail.tranInfo"></div>
+    <section>
+      <ion-item class="item-icon-right item-borderless dbl-padding-right item-nny" ng-hide="!nnyDetail.tranInfo">
+      <div class="row row-center no-padding transfer" ui-sref="records:transfer({type:0})">
+        <div class="col col-33 name no-padding">转让记录</div>
+        <div class="col text-right dbl-padding-right transfer-right">
+          已转让本金&nbsp;
+          <span class="money">{{nnyDetail.listInfo.amount-nnyDetail.listInfo.monthPayAmount |currency:''}}元</span>
+          <i class="ion-ios-arrow-right cc"></i>
+        </div>
+      </div>
+      <div class="lately" ui-sref="records:latelyDetail({dsId:nnyDetail.tranInfo.dsId})">
+        <h3>最近一笔转让</h3>
+        <div class="row no-padding lately-top">
+          <span class="col col-50 no-padding">{{::nnyDetail.tranInfo.discountPrice}}</span>
+          <span class="col col-50 text-right no-padding">{{::nnyDetail.tranInfo.saledPrice|currency:''}}</span>
+        </div>
+        <div class="row no-padding lately-bottom">
+          <span class="col col-50 no-padding">转让价格(元)</span>
+          <span class="col col-50 text-right no-padding">已成交(元)</span>
+        </div>
+      </div>
+    </ion-item>
+    <div class="line-10"></div>
+    <ion-item class="item-icon-right item-borderless dbl-padding-right item-nny">
+        <div class="row row-center no-padding transfer" ui-sref="records:collect">
+          <div class="col col-33 name no-padding">收款记录</div>
+          <div class="col text-right dbl-padding-right transfer-right">
+            已收&nbsp;
+            <span class="money">{{::nnyDetail.colInfo.payExpectCnt}}/{{::nnyDetail.colInfo.totalExpectCnt}}</span>期 &nbsp;
+            <i class="ion-ios-arrow-right cc"></i>
+          </div>
+        </div>
+        <div class="lately">
+          <div class="row no-padding lately-top">
+            <span class="col col-33 no-padding">{{::nnyDetail.colInfo.acceptRecordFoldShow.acceptTime}}</span>
+            <span class="col col-33 text-left no-padding">{{::nnyDetail.colInfo.acceptRecordFoldShow.price}}</span>
+            <span class="col col-33 text-right no-padding">{{::nnyDetail.colInfo.acceptRecordFoldShow.status}}</span>
+          </div>
+          <div class="row no-padding lately-bottom">
+            <span class="col col-33 no-padding">收款时间</span>
+            <span class="col col-33 text-left no-padding">收款金额(元)</span>
+            <span class="col col-33 text-right no-padding">收款状态</span>
+          </div>
+        </div>
+      </ion-item>
+    <div class="line-10"></div>
+    <ion-item class="item-icon-right item-borderless dbl-padding-right item-nny">
+        <div class="row row-center no-padding transfer" ng-click="nnyDetail.showProgress()">
+          <div class="col col-33 name no-padding">{{::nnyDetail.stateInfo.state}}</div>
+          <div class="col text-right dbl-padding-right transfer-right" ng-hide="nnyDetail.listInfo.status==4">
+            <span class="time-up">{{::nnyDetail.stateInfo.showTime}}</span>到期 &nbsp;
+            <i class="ion-ios-arrow-right cc"></i>
+          </div>
+        </div>
+        <div class="lately">
+          <div class="row no-padding state">
+            <span class="col col-50 no-padding">投资金额</span>
+            <span class="col col-50 text-right no-padding">{{::nnyDetail.listInfo.amount}}元</span>
+          </div>
+          <div class="row no-padding state">
+            <span class="col col-50 no-padding">预期年化</span>
+            <span class="col col-50 text-right no-padding">{{::nnyDetail.stateInfo.rateLender}}</span>
+          </div>
+          <div class="row no-padding state">
+            <span class="col col-50 no-padding">收益方式</span>
+            <span class="col col-50 text-right no-padding">{{::nnyDetail.listInfo.collectionMode}}</span>
+          </div>
+          <div class="row no-padding state" ng-if="nnyDetail.fromType=='debt'">
+            <span class="col col-50 no-padding">债转编号</span>
+            <span class="col col-50 text-right no-padding">{{::nnyDetail.listInfo.dsId}}</span>
+          </div>
+        </div>
+      </ion-item>
+    <div class="line-10"></div>
+      <ion-item class="item-icon-right item-borderless dbl-padding-right item-nny margin-1" ng-click="nnyDetail.toBorrow()">
+        <div class="row row-center no-padding transfer" >
+          <div class="col col-33 name no-padding">借款信息</div>
+          <div class="col text-right dbl-padding-right transfer-right">
+            <i class="ion-ios-arrow-right cc"></i>
+          </div>
+        </div>
+
+      </ion-item>
+      <ion-item class="item-icon-right item-borderless dbl-padding-right item-nny " ng-hide="nnyDetail.fromType=='debt'" ng-click="nnyDetail.showProtocol()">
+        <div class="row row-center no-padding transfer">
+          <div class="col col-33 name no-padding">借款协议</div>
+          <div class="col text-right dbl-padding-right transfer-right">
+            <i class="ion-ios-arrow-right cc"></i>
+          </div>
+        </div>
+      </ion-item>
+    </section>
+  </ion-content>
+  <div class="bar bar-footer" ng-if="!nnyDetail.isEnd">
+    <div class="row row-center no-padding">
+      <div class="col dbl-padding-left gray small" ui-sref="debt:instruction">
+        <span class="instr"></span>
+        债转说明
+      </div>
+      <div class="col col-33 no-padding">
+        <button class="button button-positive button-block btn-no-border " ng-click="nnyDetail.transferBtn()"><span>{{::nnyDetail.stateInfo.transBtn}}</span></button>
+      </div>
+    </div>
+  </div>
+</ion-view>

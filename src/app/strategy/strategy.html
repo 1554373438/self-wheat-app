@@ -1,0 +1,67 @@
+<ion-view view-title="新手指引" id="strategy_view" cache-view="false">
+  <ion-content overflow-scroll="false">
+    <div class="scroll-wrap">
+      <scroll-x class="scroll-list full-width dbl-padding-horizontal">
+        <div class="row row-no-padding">
+          <div class="typeitem text-center" ng-class="{active:list.sliderIndex==$index}">
+            <p class="icon-title title-center">新客注册</p>
+            <p class="scroll-icon"><span class="icon icon01" ng-class="{'gray':strategy.iconFGray}"></span></p>
+            <p class="small margin-horizontal">送<span class="assertive">888</span>元现金券</p>
+          </div>
+          <div class="typeitem text-center" ng-class="{active:list.sliderIndex==$index}">
+            <p class="icon-title">首次投资
+              <br>新客计划</p>
+            <p class="scroll-icon"><span class="icon icon02" ng-class="{'gray':strategy.iconSGray}"></span></p>
+            <p class="small text-left margin-horizontal">专享<span class="assertive">12%</span>收益，首投满5千再返<span class="assertive">2%</span></p>
+          </div>
+          <div class="typeitem text-center" ng-class="{active:list.sliderIndex==$index}">
+            <p class="icon-title">首次投资
+              <br>贴心计划</p>
+            <p class="scroll-icon"><span class="icon icon03" ng-class="{'gray':strategy.iconTGray}"></span></p>
+            <p class="small text-left margin-horizontal">最高享额外收益超<span class="assertive">3%</span></p>
+          </div>
+        </div>
+      </scroll-x>
+      <div class="btn">
+        <button class="button button-block button-assertive" ng-click="strategy.goRegister()" ng-if="!strategy.user.sessionId">去注册</button>
+        <button class="button button-block button-assertive" ng-click="strategy.goInvest()" ng-if="strategy.user.sessionId">去投资</button>
+      </div>
+    </div>
+    <div class="light-bg text-center margin-vertical dbl-padding-vertical plan" ng-click="strategy.goNewInvest()">
+      <p class="font-18">{{::strategy.planInfo.fp_title}}</p>
+      <h1 class="assertive no-margin">{{::strategy.planInfo.fp_rate}}</h1>
+      <div class="gray small dbl-margin-bottom">历史年化收益率约</div>
+      <p class="small energized">期限{{::strategy.planInfo.fp_expect}}&nbsp;&nbsp;|&nbsp;&nbsp;新客大礼包可用</p>
+      <div class="bg-left"><img src="assets/images/strategy/bg_left.png" alt=""></div>
+      <div class="bg-right"><img src="assets/images/strategy/bg_right.png" alt=""></div>
+    </div>
+    <div class="light-bg text-center dbl-padding-vertical">
+      <div class="row row-center">
+        <div class="col col-25">
+          <div class="items-icon icon_01"></div>
+          <p class="gray small">运营8年
+            <br>行业元老</p>
+        </div>
+        <div class="col col-25">
+          <div class="items-icon icon_02"></div>
+          <p class="gray small">背景雄厚
+            <br>实力强大</p>
+        </div>
+        <div class="col col-25">
+          <div class="items-icon icon_03"></div>
+          <p class="gray small">银行存管
+            <br>合规安心</p>
+        </div>
+        <div class="col col-25">
+          <div class="items-icon icon_04"></div>
+          <p class="gray small">水滴风控
+            <br>债权优质</p>
+        </div>
+      </div>
+      <div class="small positive" ui-sref="safe">了解更多</div>
+    </div>
+    <div class="dbl-padding-vertical dbl-padding-horizontal small">
+      本次活动限2017年6月28日后新注册用户专享，28日前注册用户如未完成首投，仍可享受首投满5000再返2%加息券福利，注册奖励不再重复发放。
+    </div>
+  </ion-content>
+</ion-view>

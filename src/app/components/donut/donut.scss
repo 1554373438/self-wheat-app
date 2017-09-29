@@ -1,0 +1,7 @@
+donut{
+  @extend .row,.row-center,.row-no-padding;
+  svg{
+    @extend .col;
+    padding: 0;
+  }
+}

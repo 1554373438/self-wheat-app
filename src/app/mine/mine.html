@@ -1,0 +1,70 @@
+<ion-view view-title="我的" id="mine_view" hide-nav-bar="true">
+  <ion-content class="has-tabs">
+    <section class="mine-top">
+      <div class="bar-positive bar bar-header" align-title="center">
+        <button class="buttons buttons-left" ng-click="mine.goPage('level')">
+          <div class="row row-center row-no-padding">
+            <i class="icon-sprite-update icon-avatar"></i>
+            <span class="level">LV.{{mine.user.level}}</span>
+          </div>
+        </button>
+        <div class="title title-center header-item"></div>
+        <button class="buttons buttons-right">
+          <div class="row row-center row-no-padding">
+            <a class="button button-clear icon-sprite-update icon-message" ng-class="{'icon-red': mine.hasUnreadMsg}" ng-click="mine.setNoticeRead()"></a>
+            <i class="line"></i>
+            <a class="button button-clear icon-sprite icon-setting" ui-sref="setting"></a>
+          </div>
+        </button>
+      </div>
+      <div class="info-content text-center">
+        <div>
+          <p class="font-36" ui-sref="assets"><span ng-if="mine.showAccount">{{mine.user.account.total|number:2}}</span><span ng-if="!mine.showAccount">****</span></p>
+          <p class="desc"><span>总资产</span><span class="icon-sprite-update icon-eye-on margin-left" ng-class="{'icon-eye-on':mine.showAccount,'icon-eye-off':!mine.showAccount}" ng-click="mine.toggleShow()"></span></p>
+        </div>
+        <p class="font-16" ui-sref="earnings">昨日收益&nbsp;<span ng-if="mine.showAccount">+{{mine.user.account.lastIncome|number:2}}</span><span ng-if="!mine.showAccount">****</span>&nbsp;元</p>
+      </div>
+    </section>
+    <section class="margin-bottom">
+      <div class="row row-center light-bg dbl-padding-vertical">
+        <div class="col col-50 text-center border-right dark" ui-sref="repay">
+          <i class="icon-sprite-update icon-calander"></i> 回款日历
+        </div>
+        <div class="col col-50 text-center dark" ui-sref="balance">
+          <i class="icon-sprite-update icon-deal"></i> 交易记录
+        </div>
+      </div>
+    </section>
+    <ion-list class="balance-box">
+      <ion-item class="row row-center row-no-padding">
+        <div class="col">
+          <p class="dark-gray">可用余额(元)</p>
+          <div class="energized font-22 margin-top"><span ng-if="mine.showAccount">{{mine.user.account.available|number:2}}</span><span ng-if="!mine.showAccount">****</span></div>
+        </div>
+        <div class="col">
+          <button class="button button-positive button-outline margin-right" ng-click="mine.goPage('withdraw')">提现</button>
+          <button class="button button-positive" ng-click="mine.goPage('topup')">充值</button>
+        </div>
+      </ion-item>
+      <ion-item class="item-icon-right" ng-repeat="item in mine.invtDetail track by $index" ng-click="mine.goPage('record',$index)">
+        <i class="icon ion-ios-arrow-right gray"></i> {{item.name}}
+        <div class="item-note"><span ng-if="item.amount && mine.showAccount" class="font-16">{{item.amount|number:2}}</span><span ng-if="item.amount && !mine.showAccount">****</span><span ng-if="!item.amount" class="gray">{{item.desc}}</span></div>
+      </ion-item>
+    </ion-list>
+    <section class="welfare-box light-bg dbl-padding margin-top">
+      <p class="font-16 dark">我的福利</p>
+      <scroll-x>
+        <div class="row row-center">
+          <div class="coupon" ng-repeat="(key,coupon) in mine.welfare" ng-click="mine.goPage('welfare',key)" ng-class="{'icon-red': coupon.flag==1}">
+            <span>{{coupon.name}}</span>
+          </div>
+        </div>
+      </scroll-x>
+    </section>
+    <div class="button-cust" ng-click="mine.goPage('cust')">
+      <i class="icon-sprite icon-headset"></i>
+      <span>在线客服</span>
+    </div>
+  </ion-content>
+  <bottom-nav-tabs active="3"></bottom-nav-tabs>
+</ion-view>

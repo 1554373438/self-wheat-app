@@ -1,0 +1,9 @@
+<ion-view view-title="娱乐专区" id="entertainment_view">
+  <ion-content>
+    <ion-list class="item-borderless">
+      <ion-item ng-repeat="i in entertainment.items" class="item-image" ng-click="entertainment.select($index)">
+        <img ng-src="{{i.path}}">
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

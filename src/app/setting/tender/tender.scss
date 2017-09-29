@@ -1,0 +1,20 @@
+#tender {
+  section {
+    padding: 12px;
+    p {
+      line-height: 24px;
+    }
+    .check {
+      display: inline-block;
+      vertical-align: bottom;
+      width: 19px;
+      height: 19px;
+      background: url(#{$img-path}login/check_on.png) center center no-repeat;
+      background-size: 100% auto;
+      &.on {
+        background: url(#{$img-path}login/check_off.png) center center no-repeat;
+        background-size: 100% auto;
+      }
+    }
+  }
+}

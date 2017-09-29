@@ -1,0 +1,11 @@
+<ion-modal-view class="record-progress">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-icon-left" ng-repeat="item in progressList">
+        <i class="icon icon-completed" ng-class="{'icon-completed':item.status==1, 'icon-running':item.status==2, 'icon-uncompleted': item.status==3}"></i>
+        <p class="desc">{{::item.eventDesc}}</p>
+        <span class="small gray">{{::item.eventDate}}</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

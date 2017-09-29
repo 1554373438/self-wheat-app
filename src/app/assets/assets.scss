@@ -1,0 +1,35 @@
+// .donut-wrapper{
+//   padding: 15% 0 10%;
+// }
+#assets {
+  .total-content {
+    @extend .positive-bg,.text-center;
+    padding: 16px 0 30px;
+    color: #fff;
+  }
+  .list {
+    padding-left: 15px;
+  }
+  .item {
+    padding: 14px 0;
+    border: none;
+    margin: 0;
+  }
+  .item-note {
+    font-size: 15px;
+  }
+  .item-header {
+    font-size: 16px;
+    border-bottom: 1px solid $border-color;
+    @extend .font-16, .dark;
+    .item-note {
+      color: $dark;
+      font-size: 17px;
+    }
+  }
+  a {
+    text-decoration: none;
+    padding-bottom: 30px;
+    padding-right: 14px;
+  }
+}

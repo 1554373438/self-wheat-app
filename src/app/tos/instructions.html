@@ -1,0 +1,6 @@
+<ion-view view-title="{{::ins.title}}" id="instruction_view" class="rules">
+  <ion-content>
+    <article ng-include="ins.template" ng-if="ins.isLocalTemplate "></article>
+    <article ng-bind-html="ins.template" ng-if="!ins.isLocalTemplate"></article>
+  </ion-content>
+</ion-view>

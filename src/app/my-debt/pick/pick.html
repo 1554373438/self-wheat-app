@@ -1,0 +1,37 @@
+<ion-view class="pick">
+  <ion-nav-title>我的债权</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" ui-sref="debt:instruction">
+      债权说明
+    </a>
+  </ion-nav-buttons>
+  <ion-content srcoll="false">
+    <ion-list>
+      <ion-checkbox class="margin-bottom relative" ng-repeat="item in pick.list track by $index" ng-model="pick.isChecked[$index]" ng-click="pick.add($index)">
+        <div class="space-between col-80">
+          <span>{{::item.title}}</span>
+          <span class="assertive">{{::item.unPaidPrice | currency:''}}元</span>
+        </div>
+        <div class="space-between col-80">
+          <small class="gray">剩余期限:{{::item.remainExpect}}期</small>
+          <small class="gray">金额</small>
+        </div>
+       <!--  <span class="small prompt auto" ng-if="item.transfer_flag == 2 || item.transfer_flag == 3" ng-click="pick.goTo($index,$event)">{{::item.transfer_status}}<i class="icon ion-ios-help font-16"></i></span> -->
+      </ion-checkbox>
+    </ion-list>
+  </ion-content>
+  <div class="money padding-left padding-right">
+    <p class="space-between margin-top row">
+      <small>已选金额 <i class="assertive">{{pick.sum | currency:''}}元</i></small>
+      <small>预期收益 <i class="assertive">{{pick.earnings | currency:''}}元</i></small>
+    </p>
+    <div class="row">
+      <button class="col button button-outline button-positive button-small" ng-click="pick.getTotal()">
+        {{pick.isChoose == false ? '全选' : '取消全选'}}
+      </button>
+      <button class="col button margin-left button-small" ng-disabled="pick.sum <= 0" ng-class="{'button-stable':pick.sum <= 0,'button-positive':pick.sum > 0}" ng-click="pick.goBack()">
+        完成
+      </button>
+    </div>
+  </div>
+</ion-view>

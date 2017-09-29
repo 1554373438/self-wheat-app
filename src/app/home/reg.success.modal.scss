@@ -1,0 +1,46 @@
+#reg_success_modal{
+  z-index:14;
+  background:rgba(0,0,0,.5);
+  .scroll {
+    height: 100%;
+  }
+  .icon-close {
+    position: absolute;
+    width: 25px;
+    height: 56px;
+    background: url(#{$img-path}home_popup_close.png) no-repeat;
+    background-size: 100% 100%;
+    right: 10px;
+    top: -50px;
+    z-index: 0;
+  }
+  .icon-close + img {
+    position: relative;
+    z-index: 1;
+  }
+  .icon.ion-ios-close-outline{
+    font-size: 30px;
+      color: hsla(0,0%,100%,.6);
+      position: absolute;
+      top: 0px;
+      right: 20px;
+  }
+  button{
+    z-index: 2;
+    width: 100%;
+    height: 56px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    border: none;
+    background: none;
+  }
+  .row{
+    @include justify-content(center);
+  }
+  img{
+    width: 257px;
+    height: 334px;
+  }
+  
+}

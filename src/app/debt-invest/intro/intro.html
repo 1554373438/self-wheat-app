@@ -1,0 +1,102 @@
+<ion-view class="invest-intro">
+  <ion-nav-title>债转介绍</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" ui-sref="instructions({type: 6, collectionMode: ''})">
+      债转说明
+    </a>
+  </ion-nav-buttons>
+  <nono-tabs type="positive" ng-model="intro.sliderIndex" tabs-top="true">
+    <nono-tab title="借款详情" value="0"></nono-tab>
+    <nono-tab title="购买记录" value="1"></nono-tab>
+    <nono-tab title="收款情况" value="2"></nono-tab>
+  </nono-tabs>
+  <ion-content srcoll="false">
+    <ion-slides options="options" slider="data.slider" showPager="false">
+      <ion-slide-page>
+        <ion-scroll class="white-bg">
+          <section class="tab">
+            <h5 class="text-center grey">借款人背景</h5>
+            <ul>
+              <li>
+                <span>用户名</span>
+                <span class="margin-left positive">{{::intro.info.user_name}}</span>
+              </li>
+              <li ng-if="intro.info.user_type != '学生'">
+                <span>职业</span>
+                <span class="margin-left">{{::intro.info.user_type}}</span>
+              </li>
+              <li>
+                <span>性别</span>
+                <span class="margin-left">{{::intro.info.gender}}</span>
+              </li>
+              <!-- <li>
+                <span>年龄</span>
+                <span class="margin-left">{{::intro.info.age}}</span>
+              </li> -->
+              <li>
+                <span>所在地</span>
+                <span class="margin-left">{{::intro.info.current_address}}</span>
+              </li>
+              <li>
+                <span>户籍</span>
+                <span class="margin-left">{{::intro.info.origin}}</span>
+              </li>
+              <li>
+                <span>婚姻状况</span>
+                <span class="margin-left">{{::intro.info.marriage}}</span>
+              </li>
+            </ul>
+          </section>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page>
+        <ion-scroll class="white-bg">
+          <div class="empty text-center" ng-if="intro.borInvestedUsers.length == 0">
+            <img src="assets/images/err_empty.png" alt="" style="width: 30%">
+            <p class="font-16 light-grey">没有任何购买记录</p>
+          </div>
+          <ion-list ng-if="intro.borInvestedUsers.length != 0">
+            <ion-item class="row row-center item-borderless item" ng-repeat="user in intro.borInvestedUsers track by $index">
+              <div class="col text-ellipsis">
+                <p class="dark">{{::user.user_name}}</p>
+                <small class="gray ng-binding">{{::user.purchase_time | date:'yyyy-MM-dd'}}</small>
+              </div>
+              <i class="icon positive">{{::user.amount | currency:''}}元</i>
+            </ion-item>
+          </ion-list>
+          <ion-infinite-scroll ng-if="intro.borHasMoreData" on-infinite="intro.borLoadMore()" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page>
+        <ion-scroll>
+          <div class="empty text-center" ng-if="intro.investedUsers.length == 0">
+            <img src="assets/images/err_empty.png" alt="" style="width: 30%">
+            <p class="font-16 light-grey">暂无记录</p>
+          </div>
+          <ion-list ng-if="intro.investedUsers.length != 0">
+            <ion-item class="row item-borderless small margin-b5" ng-repeat="item in intro.investedUsers track by $index">
+              <div class="col col-25 text-left">
+                <span class="assertive">{{::item.ba_price | currency:''}}元</span>
+                <br>
+                <span class="light-grey">应收款金额</span>
+              </div>
+              <div class="col col-25 text-center">
+                <span class="grey">{{::item.ba_price_punish | currency:''}}元</span>
+                <br>
+                <span class="light-grey">应收罚息</span>
+              </div>
+              <div class="col col-50 text-right">
+                <span class="grey">{{::item.ba_time}}/{{item.ba_success_time == null ? '待收款日' : item.ba_success_time}}</span>
+                <br>
+                <span class="light-grey">应收款日期/实际收款日期</span>
+              </div>
+            </ion-item>
+          </ion-list>
+          <ion-infinite-scroll ng-if="intro.hasMoreData" on-infinite="intro.loadMore()" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-content>
+</ion-view>

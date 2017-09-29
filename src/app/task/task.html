@@ -1,0 +1,53 @@
+<ion-view view-title="我的任务" id="task" cache-view="false">
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" style="color:#000;" ng-click="task.goPage('welfare')">
+      我的福利
+    </a>
+  </ion-nav-buttons>
+  <ion-content>
+    <img src="assets/images/task/banner.jpg" class="full-width">
+    <section>
+      <div ng-repeat="taskList in task.taskListInfo">
+        <div class="gray text-center padding-vertical" ng-if="taskList.taskLists.length != 0">—&nbsp;{{taskList.title}}&nbsp;—</div>
+        <ul>
+          <li class="light-bg dbl-padding-horizontal" ng-repeat="item in taskList.taskLists">
+            <div class="row row-center no-padding">
+              <div class="col">
+                <ion-item class="item-icon-left item-borderless">
+                  <i class="icon" ng-class="{'icon-count':item.taskName == 'invt_count',
+                                              'icon-date':item.taskName == 'sign_count',
+                                              'icon-invite':item.taskName == 'invite_count',
+                                              'icon-money':item.taskName == 'invt_amount',
+                                              'icon-month-money':item.taskName == 'invt_amount_month'}">
+                  </i>
+                  <h4>{{item.taskDescription}}</h4>
+                  <p class="gray" ng-if="item.taskName == 'invt_count' || item.taskName == 'sign_count'">可获<span class="assertive">{{item.rewardValue}}元</span>现金券</p>
+                  <p class="gray" ng-if="item.taskName == 'invite_count' ">获好友1年内年化投资本金<span class="assertive">{{item.rewardValue}}</span>返现</p>
+                  <p class="gray" ng-if="item.taskName == 'invt_amount' ">可获<span class="assertive">{{item.rewardValue}}元</span>现金券</p>
+                  <p class="gray" ng-if="item.taskName == 'invt_amount_month' ">最高可获<span class="assertive">{{item.rewardValue}}元</span>现金券</p>
+                </ion-item>
+              </div>
+              <div class="text-right">
+                <div class="small gray" ng-if="item.taskValue">{{item.taskName == 'invite_count' ? '已邀请' : (item.taskName == 'sign_count' ? '已签到' : '已投资') }}<span class="assertive">{{item.taskValue}}</span> </div>
+                <div class="button button-small button-assertive" ng-click="task.goPage(item.taskName)">{{item.btnMsg}}</div>
+              </div>
+            </div>
+            <div class="gray small padding-bottom" ng-if="item.taskName == 'invt_amount_month'">
+              累计满1W可获30元现金券，累计满2W可获40元现金券，累计满5W可获50元现金券，当月每满足其中一项任务即次日发放福利
+            </div>
+          </li>
+          <div class="mask" ng-if="taskList.title == '已完成任务' && taskList.taskLists.length != 0"></div>
+        </ul>
+      </div>
+      <div class="gray small dbl-padding-horizontal padding-30">
+        <div class="padding-vertical rule">规则说明</div>
+        <p class="no-margin">1.【进阶任务】为一次性任务，相关福利将在您完成任务的次日发放，
+          <br>&nbsp;&nbsp;&nbsp;【进阶任务】投资计算时间自7月12日0点起，0点之前发生的投资不计算在内；</p>
+        <p class="no-margin">2.【每月任务】以自然月为周期，在每月1日重新计算任务，获得的现金券将在完成对应任务后即次日发放；
+          <br>&nbsp;&nbsp;&nbsp;举例：9月份累计投资满额任务统计9月1日-30日的投资金额，每完成当月累计投资满1万、2万、5万时，都会在次日获得相关福利，当月最高可获取120元的现金券。
+        </p>
+        <p class="no-margin">3. 任务体系及福利规则会根据实际运营情况更新。</p>
+      </div>
+    </section>
+  </ion-content>
+</ion-view>

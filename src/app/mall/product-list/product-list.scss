@@ -1,0 +1,76 @@
+#product_list {
+  .no-border {
+    border: 0px;
+  }
+  .small-icon {
+    width: 80px;
+    height: 80px;
+    border: 0px;
+  }
+  small {
+    padding-left: 5px;
+    padding-right: 5px;
+    @extend .gray;
+  }
+  .ion-new {
+    width: 26px;
+    height: 16px;
+    display: inline-block;
+    background: #FF3543;
+    text-align: center;
+    line-height: 24px;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 15px;
+  }
+  .ion-follow1:before,
+  .ion-follow2:before {
+    width: 24px;
+    height: 24px;
+    background: url($img-path + "mall/follow1.png") no-repeat;
+    background-size: cover;
+    content: "";
+  }
+  .ion-follow2:before {
+    background: url($img-path + "mall/follow2.png") no-repeat;
+    background-size: cover;
+  }
+  .ion-nob {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background: url($img-path + "mall/memStoreNbIcon.png") no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+  }
+  .discount {
+    width: 73px;
+    height: 14px;
+    display: inline-block;
+    background: url($img-path + "mall/discount.png") no-repeat;
+    background-size: cover;
+    color: $assertive;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 14px;
+  }
+  .new-btn {
+    width: 230px;
+    min-height: 36px;
+    border: 1px solid #79B1E6;
+    color: #79B1E6;
+    left: 50%;
+    margin-left: -115px;
+    max-height: 36px;
+    line-height: 36px;
+    padding: 0;
+  }
+  .money {
+    position: fixed;
+    width: 100%;
+    bottom: 100px;
+  }
+}

@@ -1,0 +1,215 @@
+<ion-view view-title="安全保障" id="safe_view">
+  <nono-tabs ng-model="safe.tabIndex" tabs-top="true" ng-click="safe.selectTab()">
+    <nono-tab title="实力强大" value="1"></nono-tab>
+    <nono-tab title="银行存管" value="2"></nono-tab>
+    <nono-tab title="专业风控" value="3"></nono-tab>
+    <nono-tab title="平台数据" value="4"></nono-tab>
+  </nono-tabs>
+  <ion-content id="scroll_content" on-scroll="safe.watchScroll()" delegate-handle="mainScroll" overflow-scroll="false">
+    <section class="part" id="part1">
+      <img src="assets/images/safe/safe_banner.jpg" class="full-width">
+      <div class="text-center">
+        <i class="icon part1-icon1"></i>
+        <h4 class="part-title">实力强大</h4>
+      </div>
+      <p class="part-desc margin-vertical">背景雄厚 实力强大 明星高管团队 更专业更强大</p>
+      <ul class="padding-horizontal content-list">
+        <li>
+          <i class="icon part1-icon2"></i> 控股公司麦子金服获得海通创新等证券系机构投资
+        </li>
+        <li>
+          <i class="icon part1-icon3"></i> 稳健运营8年，国内较早成立的互联网金融信息服务平台之一
+        </li>
+        <li>
+          <i class="icon part1-icon4"></i> 麦子金服财富注册资金1.08亿，实力背景雄厚
+        </li>
+        <li>
+          <i class="icon part1-icon5"></i> 核心高管团队来自招商银行、腾讯、阿里巴巴、百度、平安集团、复星集团等
+        </li>
+      </ul>
+    </section>
+    <section id="part2" class="part light-bg">
+      <div class="text-center">
+        <i class="icon part2-icon1"></i>
+        <h4 class="part-title">银行存管</h4>
+      </div>
+      <p class="part-desc margin-vertical">银行存管 投资透明 专业机构 保驾护航</p>
+      <ul class="padding-horizontal content-list">
+        <li>
+          <i class="icon part2-icon2"></i> 麦子金服财富与徽商银行存管已正式上线，资金交易环节均在银行系统中进行，资金交易均由用户授权银行操作执行，确保每一笔交易的资金安全性。
+        </li>
+        <li>
+          <i class="icon part2-icon3"></i> 借助芝麻信用等外部风控手段确保平台资产质量，法大大对电子合同安全上锁。
+        </li>
+      </ul>
+      <img src="assets/images/safe/part2_pic.png" class="part2-pic">
+    </section>
+    <section id="part3" class="part">
+      <div class="text-center">
+        <i class="icon part3-icon1"></i>
+        <h4 class="part-title">专业风控</h4>
+      </div>
+      <p class="part-desc margin-vertical">水滴风控 确保安全 资产优质 小额分散 </p>
+      <ul class="padding-horizontal content-list">
+        <li>
+          <i class="icon part3-icon2"></i> 麦子金服财富自主研发的“水滴风控”系统由前FICO首席科学家、前陆金所CRO李晓忠博士加盟麦子金服财富后领导开发。通过大数据征信+智能审批，实现平台M3逾期率低于行业平均水平。
+        </li>
+        <li>
+          <i class="icon part3-icon3"></i> 通过技术系统实现每笔投资自动匹配，分散匹配多笔优质资产。
+        </li>
+      </ul>
+      <ul class="process-control">
+        <li>
+          <span>Process Control<br/>无缝流程CPPTCIA</span>
+          <span>Technology<br/>高新技术</span>
+        </li>
+        <li>
+          <span>Organization<br/>活力团队</span>
+          <span>Intelligent Approval<br/>智能审核</span>
+        </li>
+        <li>
+          <span>Pricing On Risk<br/>风险定价</span>
+          <span>Model Groups<br/>模型集群</span>
+        </li>
+        <li>
+          <span>Data Consortium<br/>数据联盟</span>
+          <span>Anti-Fraud<br/>欺诈防范LANET</span>
+        </li>
+      </ul>
+    </section>
+    <section id="part4" class="part light-bg">
+      <div class="text-center">
+        <i class="icon part4-icon1"></i>
+        <h4 class="part-title">平台数据</h4>
+        <span class="label">数据截止2017年08月31日</span>
+      </div>
+      <div class="text-center dbl-margin-top">
+        <h4 class="data-title">投资交易数据</h4>
+        <div class="row row-no-padding dbl-margin-bottom">
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">1391890</div>
+              <div class="label">投资端注册人数</div>
+            </div>
+          </div>
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">924963.59</div>
+              <div class="label">累计撮合投资金额
+                <br>(万元)</div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-no-padding dbl-margin-bottom">
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">1729930</div>
+              <div class="label">累计撮合投资笔数</div>
+            </div>
+          </div>
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">231424.36</div>
+              <div class="label">当年撮合投资金额
+                <br>(万元)</div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-no-padding dbl-margin-bottom">
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">440488</div>
+              <div class="label">当年撮合投资笔数</div>
+            </div>
+          </div>
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">228510.76</div>
+              <div class="label">尚未结清在投余额
+                <br>(万元)</div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-no-padding ">
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">85410.34</div>
+              <div class="label">累计代偿未还金额
+                <br>(万元)</div>
+            </div>
+          </div>
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">177519</div>
+              <div class="label">累计代偿未收回笔数
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center dbl-margin-top">
+        <h4 class="data-title">投资交易逾期数据</h4>
+        <div class="row row-no-padding dbl-margin-bottom">
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">33.35</div>
+              <div class="label">90天以上投资
+                <br>逾期金额(万元)</div>
+            </div>
+          </div>
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">0.01<span class="small">%</span></div>
+              <div class="label">90天以上投资逾期率</div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-no-padding dbl-margin-bottom">
+          <div class="col col-50 text-left no-border">
+            <div>
+              <div class="number">0.00<span class="small">%</span></div>
+              <div class="label">90天以上投资
+                <br>累计逾期率</div>
+            </div>
+          </div>
+        </div>
+        <div class="dbl-padding-left dbl-margin-left text-left label light-color">注:以上数据为麦子金服财富投资端数据</div>
+      </div>
+      <div class="text-center dbl-margin-top">
+        <h4 class="data-title">借款交易数据</h4>
+        <div class="row row-no-padding dbl-margin-bottom">
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">3594338</div>
+              <div class="label">借款端注册人数</div>
+            </div>
+          </div>
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">2200/0.45<span class="small">%</span></div>
+              <div class="label">最大单户借款余额
+                <br>(万元) /占比
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-no-padding dbl-margin-bottom">
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">10269/2.10<span class="small">%</span></div>
+              <div class="label">最大十户借款余额
+                <br>(万元) /占比
+              </div>
+            </div>
+          </div>
+          <div class="col col-50 text-left">
+            <div>
+              <div class="number">2.11<span class="small">%</span></div>
+              <div class="label">90天以上借款
+                <br>累计逾期率(借款)</div>
+            </div>
+          </div>
+        </div>
+        <div class="dbl-padding-left dbl-margin-left text-left label light-color">注:以上数据包含历史所有借款数据</div>
+      </div>
+  </ion-content>
+</ion-view>

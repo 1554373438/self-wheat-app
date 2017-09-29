@@ -1,0 +1,18 @@
+<form class="padding" name="setPayPwdForm" ng-submit="fn.doSetPwd()">
+  <div class="icon-close" ng-click="fn.close()"><i class="icon ion-android-close"></i></div>
+  <div class="item-input no-padding">
+    <input type="password" placeholder="请输入6-16位字母和数字" maxlength="16" required ng-model="data.pwd" ng-blur="fn.validPwd(data)" ng-change="data.pwdErr=false" clear-input>
+  </div>
+  
+  <small class="assertive" ng-show="data.pwdErr">
+    密码必须为6-16个字母和数字
+  </small>
+  <div class="item-input margin-top no-padding">
+     <input  type="password" placeholder="请再次输入支付密码" maxlength="16" required ng-model="data.pwdConfirm" ng-blur="fn.validPwdConfirm(data)" ng-change="data.pwdConfirmErr=false" clear-input>
+  </div>
+ 
+  <small class="assertive" ng-show="data.pwdConfirmErr">
+    两次密码输入不一致
+  </small>
+  <button class="button button-positive button-block" ng-disabled="setPayPwdForm.$invalid||data.pwdErr||data.pwdConfirmErr">确定</button>
+</form>

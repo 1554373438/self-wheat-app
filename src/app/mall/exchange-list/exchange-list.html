@@ -1,0 +1,17 @@
+<ion-view view-title="兑换记录" id="exchange_list">
+  <ion-content>
+    <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="eclist.doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-thumbnail-left item-icon-right margin-bottom no-border" ng-repeat="itme in eclist.items track by $index">
+        <img ng-src="https://www.nonobank.com/Public/Files/Chaobang/{{itme.cb_app_pic}}" class="small-icon">
+        <h3 class="padding-left padding-top">{{itme.cb_title}}</h3>
+        <div class="margin-left dbl-margin-top"><i class="ion-nob"></i><small>{{itme.cb_need_coins}}</small></div>
+        <small class="icon" ng-bind-html="itme.remark"></small>
+        <!-- <i class="icon ion-ios-arrow-right gray"></i> -->
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll ng-if="eclist.hasMoreData" on-infinite="eclist.loadMore()" spinner="bubbles" immediate-check="false" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

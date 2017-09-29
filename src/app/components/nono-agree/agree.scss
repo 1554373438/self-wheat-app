@@ -1,0 +1,21 @@
+.icon-checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px!important;
+  background: url(../assets/images/pay/icon_checkbox.png);
+  background-size: 24px auto;
+  left: 0;
+  &.on {
+    background-position: 0 -24px;
+  }
+}
+.agree-sheet {
+  .action-sheet-cancel .button{
+    color: $assertive;
+  }
+  .button {
+    font-size: 16px;
+  }
+}
+

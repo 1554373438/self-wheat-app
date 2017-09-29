@@ -1,0 +1,135 @@
+<ion-view class="has-footer invest-detail" id="invest-detail">
+  <ion-nav-title>{{::detail.info.title}}</ion-nav-title>
+  <ion-content delegate-handle="mainScroll" id="test">
+    <!--   <ion-refresher spinner="" pulling-icon="" pulling-text="下拉显示更多" on-refresh="detail.dragDown()">
+    </ion-refresher> -->
+    <!-- <pull-scroll pullend="detail.showDetail" id="pull_container"> -->
+    <detail-scroll>
+      <div id="pro-detail">
+        <product-detail-header product="detail.info" }}>
+        </product-detail-header>
+        <section class="item item-borderless dbl-padding-horizontal padding-vertical mode margin-bottom" ng-if="detail.info.scope == 15">
+          <div class="margin-top">
+            <month-column info="detail.info.rateAll"></month-column>
+            <p class="tip_icon"><span class="assertive">{{::detail.info.lockDay || 0}}</span>天后可随时申请退出, 最多可持有12个月</p>
+          </div>
+        </section>
+        <section class="item item-borderless dbl-padding-horizontal padding-vertical mode dbl-padding-top margin-bottom">
+          <div class=" col col-80 anto">
+            <div class="progress dbl-margin-top dbl-margin-bottom">
+              <i>
+          <span class="small margin-t25">开始投资</span>
+          <span class="small margin-top">{{::detail.info.investDate}}</span>
+        </i>
+              <i>
+          <span class="small margin-t25">{{detail.info.scope == 15 ? '次日计息' : '当日计息'}}</span>
+          <span class="small margin-top">{{::detail.info.startDate}}</span>
+        </i>
+              <i ng-if="detail.info.scope == 15">
+          <span class="small margin-t25 gray">{{detail.info.lockDay || 0}}天后可退出</span>
+        </i>
+              <i>
+          <span class="small margin-t25">自动申请债转</span>
+          <span class="small margin-top">{{::detail.info.endDate}}</span>
+        </i>
+            </div>
+          </div>
+          <div class="points margin-left margin-right dbl-margin-top padding-bottom">
+            <p class="tip_icon dbl-margin-top">投资10000元，{{::detail.info.expect}}个月预期收益可达<span class="assertive">{{::detail.info.interest | currency:''}}元</span></p>
+          </div>
+        </section>
+        <product-security>
+        </product-security>
+        <div class="scrollBottom">继续拖动，松开查看产品详情</div>
+      </div>
+      <!-- <div id="pro-info" ng-style="detail.style" class="light-bg" ng-if="detail.showDetail"> -->
+      <div id="pro-info" ng-style="detail.style" class="light-bg">
+        <nono-tabs type="positive" ng-model="detail.sliderIndex" tabs-top="true">
+          <nono-tab title="产品详情" value="0"></nono-tab>
+          <nono-tab title="借款信息" value="1"></nono-tab>
+          <nono-tab title="投资记录" value="2"></nono-tab>
+        </nono-tabs>
+        <ion-slides options="options" slider="data.slider" showPager="false">
+          <ion-slide-page class="plan-list">
+            <ion-scroll>
+              <ion-list>
+                <ion-item class="item-borderless" ng-repeat="item in detail.productInfo">
+                  <p class="row row-center">{{::item.title}}</p>
+                  <small class="row row-center gray item-text-wrap">{{::item.content}}</small>
+                </ion-item>
+                <ion-item class="item-borderless" ng-if="detail.info.scope == 15">
+                  <p class="row row-center">常见问题</p>
+                  <small class="row row-centeritem-text-wrap">查看<span class="positive" ui-sref="monthUp:help">帮助中心</span></small>
+                </ion-item>
+                <ion-item class="item-borderless">
+                  <p class="row row-center">服务协议</p>
+                  <small ng-if="detail.info.scope != 15" class="row row-center item-text-wrap positive" ui-sref="instructions({type: detail.info.scope, collectionMode: detail.info.collectionMode})">《{{::detail.info.insName}}说明书》</small>
+                  <small class="row row-center item-text-wrap positive" ng-click="detail.showTemplate()">《{{::detail.info.title}}协议书》</small>
+                </ion-item>
+              </ion-list>
+              <div class="scrollBottom">温馨提示：投资有风险，请谨慎投资</div>
+            </ion-scroll>
+          </ion-slide-page>
+          <ion-slide-page>
+            <div class="empty" ng-if="detail.borInvestedUsers.length == 0">
+              <img src="assets/images/err_empty.png" alt="" style="width:96px;">
+              <p class="font-16 light-grey dbl-padding-top dbl-margin-top">暂无内容</p>
+            </div>
+            <ion-scroll>
+              <ion-list>
+                <ion-item class="row row-center item-borderless " ng-repeat="user in detail.borInvestedUsers" ng-click="detail.goToBorDetail($index)">
+                  <div class="col text-ellipsis">
+                    <p class="dark">借款人&nbsp;<span>{{::user.real_name}}</span></p>
+                    <small class="gray">{{::user.bo_title}}</small>
+                  </div>
+                  <div class="item-note dark margin-right">
+                    <p>{{::user.bo_price}}</p>
+                    <span class="small gray">借款金额</span>
+                  </div>
+                  <i class="icon ion-ios-arrow-right gray"></i>
+                </ion-item>
+              </ion-list>
+              <ion-infinite-scroll ng-if="detail.borHasMoreData" on-infinite="detail.borLoadMore()" distance="1%">
+              </ion-infinite-scroll>
+            </ion-scroll>
+          </ion-slide-page>
+          <ion-slide-page class="records-list">
+            <div class="empty" ng-if="detail.investedUsers.length == 0">
+              <img src="assets/images/err_empty.png" alt="" style="width:96px;">
+              <p class="font-16 light-grey dbl-padding-top dbl-margin-top">暂无内容</p>
+            </div>
+            <p class="col text-center no-margin gray small" ng-if="detail.investedUsers.length != 0"><i><img src="assets/images/tip_icon.png" alt=""></i>当前投资人数为<span class="assertive">{{::detail.total_num}}</span>人，累计金额<span class="assertive">{{::detail.total_amount}}</span>元</p>
+            <p class="row  gray no-margin no-padding" ng-if="detail.investedUsers.length != 0">
+              <span class="col col-33">投资人</span>
+              <span class="col col-33 text-center">投资金额(元)</span>
+              <span class="col col-33 text-right">投资时间</span>
+            </p>
+            <ion-scroll>
+              <ion-list>
+                <ion-item class="item-borderless" ng-repeat="user in detail.investedUsers">
+                  <p class="row no-padding bottom">
+                    <span class="col col-33 dark">{{::user.username}}</span>
+                    <span class="col col-33 dark text-center">{{::user.amount_payed}}</span>
+                    <span class="col col-33 gray">{{::user.service_time && user.service_time.substr(5)}}</span>
+                  </p>
+                </ion-item>
+              </ion-list>
+              <ion-infinite-scroll ng-if="detail.hasMoreData" on-infinite="detail.loadMore()" distance="1%">
+              </ion-infinite-scroll>
+            </ion-scroll>
+          </ion-slide-page>
+        </ion-slides>
+      </div>
+      <!--       <ion-infinite-scroll on-infinite="detail.scrollComplete()" distance="0" icon="下拉加载更多">
+      </ion-infinite-scroll> -->
+    </detail-scroll>
+    <!-- </pull-scroll> -->
+  </ion-content>
+  <div class="bar bar-footer block border-top">
+    <p class="text-center gray small">可投金额<span class="assertive">{{::detail.info.balance|floor}}</span>/{{::detail.info.price|floor}}(元)
+    </p>
+    <button class="button button-positive button-block" ng-click="detail.purchase()" ng-disabled="detail.status == 99">
+      <span>{{detail.status ==99 ? '已售罄' : '立即投资'}}</span>
+    </button>
+  </div>
+</ion-view>

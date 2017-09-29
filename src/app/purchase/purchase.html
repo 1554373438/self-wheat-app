@@ -1,0 +1,53 @@
+<ion-view class="purchase-view has-footer">
+  <ion-nav-title>投资</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" ui-sref="limit">
+      限额说明
+    </a>
+  </ion-nav-buttons>
+  <ion-content>
+    <section class="item item-borderless bg-positive white info">
+      <header class="font-16">
+        {{purchase.order.title}}
+      </header>
+      <div class="row row-center">
+        <div class="name">{{+purchase.order.productType == 16 ? '借款年化利率(%)' : '历史年化收益率约(%)';}}</div>
+        <div class="col font-24">
+          <span>{{purchase.order.productType == 15 ? purchase.order.rateShow : purchase.order.rate}}</span><span class="small" ng-if="+purchase.selectedInterest.value>0">+{{purchase.selectedInterest.value}}</span>
+        </div>
+      </div>
+      <div class="row row-center rown-no-padding">
+        <div class="col border-right">
+          <span class="name">剩余可投(元)</span>
+          <span>{{purchase.order.balance|number:2}}</span>
+        </div>
+        <div class="col relative">
+          <i class="icon-line"></i>
+          <span class="name padding-left">项目期限({{purchase.order.unit == 0 ? '月': '天'}})</span>
+          <span>{{purchase.order.expect}}</span>
+        </div>
+      </div>
+    </section>
+    <div class="item item-borderless bottom-line">
+      账户余额(元)
+      <span class="item-note assertive">{{purchase.userBalance}}</span>
+    </div>
+    <invest-counter plan="purchase.order" ng-model="purchase.order"></invest-counter>
+    <section class="payment">
+      <div class="item item-icon-right" ng-click="purchase.goCouponPage('coupon')">
+        现金券
+        <span class="item-note assertive" ng-if="!purchase.selectedCash.value">{{purchase.selectedCash.hasCoupon ? '未使用现金券' : '暂无可用的现金券'}}</span>
+        <span class="item-note positive" ng-if="purchase.selectedCash.value">{{purchase.selectedCash.value}}元现金券</span>
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+      <div class="item item-icon-right" ng-if="purchase.order.productType==5 || purchase.order.productType==2" ng-click="purchase.goCouponPage('interest')">
+        加息券
+        <span class="item-note assertive" ng-if="!purchase.selectedInterest.value">{{purchase.selectedInterest.hasCoupon ? '未使用加息券' : '暂无可用的加息券'}}</span>
+        <span class="item-note positive" ng-if="purchase.selectedInterest.value">{{purchase.selectedInterest.value}}%加息券</span>
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+      <nono-agree agree="purchase.agreeTos" type="purchase.order.productType" id="purchase.order.id" title="purchase.order.title"></nono-agree>
+    </section>
+  </ion-content>
+  <nono-pay-footer order="purchase.order" balance="purchase.userBalance" agreetos="purchase.agreeTos"></nono-pay-footer>
+</ion-view>

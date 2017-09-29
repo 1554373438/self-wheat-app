@@ -1,0 +1,41 @@
+#purchase_success {
+  .dbl-padding-horizontal {
+    padding: 32px 0;
+  }
+ 
+  .icon-success {
+    display: inline-block;
+    width: 56px;
+    height: 56px;
+    background: url(#{$img-path}pay/icon_pay_success.png) no-repeat;
+    background-size: 100% 100%;
+  }
+  .info {
+    padding-left: 40px;
+    li {
+      position: relative;
+      padding: 0 0 30px 30px;
+      border-left: 1px solid $border-color;
+      &.active {
+        border-left: 1px solid #30A9F4;
+        .icon-step {
+          background-position: 0 -18px;
+        }
+      }
+    }
+    li:last-child {
+      padding-bottom: 0;
+      border-left: none;
+    }
+    .icon-step {
+      position: absolute;
+      top: 0;
+      left: -9px;
+      width: 18px;
+      height: 18px;
+      background: url(#{$img-path}pay/pay_success_step.png) no-repeat;
+      background-size: 18px auto;
+      background-position: 0 0;
+    }
+  }
+}

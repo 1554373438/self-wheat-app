@@ -1,0 +1,171 @@
+<ion-view view-title="投资记录" id="records_list">
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-back-button back-button class="button-clear">
+      <i class="icon ion-ios-arrow-left"></i>
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <a class="button button-clear" style="" ui-sref="records:transfer({type:1})">转让记录</a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <nono-tabs type="positive" ng-model="list.sliderIndex"  tabs-top="true">
+    <nono-tab title="计划类" value="0"></nono-tab>
+    <nono-tab title="月月升" value="1"></nono-tab>
+    <nono-tab title="诺诺盈" value="2"></nono-tab>
+    <nono-tab title="债转类" value="3"></nono-tab>
+  </nono-tabs>
+  <ion-content>
+    <ion-slides slider="data.slider">
+      <ion-slide-page class="plan">
+        <div class="empty" id="jh" ng-show="list.jhInfo.jhData">
+          <img src="assets/images/record-empty.png" alt="" style="width:85px;">
+          <p class="font-16 dbl-padding-top">暂无投资记录</p>
+          <p class="empty-tip dbl-margin-top" ng-click="list.goProduct(0)">去投资</p>
+        </div>
+        <ion-scroll ng-if="list.jhInfo.planList.length != 0">
+          <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="list.jhInfo.loadPlanList(true)">
+          </ion-refresher>
+          <div class="item item-borderless small gray" ng-repeat="item in list.jhInfo.planList track by $index" ng-class="{end: item.appShowStatus == 1}" ng-click="list.goDetail($index)">
+            <div class="row row-no-padding dbl-margin-bottom">
+              <div class="col">{{item.title}}</div>
+              <div class="col text-right">
+                <p class="solid-tip" ng-switch on="item.appShowStatus" ng-class="{active: item.appShowStatus == 1}">
+                  <span ng-switch-when="0">持有中</span>
+                  <span ng-switch-when="1">已结束</span>
+                  <span ng-switch-when="2">可转让</span>
+                </p>
+              </div>
+            </div>
+            <div class="row row-no-padding margin-bottom">
+              <div class="col col-40 dark font-20">{{+item.appShowStatus == 1 ? (+item.amount|currency:'') : (+item.residueAmount|currency:'')}}</div>
+              <div class="col dark" ng-class="{'font-16': item.profit != null }" ng-if="+item.appShowStatus == 1">{{item.profit == null ? '计算中' : (+item.profit|currency:'')}}</div>
+              <div class="col dark" ng-class="{'font-16': item.anticipatedIncome != null }" ng-if="+item.appShowStatus != 1">{{item.anticipatedIncome == null ? '计算中' : (+item.anticipatedIncome|currency:'')}}</div>
+              <div class="col col-33 text-right energized font-16">{{item.finish_Date}}</div>
+            </div>
+            <div class="row row-no-padding margin-bottom">
+              <div class="col col-40">本金(元)</div>
+              <div class="col">{{+item.appShowStatus == 1 ? '已获收益' : '预期收益'}}(元)</div>
+              <div class="col col-33 text-right">到期时间</div>
+            </div>
+          </div>
+          <ion-infinite-scroll ng-if="list.hasMoreDataPlan" on-infinite="list.jhInfo.loadPlanList()" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page class="mon-up">
+        <div class="empty" id="yys" ng-show="list.yysInfo.yysData">
+          <img src="assets/images/record-empty.png" alt="" style="width:85px;">
+          <p class="font-16 dbl-padding-top">暂无投资记录</p>
+          <p class="empty-tip dbl-margin-top" ng-click="list.goProduct(0)">去投资</p>
+        </div>
+        <ion-scroll ng-if="list.yysInfo.monUpList.length != 0">
+          <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="list.yysInfo.loadMonUpList(true)">
+          </ion-refresher>
+          <div class="item item-borderless small gray" ng-repeat="item in list.yysInfo.monUpList track by $index" ng-class="{end: item.appShowStatus == 2}" ng-click="list.goDetail($index)">
+            <div class="row row-no-padding dbl-margin-bottom">
+              <div class="col">月月升</div>
+              <div class="col text-right">
+                <p class="solid-tip" ng-switch on="item.appShowStatus" ng-class="{active: item.appShowStatus == 2}">
+                  <span ng-switch-when="0">持有中</span>
+                  <span ng-switch-when="1">退出中</span>
+                  <span ng-switch-when="2">已退出</span>
+                  <span ng-switch-when="3">锁定中</span>
+                  <span ng-switch-when="4">{{item.appShowStatusDesc}}</span>
+                </p>
+              </div>
+            </div>
+            <div class="row row-no-padding margin-bottom">
+              <div class="col col-40 dark font-20">{{+item.appShowStatus == 2 ? (+item.amount|currency:'') : (+item.residueAmount|currency:'')}}</div>
+              <div class="col font-16 energized relative">
+                {{item.rateShow}}
+                <span class="month-tip small" ng-if="+item.appShowStatus == 0 || +item.appShowStatus == 3">{{item.nextStageDay}}天后增息至{{item.nextStageRate}}%
+                  <i class="arrow-down"></i>
+                </span>
+              </div>
+              <div class="col col-33 text-right dark" ng-class="{'font-16': item.profit != null }">{{item.profit == null ? '计算中' : (+item.profit|currency:'')}}</div>
+            </div>
+            <div class="row row-no-padding margin-bottom">
+              <div class="col col-40">本金(元)</div>
+              <div class="col">{{ item.appShowStatus == 1 || item.appShowStatus == 2 ? '实际收益率' : '当前收益率'}}</div>
+              <div class="col col-33 text-right">{{+item.appShowStatus == 2 ? '已获收益' : '累计收益'}}(元)</div>
+            </div>
+          </div>
+          </div>
+          <ion-infinite-scroll ng-if="list.hasMoreDataMonUp" on-infinite="list.yysInfo.loadMonUpList()" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page class="direct">
+        <div class="empty" id="nny" ng-show="list.nnyInfo.nnyData">
+          <img src="assets/images/record-empty.png" alt="" style="width:85px;">
+          <p class="font-16 dbl-padding-top">暂无投资记录</p>
+          <p class="empty-tip dbl-margin-top" ng-click="list.goProduct(1)">去投资</p>
+        </div>
+        <ion-scroll ng-if="list.nnyInfo.nnyList.length != 0">
+          <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="list.nnyInfo.loadNnyList(true)">
+          </ion-refresher>
+          <div class="item item-borderless small gray" ng-repeat="item in list.nnyInfo.nnyList" ng-class="{end: item.status != 0 &&  item.status != 1}" ng-click="list.goDetail($index)">
+            <div class="row row-no-padding dbl-margin-bottom">
+              <div class="col">诺诺盈</div>
+              <div class="col text-right">
+                <p class="solid-tip" ng-switch on="item.status">
+                  <span ng-switch-when="0">待满标</span>
+                  <span ng-switch-when="1">收款中</span>
+                  <span ng-switch-when="2">已结束</span>
+                  <span ng-switch-when="3">已结束</span>
+                  <span ng-switch-when="4">已流标</span>
+                </p>
+              </div>
+            </div>
+            <div class="row row-no-padding margin-bottom">
+              <div class="col col-40 dark" ng-class="{'font-20': +item.status != 0 && +item.status != 4}">{{+item.status == 0 ? '满标后计算' : (+item.status == 4 ? '已流标' : +item.monthPayAmount|currency:'')}}</div>
+              <div class="col dark font-16">{{(+item.status == 0 || +item.status == 4) ? '－' : item.payDay}}<span ng-class="{'font-14': +item.status != 0 && +item.status != 4}" ng-if="+item.status != 0 && +item.status != 4">号</span></div>
+              <div class="col col-33 text-right energized font-16">{{(+item.status == 0 || +item.status == 4) ? '－' : (item.payExpect+'/'+item.boExpect)}}<span class="font-14" ng-if="+item.status != 0 && +item.status != 4">期</span></div>
+            </div>
+            <div class="row row-no-padding margin-bottom">
+              <div class="col col-40">每月收款(元)</div>
+              <div class="col">每月收款时间</div>
+              <div class="col col-33 text-right">收款进度</div>
+            </div>
+          </div>
+          <ion-infinite-scroll ng-if="list.hasMoreDataRecordDirect" on-infinite="list.nnyInfo.loadNnyList()" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page>
+        <div class="empty" id="zz" ng-show="list.zzInfo.zzData">
+          <img src="assets/images/record-empty.png" alt="" style="width:85px;">
+          <p class="font-16 dbl-padding-top">暂无投资记录</p>
+          <p class="empty-tip dbl-margin-top" ng-click="list.goProduct(2)">去投资</p>
+        </div>
+        <ion-scroll ng-if="list.zzInfo.debtList.length != 0">
+          <ion-refresher spinner="bubbles" pulling-icon="ion-ios-arrow-thin-down" pulling-text="下拉刷新" on-refresh="list.zzInfo.loadDebtList(true)">
+          </ion-refresher>
+          <div class="item item-borderless small gray" ng-repeat="item in list.zzInfo.debtList" ng-class="{end: item.status == 2}" ng-click="list.goDetail($index)">
+            <div class="row row-no-padding dbl-margin-bottom">
+              <div class="col">{{item.title}}</div>
+              <div class="col text-right">
+                <p class="solid-tip" ng-switch on="item.status">
+                  <span ng-switch-when="1">收款中</span>
+                  <span ng-switch-when="2">已结束</span>
+                </p>
+              </div>
+            </div>
+            <div class="row row-no-padding margin-bottom">
+              <div class="col col-40 dark font-20">{{+item.monthPayAmount|currency:''}}</div>
+              <div class="col font-16 dark">{{+item.payDay}}<span class="font-14">号</span></div>
+              <div class="col col-33 text-right energized font-14"><span class="font-16">{{item.payExpect+'/'+item.expect}}</span>期</div>
+            </div>
+            <div class="row row-no-padding margin-bottom">
+              <div class="col col-40">每月收款(元)</div>
+              <div class="col">每月收款时间</div>
+              <div class="col col-33 text-right">收款进度</div>
+            </div>
+          </div>
+          <ion-infinite-scroll ng-if="list.hasMoreDataDebt" on-infinite="list.zzInfo.loadDebtList()" distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-content>
+</ion-view>

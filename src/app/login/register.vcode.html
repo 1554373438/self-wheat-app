@@ -1,0 +1,24 @@
+<ion-modal-view class="login-view">
+  <ion-content>
+    <div class="top-bar relative">
+      <i class="icon icon-back" ng-click="fn.goBack()"></i>
+    </div>
+    <section class="dbl-margin-horizontal register">
+      <div class="text-center  mar-bot-24">
+        <p class="font-18">{{fn.registerLog?'请输入验证码':'找回密码'}}</p>
+        <span class="small-font">短信验证码将发送至你的手机{{::user.userTel}}</span>
+      </div>
+      <div class=" row code-f dbl-margin-bottom self" >
+        <div class="col code-t col-60">
+          <input id="code_input" type="text" ng-model="user.userVcode" placeholder="请输入验证码" maxlength="6" ng-disabled="fn.registerLog&&!fn.sureCaptaha" required clear-input>
+        </div>
+        <!-- 完成图片验证码和找回密码之后显示的倒计时 -->
+        <button ng-if="fn.countdown>0 &&(!fn.registerLog || fn.sureCaptaha) " class="col col-40 no-padding">重新发送({{fn.countdown}}s)</button>
+        <button ng-if="fn.countdown==0" class="col col-40 no-padding main-positive-color" ng-click="fn.sendMsg()">{{fn.btnText}}</button>
+
+      </div>
+      <button class="button button-block button-positive margin-top-30" ng-disabled="!user.userVcode" ng-click="fn.goInSetPwd()">下一步</button>
+    </section>
+
+  </ion-content>
+</ion-modal-view>

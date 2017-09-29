@@ -1,0 +1,7 @@
+<div class="c-sliders-container">
+  <ul class="c-sliders">
+    <li class="c-slider" ng-repeat="slider in sliders track by slider.id" ng-click="select($index)">
+      <img ng-src="{{::slider.path}}" alt="{{::slider.name}}" />
+    </li>
+  </ul>
+</div>

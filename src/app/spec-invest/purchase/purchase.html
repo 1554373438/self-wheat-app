@@ -1,0 +1,86 @@
+<ion-view id="spec_purchase_view" class="purchase-view has-footer">
+  <ion-nav-title>投资</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" ui-sref="limit">
+      限额说明
+    </a>
+  </ion-nav-buttons>
+  <ion-content>
+    <section class="item item-borderless bg-positive white info">
+      <header class="font-16 text-ellipsis">
+        {{purchase.order.title}}
+      </header>
+      <div class="row row-center">
+        <div class="name">预期年华利率(%)</div>
+        <div class="col font-24">
+          <span>{{purchase.order.rate}}</span><span class="font-20"></span>
+        </div>
+      </div>
+      <div class="row row-center rown-no-padding">
+        <div class="col border-right">
+          <span class="name">预计收益(元)</span>
+          <span>{{purchase.order.earnings|number:2}}</span>
+        </div>
+        <div class="col relative">
+          <i class="icon-line"></i>
+          <span class="name padding-left">项目期限({{purchase.order.unit==0 ? '月': '天'}})</span>
+          <span>{{purchase.order.expect}}</span>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="item item-borderless dbl-padding-horizontal margin-bottom">
+        投资金额(元)
+        <div class="item-note"><span class="assertive">{{purchase.order.price| number:2}}</span></div>
+      </div>
+      <a class="item item-borderless item-icon-right dbl-padding-horizontal margin-bottom" ui-sref="invest:intro({id: purchase.order.id})">
+        产品介绍
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </a>
+      <div>
+        <a class="item item-borderless item-icon-right dbl-padding-horizontal gray" ui-sref="specInvest:address">
+          收货信息
+          <i class="icon ion-ios-arrow-right gray"></i>
+        </a>
+        <div class="dbl-padding-horizontal padding-bottom light-bg small address-info">
+          <p><span>联系人</span><span>{{purchase.order.receiver}}</span></p>
+          <p><span>联系方式</span><span>{{purchase.order.mobileNum}}</span></p>
+          <p><span>收货地址</span><span>{{purchase.order.address}}</span></p>
+          <p><span></span><span class="gray">*特殊人要求请在地址栏备注</span></p>
+        </div>
+    </section>
+    <section class="payment">
+      <div class="item item-icon-right" ng-click="purchase.goCouponPage('coupon')">
+        现金券
+        <span class="item-note assertive" ng-if="!purchase.selectedCash.value">{{purchase.selectedCash.hasCoupon ? '未使用现金券' : '暂无可用的现金券'}}</span>
+        <span class="item-note positive" ng-if="purchase.selectedCash.value">{{purchase.selectedCash.value}}元现金券</span>
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+      <div class="item item-icon-right" ng-click="purchase.goCouponPage('interest')">
+        加息券
+        <span class="item-note assertive">暂无可使用的加息券</span>
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+    </section>
+  </ion-content>
+  <nono-pay-footer order="purchase.order" user="purchase.user" has-count=true ></nono-pay-footer>
+  <!-- <div class="bar bar-footer pay-footer">
+    <div class="gray item item-icon-left item-border-bottom">
+      <i class="icon icon-checkbox" ng-class="{'check-on': purchase.balanceChecked , 'check-off': !purchase.balanceChecked}" ng-click="purchase.balanceChecked = !purchase.balanceChecked"></i>
+      <div>
+        余额支付(元)
+        <span class="inline-block margin-left">{{purchase.user.balance}}</span>
+      </div>
+    </div>
+    <div class="row row-center">
+      <div class="col">
+        <div class="assertive font-24 margin-bottom">{{purchase.balanceChecked ? (purchase.order.price-purchase.selectedCash.value-purchase.user.balance)
+          < 0 ? 0 :(purchase.order.price-purchase.selectedCash.value-purchase.user.balance ) : purchase.order.price-purchase.selectedCash.value | number:2}}</div>
+            <div>待支付(元)</div>
+        </div>
+        <button class="button button-positive button-block col" ng-click="purchase.confirm()" ng-disabled="!purchase.order.price">
+          <span>确认支付</span>
+        </button>
+      </div>
+    </div> -->
+</ion-view>

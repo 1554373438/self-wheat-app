@@ -1,0 +1,23 @@
+[
+	{
+		"name":"普通",
+		"icon":"icon-v0",
+		"level":[0,1,2,3]	
+	},
+	{
+		"name":"VIP",
+		"icon":"icon-v1",
+		"level":[1,2,3]	
+	},
+	{
+		"name":"VIP",
+		"icon":"icon-v2",
+		"level":[2,3]	
+	},
+	{
+		"name":"VIP",
+		"icon":"icon-v3",
+		"level":[3]	
+	}
+	
+]	

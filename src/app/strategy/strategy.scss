@@ -1,0 +1,122 @@
+#strategy_view {
+  .scroll-wrap {
+    width: 100%;
+    padding-top: 40%;
+    background: #fff url(#{$img-path}strategy/banner.jpg) no-repeat;
+    background-size: 100% auto;
+    padding-bottom: 10px;
+    .scroll-list {
+      display: block;
+      width: 100%;
+      padding: 10px 16px 16px;
+      overflow-x: hidden; // fix extra space
+      .typeitem {
+        margin-right: 16px;
+        min-width: 125px;
+        width: 125px;
+        height: 160px;
+        border-radius: 5px;
+        background: $light;
+        box-shadow: 1px 1px 1px #f5f5f5;
+        ;
+        &:last-child {
+          margin-right: 0;
+        }
+        .scroll-icon {
+          height: 65px;
+          margin: 0 auto;
+          .icon {
+            display: inline-block;
+            width: 75px;
+            height: 65px;
+          }
+
+          .icon01 {
+            background: url(../assets/images/strategy/scroll_01.png) no-repeat center;
+            background-size: 75px auto;
+          }
+          .icon01.gray {
+            background: url(../assets/images/strategy/scroll_01gray.png) no-repeat center;
+            background-size: 75px auto;
+          }
+          .icon02 {
+            background: url(../assets/images/strategy/scroll_02.png) no-repeat center;
+            background-size: 61px auto;
+          }
+          .icon02.gray {
+            background: url(../assets/images/strategy/scroll_02gray.png) no-repeat center;
+            background-size: 61px auto;
+          }
+          .icon03 {
+            background: url(../assets/images/strategy/scroll_03.png) no-repeat center;
+            background-size: 67px auto;
+          }
+          .icon03.gray {
+            background: url(../assets/images/strategy/scroll_03gray.png) no-repeat center;
+            background-size: 67px auto;
+          }
+        }
+        .icon-title {
+          margin: 8px 0;
+          height: 35px;
+          &.title-center {
+            line-height: 35px;
+          }
+        }
+      }
+    }
+    .btn {
+      width: 100%;
+      padding: 0 25px;
+      margin-bottom: 0;
+    }
+  }
+
+  .plan {
+    position: relative;
+    .bg-left {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      img {
+        width: 85px;
+      }
+    }
+    .bg-right {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      img {
+        width: 40px;
+      }
+    }
+  }
+  .items-icon {
+    height: 25px;
+    margin-bottom: 8px;
+    background:url(#{$img-path}/strategy/icon.png) no-repeat;
+    background-size: 26px auto;
+    margin: 0 auto 8px auto;
+
+    &.icon_01 {
+      width: 22px;
+      height: 26px;
+      background-position: 0 0;
+    }
+    &.icon_02 {
+      width: 24px;
+      height: 23px;
+      background-position: -0px -26px;
+    }
+    &.icon_03 {
+      width: 26px;
+      height: 24px;
+      background-position: -0px -49px;
+    }
+    &.icon_04 {
+      width: 20px;
+      height: 26px;
+      background-position: -0px -73px;
+    }
+  }
+}

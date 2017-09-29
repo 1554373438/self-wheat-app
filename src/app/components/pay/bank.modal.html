@@ -1,0 +1,26 @@
+<ion-modal-view class="pay-modal">
+  <div class="bar bar-header">
+    <button class="button button-icon icon ion-ios-arrow-left gray" ng-click="fn.back()"></button>
+    <div class="h1 title">选择付款方式</div>
+  </div>
+  <ion-content>
+    <section>
+      <div class="dbl-margin-horizontal pay-card-list">
+        <div class="item item-icon-left card-item item-borderless border-bottom" ng-repeat="item in data.cardList track by $index" ng-click="fn.doSelectCard($index)">
+          <i class="icon">
+            <div class="bank-logo" name="{{::item.bankName}}"></div>
+          </i>
+          <h2>{{::item.bankName}}({{::item.tail}})</h2>
+          <div class="small">
+            <span>单笔{{item.singleLimit/10000}}万，单日{{item.dayLimit?item.dayLimit/10000+'万元':'无限额'}}，单月{{item.monthLimit?item.monthLimit:'无限额'}}</span>
+          </div>
+          <span ng-class="{'icon-selected':item.selected}"></span>
+        </div>
+      </div>
+      <div class="item item-icon-right item-borderless border-bottom" ng-click="fn.addCard()">
+        使用新卡支付
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+    </section>
+  </ion-content>
+</ion-modal-view>

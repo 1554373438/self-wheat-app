@@ -1,0 +1,39 @@
+#setting{
+  .item{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 0;
+    margin-top: 0;
+    margin-bottom: 1px;
+    a{
+      text-decoration: none;
+    }
+       .small{
+        padding: 1px 5px;
+        background: #2CC56C;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        color: #fff;
+        vertical-align: top;
+        margin-left: 3px;
+        display: line-block;
+        box-shadow:0 0 2px #219954;
+      }
+  
+  }
+}
+.setting-popup-container {
+    a{
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .popup-body{
+      padding-bottom:10px;
+    }
+    .popup-buttons{
+      border-top:none;
+    }
+  }
+

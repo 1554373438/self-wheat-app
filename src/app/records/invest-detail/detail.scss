@@ -1,0 +1,98 @@
+#records_detail {
+  .has-footer {
+    bottom: 50px;
+  }
+  .item {
+    padding-left: 0;
+    border-bottom: 1px solid $border-color;
+    margin: 0;
+  } 
+  .info-top {
+    .amount {
+      position: relative;
+      &:after {
+        content: '';
+        width: 1px;
+        height: 40px;
+        background: #45A3FF;
+        position: absolute;
+        top: 10%;
+        right: 0;
+      }
+    }
+    small {
+      color: #B1DBFF;
+    }
+  }
+  .item {
+    .ion-ios-arrow-right {
+      right: 6px;
+    }
+    &.item-icon-right {
+      padding-right: 35px;
+    } 
+    
+  }
+
+  .welfare-tip {
+    height: 16px;
+    line-height: 16px;
+    padding: 0 5px;
+    border: 1px solid #FD8516;
+    ;
+    border-radius: 2px;
+    color: #FD8516;
+    display: inline-block;
+    margin-right: 2px;
+  }
+  
+  .bar-footer {
+    padding: 0;
+    .instr {
+      display: inline-block;
+      vertical-align: middle;
+      width: 16px;
+      height: 16px;
+      background: url(../assets/images/instr-plan.png) no-repeat;
+      background-size: cover;
+      &.mon-up {
+        background: url(../assets/images/instr-mon.png) no-repeat;
+        background-size: cover;
+      }
+    }
+    .tip {
+      display: inline-block;
+    }
+  }
+}
+
+.record-popup {
+  .popup-head {
+    h3 {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+  }
+  .popup-body {
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  .popup-buttons {
+    padding: 10px;
+    padding-top: 0;
+    border-top: none;
+    .button {
+      min-height: 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      &:after {
+        display: none;
+      }
+    }
+    .button:first-child {
+      background-color: #f29108;
+    }
+    .button:last-child {}
+  }
+}

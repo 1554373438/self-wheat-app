@@ -1,0 +1,100 @@
+.platform-cordova.platform-ios #records_list .scroll-content {
+  top: 113px;
+}
+
+#records_list {
+  .scroll-content {
+    top: 93px;
+  }
+  .scroll {
+    height: 100%;
+  }
+
+  ion-slides {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    height: auto;
+    .swiper-pagination {
+      display: none;
+    }
+  }
+  .scroll-view {
+    position: absolute;
+    width: 100%; // height: auto;
+    top: 2px;
+    bottom: 0;
+  }
+  .font-14{
+    font-size: 14px;
+  }
+  .item {
+    margin-top: 0;
+    margin-bottom: 1px;
+    &.activated {
+      background-color: #fff;
+    }
+    &.end {
+      .dark,
+      .energized {
+        color: $gray;
+      }
+      .solid-tip {
+        background: #CCC;
+      }
+      .del {
+        color: #3388d9;
+      }
+    }
+  }
+
+  .solid-tip {
+    background: #86B8F1;
+    border-radius: 2px;
+    padding: 2px 5px;
+    color: #fff !important;
+    display: inline;
+    font-size: 12px;
+    &.active {
+      background: #CCC;
+    }
+  }
+  .month-tip {
+    position: absolute;
+    top: -30px;
+    left: -20px;
+    min-width: 110px;
+    padding: 0 5px;
+    text-align: center;
+    background: #228DEA;
+    border-radius: 2px;
+    color: #fff;
+    .arrow-down {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #228DEA;
+      position: absolute;
+      left: 50px;
+      bottom: -5px;
+    }
+  }
+  .empty {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    padding-top: 100px;
+    .empty-tip {
+      background: #228DEA;
+      border-radius: 4px;
+      font-size: 16px;
+      color: #FFF;
+      padding: 6px 24px;
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+#defined_modal{
+  z-index:14;
+  background:rgba(0,0,0,.5);
+  .scroll {
+    height: 100%;
+  }
+  .row{
+    @include justify-content(center);
+  }
+  .defined-img{
+    display: block;
+    width: 295px;
+    height: auto;
+    border-radius: 4px;
+  }
+   .icon-close {
+    padding-top:40px; 
+  }
+  
+}

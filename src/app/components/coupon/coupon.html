@@ -1,0 +1,24 @@
+<div class="coupon-wrapper">
+  <div class="coupon row row-center" ng-class="{expired:info.isExpired,used:info.isUsed}">
+    <div class="amount col-center text-center">
+      <div ng-if="type=='interest'">
+        <div><span class="symbol">+</span>{{info.value}}<span class="symbol">%</span></div>
+        <span class="small">加息券</span>
+      </div>
+      <div ng-if="type!='interest'">
+        <div><span class="symbol">￥</span>{{info.value|number}}</div>
+        <span class="small">现金券</span>
+      </div>
+    </div>
+    <div class="col dashed padding-left">
+      <div class="item item-icon-right title item-borderless no-padding margin-bottom">
+        {{info.name}}
+        <span ng-if="!info.isExpired && !info.isUsed" class="small item-note" ng-class="{expired:info.isExpired||info.isUsed}" ui-sref="product({type:0})">立即使用</span>
+        <i ng-if="!info.isExpired && !info.isUsed" class="icon ion-ios-arrow-right"></i>
+      </div>
+      <p class="desc">{{info.remark}}</p>
+      <span class="date">有效期至{{info.expireDate}}</span>
+    </div>
+  </div>
+  <!--<button class="assertive use" ng-disabled="item.status==3" ui-sref="product({type:0})">立即使用</button>-->
+</div>

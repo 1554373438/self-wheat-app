@@ -1,0 +1,62 @@
+<ion-view id="earnings" hide-nav-bar="true">
+  <ion-header-bar align-title="center" class="bar-light">
+    <button back-button class="button back-button buttons button-clear head-item" ng-click="$ionicGoBack()">
+      <i class="icon ion-ios-arrow-left"></i>
+    </button>
+    <div class="title">
+      <nono-tabs type="positive" ng-model="earnings.sliderIndex">
+        <nono-tab title="昨日收益" value="0"></nono-tab>
+        <nono-tab title="累计收益" value="1"></nono-tab>
+      </nono-tabs>
+    </div>
+  </ion-header-bar>
+  <ion-content scroll="false">
+    <ion-slides slider="data.slider">
+      <ion-slide-page>
+        <div class="donut-wrapper relative light-bg">
+          <i class="icon-info" ng-click="earnings.showTip()"></i>
+          <donut data="earnings.info.lastIncome"></donut>
+        </div>
+        <ion-list class="item-list light-bg">
+          <ion-item class="item-borderless item-icon-right" ng-repeat="item in earnings.info.lastIncome.items track by $index" ng-click="earnings.toggle($index)" ng-hide="item.hide">
+            <svg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg" class="no-padding">
+              <rect x="0" y="0" width="6" height="6" fill="{{item.color}}" />
+            </svg>
+            <span class="label">{{item.name}}</span>
+            <span class="item-note">{{item.amount}}</span>
+            <i class="icon" ng-class="{'ion-android-arrow-dropdown':!earnings.showDetail,'ion-android-arrow-dropup':earnings.showDetail}"></i>
+          </ion-item>
+        </ion-list>
+        <ion-scroll direction="y" ng-if="earnings.showDetail">
+          <article class="detail-list">
+            <ion-list ng-repeat="item in earnings.info.lastIncomeDetail track by $index" ng-if="earnings.info.lastIncomeDetail.length">
+              <ion-item class="item-borderless">
+                <span>{{item.productName}}</span>
+                <span class="item-note">{{item.income}}</span>
+                <!-- <i class="icon ion-ios-arrow-right"></i> -->
+              </ion-item>
+            </ion-list>
+            <div class="empty-box text-center" ng-if="!earnings.info.lastIncomeDetail.length" class="text-center dbl-padding-top">
+              <img src="assets/images/icon_empty.png">
+              <p class="gray font-16 margin-top">没有更多数据</p>
+            </div>
+          </article>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page>
+        <div class="donut-wrapper relative light-bg">
+          <donut data="earnings.info.totalIncome"></donut>
+        </div>
+        <ion-list class="item-list light-bg">
+          <ion-item class="item-borderless" ng-repeat="item in earnings.info.totalIncome.items track by $index" >
+            <svg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg" class="no-padding">
+              <rect x="0" y="0" width="6" height="6" fill="{{item.color}}" />
+            </svg>
+            <span class="label">{{item.name}}</span>
+            <span class="item-note">{{item.amount}}</span>
+          </ion-item>
+        </ion-list>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,16 @@
+<ion-view id="purchase_success" class="has-footer">
+  <ion-nav-title>提现成功</ion-nav-title>
+  <ion-content>
+    <div class="text-center dbl-padding-horizontal border-bottom light-bg">
+      <i class="icon icon-success"></i>
+      <p class="font-16 dbl-margin-top">恭喜您成功提现{{::success.amount}}</p>
+      <p class="gray"><span count-down diff="success.countdown" callback="success.goBack()"></span>s后自动跳转</p>
+    </div>
+
+    <div class="dbl-margin" style="margin-top: 48px;">
+      <button class="button button-positive button-block" ui-sref="mine">
+        <span>完成</span>
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,211 @@
+#safe_view {
+  font-size: 13px;
+  #scroll_content .scroll {
+    position: relative;
+  }
+  .nono-tabs.tabs-top + .scroll-content,
+  nono-tabs + .scroll-content {
+    top: 89px;
+  }
+  .nono-tabs .tabs {
+    padding: 0;
+    height: 45px;
+    line-height: 45px;
+    box-shadow: 5px 6px 9px rgba(225, 219, 219, .5);
+  }
+  .tab-item {
+    color: #333;
+    font-size: 13px;
+    background: #fff;
+    &.tab-item-active {
+      background: #8bb1fb;
+      color: #fff;
+      border-bottom: none;
+    }
+  }
+  .part {
+    padding-bottom: 40px;
+    padding-top: 20px;
+  }
+  .part:nth-child(odd) {
+    background: #f1f0f6;
+  }
+  #part1 {
+    padding-top: 0;
+  }
+  #part2 .part2-pic {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .part-title,
+  .part-desc {
+    color: #3b5ab1;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 0;
+  }
+  .part-desc {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+  .part-title {
+    position: relative;
+    &:before,
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 35%;
+      height: 12px;
+      background: url(#{$img-path}safe/title_line.png) center left no-repeat;
+      background-size: 100% 1px;
+      margin-right: 5px;
+    }
+    &:after {
+      transform: rotate(180deg);
+      margin-right: 0;
+      margin-left: 5px;
+    }
+  }
+  .content-list {
+    padding-left: 20px;
+    padding-right: 20px;
+    li {
+      position: relative;
+      padding-left: 50px;
+      margin-bottom: 15px;
+    }
+    .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  .icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background: url(#{$img-path}safe/safe_icon.png) no-repeat;
+    background-size: 100% auto;
+  }
+  .part1-icon1 {
+    background-position: -0px -0px;
+  }
+  .part1-icon2 {
+    background-position: -0px -40px;
+  }
+  .part1-icon3 {
+    background-position: -0px -81px;
+    top: -5px!important;
+  }
+  .part1-icon4 {
+    background-position: -0px -121px;
+    top: -10px!important;
+  }
+  .part1-icon5 {
+    background-position: -0px -162px;
+    top: -2px!important;
+  }
+  .part2-icon1 {
+    background-position: -0px -202px;
+  }
+  .part2-icon2 {
+    background-position: -0px -242px;
+  }
+  .part2-icon3 {
+    background-position: -0px -283px;
+  }
+  .part3-icon1 {
+    background-position: -0px -324px;
+  }
+  .part3-icon2 {
+    background-position: -0px -364px;
+
+  }
+  .part3-icon3 {
+    background-position: -0px -404px;
+     top: -5px!important;
+  }
+  .part4-icon1 {
+    background-position: -0px -445px;
+  }
+  .process-control {
+    margin: 0 20px;
+    li {
+      margin-bottom: 30px;
+      @extend .row,
+      .row-center;
+    }
+    span:first-child {
+      margin-right: 30px;
+    }
+    span {
+      position: relative;
+      @extend .col;
+      line-height: 1.2;
+      background: #8aaffe;
+      padding: 5px 0 5px 10px;
+      border-radius: 3px;
+      color: #fff;
+      font-size: 12px;
+      display: block;
+      &:after {
+        content: '';
+        position: absolute;
+        left: -12px;
+        top: -16px;
+        width: 25px;
+        height: 37px;
+        background: url(#{$img-path}safe/icon_water.png) top left no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+  #part4 {
+    .part-title {
+      margin-bottom: 0;
+    }
+    .col-50 {
+      padding-left: 30px;
+    }
+    .col-50:nth-child(odd) {
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 6px;
+        right: 0;
+        width: 1px;
+        height: 30px;
+        background: #e0e0e0;
+      }
+    }
+    .no-border:after {
+      display: none!important;
+    }
+    .number {
+      color: #3b5ab1;
+      font-size: 20px;
+    }
+    .label {
+      color: #bdbdbd;
+      font-size: 12px;
+      &.light-color{
+        opacity: 0.6;
+      }
+    }
+    .gray {
+      color: #333;
+      font-size: 11px;
+    }
+    .data-title {
+      display: inline-block;
+      color: #3b5ab1;
+      padding: 10px 15px;
+      box-shadow: 0 2px 2px #f1f0f6;
+      border: 1px solid #f1f0f6;
+      margin-bottom: 25px;
+    }
+  }
+}

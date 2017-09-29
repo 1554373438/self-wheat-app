@@ -1,0 +1,38 @@
+#transfer{
+  .item{
+    padding: 17px 16px 30px 16px;
+    border-bottom: 1px solid #f5f5f5;
+    .title{
+      line-height: 17px;
+      color: #A0A0A0;
+      span:nth-child(2){
+        padding: 1px 3.5px;
+        background-color: #ccc;
+        color: #fff;
+        border-radius: 2px;
+        &.positive{
+          background-color: $positive;
+        }
+      }
+      .fl{
+        float: left;
+      }
+      .fr{
+        float: right;
+      }
+    }
+    .price{
+      color: #333;
+      line-height: 25px;
+      margin-top: 14px;
+      font-family: sans-serif;
+      span:nth-child(2){
+        color: #FD8516;
+      }
+    }
+    .intr{
+      margin-top: 10px;
+      color: #999;
+    }
+  }
+}

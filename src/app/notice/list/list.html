@@ -1,0 +1,43 @@
+<ion-view view-title="消息中心" class="msg-list">
+  <nono-tabs type="positive" ng-model="msg.sliderIndex" tabs-top="true">
+    <nono-tab title="公告资讯" value="0"></nono-tab>
+    <nono-tab title="系统消息" value="1"></nono-tab>
+  </nono-tabs>
+
+  <ion-content scroll="false">
+    <ion-slides options="options" slider="data.slider">
+      <ion-slide-page>
+        <ion-scroll>
+          <ion-list>
+            <ion-item class="item-borderless item-icon-right" ng-repeat="item in msg.info.notice.list track by item.id" ui-sref="msg:detail({type:0,id:item.id})">
+              <h3 class="dark no-margin">{{::item.title}}</h3>
+              <!-- <div ng-bind-html="::item.content" class="desc"></div> -->
+              <i class="icon ion-ios-arrow-right gray"></i>
+            </ion-item>
+          </ion-list>
+          <ion-infinite-scroll
+            ng-if="msg.info.notice.hasMoreData"
+            on-infinite="msg.loadMore()"
+            distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+      <ion-slide-page>
+        <ion-scroll>
+          <ion-list>
+            <ion-item class="item-borderless item-icon-right" ng-repeat="item in msg.info.system.list track by item.id" ui-sref="msg:detail({type:1,id:item.id})">
+              <h3 class="dark">{{::item.title}}</h3>
+              <div ng-bind-html="::item.content" class="desc"></div>
+              <i class="icon ion-ios-arrow-right gray"></i>
+            </ion-item>
+          </ion-list>
+          <ion-infinite-scroll
+            ng-if="msg.info.system.hasMoreData"
+            on-infinite="msg.loadMore()"
+            distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-modal-view class="pay-modal pay-pwd-modal">
+  <div class="bar bar-header">
+    <button class="button button-icon icon ion-ios-arrow-left gray" ng-click="fn.back()"></button>
+    <div class="h1 title">输入验证码</div>
+    <!-- <button class="button button-clear button-stable button-right" ng-click="fn.doQuickPay()">完成</button> -->
+  </div>
+  <ion-content>
+    <section>
+      <div class="modal-content ">
+        <span class="small gray padding-top inline-block">为了确认是您本人操作，已向您尾号为({{data.selectedCard.tail}})的银行卡预留手机发送验证码，输入验证码后完成扣款。</span>
+        <form class="smg-form row dbl-margin-vertical">
+          <div class="item item-input item-borderless row">
+            <input class="col" type="password" maxlength="1" ng-model="data.validCodeArr[0]">
+            <input class="col" type="password" maxlength="1" ng-model="data.validCodeArr[1]">
+            <input class="col" type="password" maxlength="1" ng-model="data.validCodeArr[2]">
+            <input class="col" type="password" maxlength="1" ng-model="data.validCodeArr[3]">
+            <input class="col" type="password" maxlength="1" ng-model="data.validCodeArr[4]">
+            <input class="col" type="password" maxlength="1" ng-model="data.validCodeArr[5]">
+          </div>
+        </form>
+        <button class="button button-block button-positive" ng-disabled="data.countdown" ng-click="fn.getPaySmsCode()">
+          <span ng-if="data.countdown">{{data.countdown}}s</span>
+          <span ng-if="!data.countdown">重新发送</span>
+        </button>
+      </div>
+    </section>
+  </ion-content>
+</ion-modal-view>

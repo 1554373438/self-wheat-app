@@ -1,0 +1,29 @@
+<ion-view class="has-footer accounts" id="accounts">
+  <ion-nav-title>成交明细</ion-nav-title>
+  <ion-content>
+    <ul class="row no-padding">
+      <li class="col col-33 text-center">购买人</li>
+      <li class="col col-33 text-center">金额</li>
+      <li class="col col-33 text-center">手续费<li>
+    </ul>
+    <ion-slide>
+      <div class="empty text-center" ng-if="account.items.length == 0">
+        <img src="assets/images/err_empty.png" alt="" style="width: 30%">
+        <p class="font-16 light-grey">暂无记录</p>
+      </div>
+      <ion-list ng-if="account.items.length != 0">
+        <ion-item class="no-padding small" ng-repeat="user in account.items track by $index">
+          <div class="row">
+            <span class="col col-33 text-center">{{::user.userName|nameEncrypt}}</span>
+            <span class="col col-33 text-center assertive">{{::user.transAmount | currency:''}}元</span>
+            <span class="col col-33 text-center">{{::user.fee | currency:''}}元</span>
+          </div>
+          <div class="text-center padding-bottom">
+          {{::user.transTime}}
+            <!-- <span class="margin-left positive" ng-click="account.showProtocol($index)">债转协议</span> -->
+           </div>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+  </ion-content>
+</ion-view>

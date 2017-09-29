@@ -1,0 +1,23 @@
+<ion-view view-title="确认收货地址">
+  <ion-content class="dbl-margin">
+    <form name="addressForm" ng-submit="address.submit()">
+      <ion-list>
+        <ion-item class="item-input item-borderless margin-bottom">
+          <span class="input-label gray">联系人</span>
+          <input class="text-right" type="text" placeholder="请填写联系人姓名" ng-model="address.info.receiver" required />
+        </ion-item>
+        <ion-item class="item-input item-borderless margin-bottom">
+          <span class="input-label gray">联系方式</span>
+          <input class="text-right" type="tel" placeholder="请填写联系人手机号" ng-model="address.info.mobileNum" required/>
+        </ion-item>
+        <ion-item class="item-input item-borderless margin-bottom">
+          <span class="input-label gray">收货地址</span>
+          <input class="text-right" type="tel" placeholder="请填写收货地址" ng-model="address.info.address" required />
+        </ion-item>
+      </ion-list>
+      <div>
+        <button class="button button-block button-positive" ng-disabled="addressForm.$invalid">确认修改</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

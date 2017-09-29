@@ -1,0 +1,99 @@
+<ion-view view-title="会员商城" id="mall_view">
+  <ion-nav-buttons side="right">
+    <div class="small" id="mall_view_right_btn" ng-if="!mall.date" ng-click="mall.goNoData()">
+      签到
+    </div>
+    <div  class="small" id="mall_view_right_btn" ng-if="mall.date" ui-sref="mall:data">
+     已签到
+    </div>
+  </ion-nav-buttons>
+  <ion-content class="light-bg">
+    <div class="user-info white text-center padding-vertical">
+      <div class="row row-no-padding vip-item">
+        <div class="line"></div>
+        <div class="col col-25 text-center" ng-repeat="vip in mall.vips" ng-click="mall.selectVip($index)">
+          <div class="icon" ng-class="[{'blue':vip.blueIcon}, vip.icon]">
+            <small class="icon-level" ng-if="$index!=0" ng-class="{'vipBlue':vip.blueIcon}">V{{$index}}</small>
+          </div>
+          <small>{{vip.name}}</small>
+        </div>
+      </div>
+    </div>
+    <div class="row row-center title-infor">
+      <p class="col no-margin no-padding">我的特权</p>
+      <small class="col col-50 no-padding text-right gray" ng-click="mall.tapSelect()">更多 &gt;</small>
+    </div>
+    <div class="row row-no-padding no-margin icon-item">
+      <div class="col col-25 text-center" ng-repeat="tab in mall.tabs" ng-click="mall.tapSelect()">
+        <i class="icon" ng-class="[{'gray':tab.grayIcon}, tab.icon]"></i>
+        <small>{{tab.name}}</small>
+      </div>
+    </div>
+    <div class="row row-center no-padding no-margin nb-infor">
+      <p class="row col-50 no-margin" ui-sref="mall:nb:list"><span class="NBicon"></span><small>诺币&nbsp;&nbsp;<small ng-bind="mall.nonoCoins"></small></small>
+      </p>
+      <p class="row col-50 no-margin" ui-sref="mall:exchange:list"><span class="ExRecIcon"></span><small>兑换记录</small></p>
+    </div>
+    <!-- <banner-scroll> -->
+      <!-- <ion-slides options="options" slider="data.slider" auto-play="true" class="banners">
+        <ion-slide-page ng-repeat="banner in mall.bannerList track by $index">
+          <ion-item class="item-borderless no-padding no-margin" ng-click="mall.bannerSelect($index)">
+            <img http-src="{{banner.path}}" placeholder="assets/images/home_banner.png"  class="block">
+          </ion-item>
+        </ion-slide-page>
+      </ion-slides> -->
+    <!-- </banner-scroll> -->
+    <mall-member member="mall.topTens"></mall-member>
+    <div class="shopping product-item">
+      <div ng-repeat="indexProduct in mall.product">
+        <div class="row row-center title-infor row-no-padding">
+          <p class="col no-margin no-padding">{{indexProduct.title}}</p>
+          <small class="col col-40 text-right gray" ng-click="mall.goDetailList($index)">更多商品 &gt;</small>
+        </div>
+        <ion-slides options="options" slider="data.slider" auto-play="true" class="box">
+          <ion-slide-page ng-repeat="item in indexProduct.productLists" ng-if="$even && indexProduct.productLists.length" class="row row-no-padding">
+            <ion-item class="text-center col col-50" ng-click="mall.goDetail(item.cb_id)">
+              <i class="new" ng-if="item.cb_icon==1"></i>
+              <i class="hot" ng-if="item.cb_icon==2"></i>
+              <img ng-src="https://www.nonobank.com/Public/Files/Chaobang/{{item.cb_app_pic}}" ng-if="item.cb_app_pic">
+              <p class="name">{{item.cb_title}}</p>
+              <p class="price">
+                <i class="NBicon"></i>
+                <span>{{item.cb_need_coins}}</span>
+                <small ng-if="item.cb_discount_coins"></small>
+              </p>
+            </ion-item>
+            <ion-item class="text-center col col-50" ng-if="$index+1!=indexProduct.productLists.length" ng-click="mall.goDetail(indexProduct.productLists[$index+1].cb_id)">
+              <i class="new" ng-if="item.cb_icon==1"></i>
+              <i class="hot" ng-if="item.cb_icon==2"></i>
+              <img ng-src="https://www.nonobank.com/Public/Files/Chaobang/{{indexProduct.productLists[$index+1].cb_app_pic}}">
+              <p class="name">{{indexProduct.productLists[$index+1].cb_title}}</p>
+              <p class="price">
+                <i class="NBicon"></i>
+                <span>{{indexProduct.productLists[$index/2+1].cb_need_coins}}</span>
+                <small ng-if="indexProduct.productLists[$index/2+1].cb_discount_coins"></small>
+              </p>
+            </ion-item>
+            <ion-item class="text-center col col-50" ng-if="$index+1==indexProduct.productLists.length">
+              <img src="../assets/images/mall/proPic@2x.png" alt="">
+              <p class="name">敬请期待</p>
+              <p class="price"><i class="NBicon"></i></p>
+            </ion-item>
+          </ion-slide-page>
+          <ion-slide-page ng-if="!indexProduct.productLists.length" class="row row-no-padding">
+            <ion-item class="text-center col col-50">
+              <img src="../assets/images/mall/proPic@2x.png" alt="">
+              <p class="name">敬请期待</p>
+              <p class="price"><i class="NBicon"></i></p>
+            </ion-item>
+            <ion-item class="text-center col col-50">
+              <img src="../assets/images/mall/proPic@2x.png" alt="">
+              <p class="name">敬请期待</p>
+              <p class="price"><i class="NBicon"></i></p>
+            </ion-item>
+          </ion-slide-page>
+        </ion-slides>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

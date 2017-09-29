@@ -1,0 +1,26 @@
+<ion-item class="margin-bottom item-borderless dbl-padding nono-product-item">
+  <div class="clearfix dbl-margin-bottom">
+    <h3 class="black inline-block">{{product.title}}<span class="suffix" ng-if="product.suffix">{{product.suffix}}</span></h3>
+    <div class="item-note small inline-block" ng-if="product.balanceShow">
+      <div ng-if="type=='jh'">剩余<span class="energized">{{product.balanceShow}}</span></div>
+      <div ng-if="type=='nny'">可投金额<span class="energized">{{product.balanceShow}}</span></div>
+      <div ng-if="type=='debt'">转让金额<span class="energized">{{product.balanceShow}}</span></div>
+    </div>
+  </div>
+  <div class="row row-no-padding row-center text-left">
+    <div class="col">
+      <div class="energized small" ng-bind-html="product.rateShow"></div>
+      <span class="small gray">{{product.rateLabel}}</span>
+    </div>
+    <div class="col">
+      <div class="black font-18">{{product.duration}}</div>
+      <span class="small gray"> {{product.expectLabel}}</span>
+    </div>
+    <div ng-switch on="type">
+
+      <button ng-switch-when="jh" class="button button-small button-positive" ng-disabled="product.status ==99">{{product.status==99 ? '已售罄':'立即投资'}}</button>
+      <button ng-switch-when="nny" class="button button-small button-positive" ng-disabled="product.status ==3">{{product.status==3 ? '已售罄':'投标'}}</button>
+      <button ng-switch-when="debt" class="button button-small button-positive" >抢购</button>
+    </div>
+  </div>
+</ion-item>

@@ -1,0 +1,18 @@
+<ion-view view-title="公司大事记" id="about_news_view">
+	<ion-content>
+		<div class="list">
+			<div ng-repeat="list in news.lists">
+				<div class="item item-divider item-icon-right" ng-click="news.toggle($index)">
+				{{::list.year}}
+				<i class="icon gray" ng-class="{'ion-arrow-down-b':list.show, 'ion-arrow-up-b':!list.show}"></i>
+				</div>
+				<div class="row light-bg" ng-repeat="content in list.content" ng-show="list.show">
+					<span class="col col-20">{{::content.date}}</span><span class="col">{{::content.text}}</span>
+				</div>
+			<div>
+		</div>
+	</ion-content>
+</ion-view>
+
+
+

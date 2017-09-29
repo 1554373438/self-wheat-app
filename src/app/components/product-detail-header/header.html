@@ -1,0 +1,24 @@
+<section class="item item-borderless text-center margin-bottom">
+  <div class="small energized dbl-margin-bottom" ><span ng-if="product.scope==15">{{product.suffix}}</span></div>
+  <div class="small" ng-if="product.name!='诺诺盈'">历史年化收益率约</div>
+  <div class="small" ng-if="product.name=='诺诺盈'">借款年化利率</div>
+  <h1 class="assertive" ng-bind-html="product.rateShow"></h1>
+  <div class="row no-padding">
+    <div class="col col-25" ng-if="product.scope == 15">
+      <small class="gray">锁定(天)</small>
+      <br> {{product.lockDay}}
+    </div>
+    <div class="col col-25" ng-if="product.scope != 15">
+      <small class="gray">锁定期({{product.expectUnit}})</small>
+      <br> {{product.expect}}
+    </div>
+    <div class="col">
+      <small class="gray">起投金额(元)</small>
+      <br> {{product.priceMin | number:0}}
+    </div>
+    <div class="col col-25">
+      <small class="gray">历史投资人次</small>
+      <br> {{product.total}}
+    </div>
+  </div>
+</section>

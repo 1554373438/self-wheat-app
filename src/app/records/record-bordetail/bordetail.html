@@ -1,0 +1,117 @@
+<ion-view view-title="借款信息" id="records_bordetail">
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-back-button back-button class="button-clear">
+      <i class="icon ion-ios-arrow-left"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-list class="light-bg bor-detail" ng-if="!recordsbordetail.noData">
+      <ion-item class="item-borderless">
+        <div class="row row-center infor-title">
+          <span class="line"></span>
+          <h3 class="row row-center">借款理由</h3>
+        </div>
+        <div class="infor-detail gray">
+          <small class="row row-center item-text-wrap">{{::recordsbordetail.info.bo_aim}}</small >
+        </div>
+      </ion-item>
+
+      <ion-item class="item-borderless">
+        <div class="row row-center infor-title">
+          <span class="line"></span> 
+          <h3 class="row row-center">借款人身份</h3>
+        </div>
+        <div class="infor-detail gray">
+          <small class="row row-center"><span>用户：</span>{{::recordsbordetail.info.user_name}}({{::recordsbordetail.info.callName}})</small >
+          <small class="row row-center " ng-if="recordsbordetail.info.user_type != '学生'"><span>身份：</span>{{::recordsbordetail.info.user_type}}</small >
+          <small class="row row-center"><span>性别：</span>{{+recordsbordetail.info.gender == 1 ? '男' : '女'}}</small >
+          <small class="row row-center"><span>年龄：</span>{{::recordsbordetail.info.age}}</small >
+          <small class="row row-center"><span>籍贯：</span>{{::recordsbordetail.info.registerProvince}}&nbsp;&nbsp;{{::recordsbordetail.info.registerCity}}</small >
+          <small class="row row-center"><span>所在地：</span>{{::recordsbordetail.info.currentProvince}}</small >
+        </div>
+      </ion-item>
+
+      <ion-item class="item-borderless" ng-if="recordsbordetail.info.user_type == '学生'">
+        <div class="row row-center infor-title">
+          <span class="line"></span> 
+          <h3 class="row row-center">借款人学历</h3>
+        </div>
+        <div class="infor-detail gray">
+          <small class="row row-center"><span>学校名称：</span>{{::recordsbordetail.info.academy}}</small >
+          <small class="row row-center"><span>入学年份：</span>{{::recordsbordetail.info.edu_start_date}}</small >
+        </div>
+      </ion-item>
+
+      <ion-item class="item-borderless" ng-if="recordsbordetail.info.user_type != '学生'">
+        <div class="row row-center infor-title">
+          <span class="line"></span> 
+          <h3 class="row row-center">工作／学历信息</h3>
+        </div>
+        <div class="infor-detail gray">
+          <small class="row row-center text-ellipsis"><span>单位／学校名称：</span>{{::recordsbordetail.info.academy}}</small >
+          <small class="row row-center"><span>学历：</span>{{::recordsbordetail.info.education}}</small >
+        </div>
+      </ion-item>
+
+      <ion-item class="item-borderless">
+        <div class="row row-center infor-title">
+          <span class="line"></span> 
+          <h3 class="row row-center">认证信息</h3>
+        </div>
+        <div class="infor-detail gray">
+          <small class="row row-center" ng-if="recordsbordetail.info.is_card == 1">
+            <span class="col col-33">身份认证</span>
+            <span class="col col-33 text-center">已认证</span>
+            <span class="col col-33 text-right">{{::recordsbordetail.info.cardCertifiedTime}}</span>
+          </small >
+          <small class="row row-center" ng-if="recordsbordetail.info.friendCertified == 1">
+            <span class="col col-33">好友关系</span>
+            <span class="col col-33 text-center">已认证</span>
+            <span class="col col-33 text-right">{{::recordsbordetail.info.friendCertifiedTime}}</span>
+          </small >
+          <small class="row row-center" ng-if="recordsbordetail.info.parentCertified == 1">
+            <span class="col col-33">父母关系</span>
+            <span class="col col-33 text-center">已认证</span>
+            <span class="col col-33 text-right">{{::recordsbordetail.info.parentCertifiedTime}}</span>
+          </small >
+          <small class="row row-center" ng-if="recordsbordetail.info.user_type != '学生' && recordsbordetail.info.teacherCertified == 1">
+            <span class="col col-33">辅导员关系</span>
+            <span class="col col-33 text-center">已认证</span>
+            <span class="col col-33 text-right">{{::recordsbordetail.info.teacherCertifiedTime}}</span>
+          </small >
+        </div>
+      </ion-item>
+
+      <ion-item class="item-borderless">
+        <div class="row row-center infor-title">
+          <span class="line"></span> 
+          <h3 class="row row-center">借款情况</h3>
+        </div>
+        <div class="infor-detail gray">
+          <small class="row row-center">本平台借款笔数：{{::recordsbordetail.info.loanMessage.count}}笔</small >
+          <small class="row row-center">本平台借款总金额：{{::recordsbordetail.info.loanMessage.amount | currency:''}}元</small >
+          <small class="row row-center">已还款：{{::recordsbordetail.info.loanMessage.repayAmout | currency:''}}元</small >
+          <small class="row row-center">正常还清：{{::recordsbordetail.info.loanMessage.normalCount}}次&nbsp;&nbsp;(其中提前还清{{::recordsbordetail.info.loanMessage.advanceCount}}次)</small >
+          <small class="row row-center">逾期已还次数：{{::recordsbordetail.info.loanMessage.overdueCount}}次</small >
+          <small class="row row-center">逾期未还次数：{{::recordsbordetail.info.loanMessage.overdueNotPayCount}}次</small >
+          <small class="row row-center">质量保障服务专款垫付次数：{{::recordsbordetail.info.loanMessage.overdueNotPayCount}}次</small >
+        </div>
+      </ion-item>
+
+      <ion-item class="item-borderless">
+        <div class="row row-center infor-title">
+          <span class="line"></span> 
+          <h3 class="row row-center">还款情况</h3>
+        </div>
+        <div class="infor-detail gray">
+          <div class="row row-center item-text-wrap small"  ng-switch on="recordsbordetail.info.repaymentMessage.status">
+            <span ng-switch-when="0">待放款</span>
+            <span ng-switch-when="1">还款中</span>
+            <span ng-switch-when="2">还款结束</span>
+            <span> 已还款{{::recordsbordetail.info.repaymentMessage.repay_expect}}/{{::recordsbordetail.info.repaymentMessage. total_expect}}期</span>          
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  <ion-content>
+</ion-view>

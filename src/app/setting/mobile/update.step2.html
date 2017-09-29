@@ -1,0 +1,20 @@
+<ion-view view-title="更换绑定手机">
+  <ion-content class="padding">
+    <form name="updateForm" >
+      <div class="item item-input">
+        <input type="tel" ng-model="update.info.newMobile" placeholder="请输入要绑定手机号" maxlength="11" clear-input required >
+      </div>
+      <div class="row row-no-padding margin-top">
+        <div class="col col-60  margin-right">
+          <div class="item item-input">
+            <input type="tel" ng-model="update.sms.validCode" placeholder="验证码" maxlength="6" clear-input required>
+          </div>
+        </div>
+        <button class="col button button-positive" ng-disabled="update.sms.countdown" ng-click="update.sendCode()">{{update.sms.label}}</button>
+      </div>
+      <div class="dbl-margin-top">
+        <button class="button button-block button-positive" ng-disabled="updateForm.$invalid" ng-click="update.submit()" >去验证</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

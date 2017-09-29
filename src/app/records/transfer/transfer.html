@@ -1,0 +1,41 @@
+<ion-view view-title="转让记录" id="transfer">
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-back-button back-button class="button-clear">
+      <i class="icon ion-ios-arrow-left"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-refresher
+      spinner="bubbles"
+      pulling-icon="ion-ios-arrow-thin-down"
+      pulling-text="下拉刷新"
+      on-refresh="transfer.loadData(true)">
+    </ion-refresher>
+    <ion-item class="item" ng-repeat="item in transfer.info" >
+      <div ui-sref="records:latelyDetail({dsId:item.dsId})">
+        <div class="title small clearfix">
+          <span class="fl">{{::item.title}}</span>
+          <span class="fr" ng-class="{'positive':item.offSalesFlag==0}">{{item.offSalesFlag==0?item.statusDesc:item.tradingStatus}}</span>
+        </div>
+        <div class="price font-20 row no-padding">
+          <span class="col col-50 no-padding">{{::item.discountPrice|currency:''}}</span>
+          <span class="col col-50 no-padding text-right">{{::item.saledPrice|currency:''}}</span>
+        </div>
+        <div class="intr small row no-padding">
+          <span class="col col-50 no-padding">转让价格(元)</span>
+          <span class="col col-50 no-padding text-right">已成交(元)</span>
+        </div>
+      </div>
+
+    </ion-item>
+    <ion-infinite-scroll
+      ng-if="transfer.hasMoreData"
+      on-infinite="transfer.loadData()"
+      spinner="bubbles"
+      immediate-check="false"
+      distance="20px">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>
+

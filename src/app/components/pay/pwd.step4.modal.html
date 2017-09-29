@@ -1,0 +1,36 @@
+<ion-modal-view class="pay-modal pay-pwd-modal">
+  <div class="bar">
+    <button class="button button-icon icon ion-ios-arrow-left gray" ng-click="fn.back()"></button>
+    <div class="h1 title">转账支付</div>
+  </div>
+  <ion-content>
+    <ion-list>
+      <ion-item class="other text-center" ng-click="fn.infoPrompt(0)">
+        <i class="phone-icon"></i>
+        <span class="font-16 orange">手机转账</span>
+      </ion-item>
+      <ion-item class="other text-center" ng-click="fn.infoPrompt(1)">
+        <i class="zfb-icon"></i>
+        <span class="font-16 orange">支付宝转账</span>
+        <!-- <textarea id="accountNo">{{data.accountNo}}</textarea> -->
+      </ion-item>
+      <ion-item class="other text-center" ng-click="fn.infoPrompt(2)">
+        <i class="wy-icon"></i>
+        <span class="font-16 orange">网银转账</span>
+      </ion-item>
+      <ion-item class="other text-center" ng-click="fn.infoPrompt(3)">
+        <i class="gm-icon"></i>
+        <span class="font-16 orange">柜面转账</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <div class="bar bar-footer no-padding no-border">
+    <div class="content">
+      <p class="other small orange orange-bg dbl-padding-horizontal border-bottom">转让支付2小时到账，如有疑问请致电银行客服</p>
+      <p class="dbl-padding-horizontal padding-top bar-footer space-between">
+        <span class="font-16 gray">需付款(元)</span>
+        <span class="assertive font-26">{{data.needPay}}</span>
+      </p>
+    </div>
+  </div>
+</ion-modal-view>

@@ -1,0 +1,13 @@
+<ion-modal-view id="defined_modal">
+  <ion-content >
+    <section class="row row-center row-no-padding full-height">
+      <div class="relative">
+        <img class="defined-img" ng-src="{{fn.path}}" ng-click="fn.getMore(fn.title,fn.link)">
+        <div class="icon-close text-center" ng-click="fn.close()" ng-if="fn.ableClose == 1">
+          <img src="assets/images/defined_popup_close.png" alt="">
+        </div>
+        <p class="dbl-padding-top white text-center" ng-if="+fn.countdown > 0">{{fn.countdown}}秒后自动关闭</p>
+      </div>
+    </section>
+  </ion-content>
+</ion-modal-view>

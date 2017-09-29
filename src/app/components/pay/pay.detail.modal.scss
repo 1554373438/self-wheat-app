@@ -1,0 +1,211 @@
+.pay-modal {
+  background: #fff;
+  height: 70%;
+  min-height: 70%;
+  max-height: 70%;
+  top: auto;
+  bottom: 0;
+  .scroll-content {
+    top: 44px;
+    background: #fff;
+  }
+  .pay-list {
+    margin-bottom: 0px;
+  }
+  .light-grey {
+    color: #9e9e9e;
+  }
+  .bar-footer {
+    border-top: 0px !important;
+  }
+  .bar-header {
+    border-bottom: 1px solid $border-color;
+    .button-icon .icon:before,
+    .button-icon.icon:before {
+      font-size: 22px;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: normal;
+      color: #424242;
+    }
+    .button-right {
+      font-size: 14px;
+      color: #bdbdbd;
+    }
+  }
+  .recommended {
+    border: 1px solid $assertive;
+  }
+  .modal-content {
+    position: relative;
+  }
+  .item {
+    padding-top: 14px 16px;
+    margin: 0 -1px;
+    &.border-bottom {
+      border-bottom-width: 1px;
+    }
+  }
+  .pay-card-list {
+    .item-icon.left .icon {
+      left: -11px;
+    }
+  }
+  .icon-choose {
+    width: 30px;
+    height: 30px;
+    background: url($img-path + "pay/card_checked.png") no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    right: -3px;
+    top: -3px;
+    z-index: 1000;
+  }
+  .bank-icon {
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    left: 0;
+  }
+  .transfer-icon {
+    background: url($img-path + "transfer.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  .margin-l50 {
+    margin-left: 50px;
+  }
+  .bar-footer {
+    border-top: 1px solid #e0e0e0;
+  }
+  .other {
+    margin: -1px 0 0 0;
+  }
+  .orange {
+    color: #F57C00;
+  }
+  .orange-bg {
+    background: #FFFDE7;
+  }
+  .no-border {
+    border: 0;
+  }
+  .border-bottom
+ {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .space-between {
+    @include display-flex();
+    @include justify-content(space-between);
+  }
+}
+
+.modal-backdrop {
+  .modal-backdrop-bg {
+    background: rgba(0, 0, 0, .4);
+  }
+  .content {
+    width: 100%;
+  }
+  .phone-icon {
+    width: 25px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: -6px;
+    border-radius: 5px;
+    border: 1px #D8D8D8 dotted;
+    background: url($img-path + "phone.png") no-repeat center center;
+  }
+  .zfb-icon {
+    @extend .phone-icon;
+    background: url($img-path + "zfb.png") no-repeat center center;
+  }
+  .wy-icon {
+    @extend .phone-icon;
+    background: url($img-path + "wy.png") no-repeat center center;
+  }
+  .gm-icon {
+    @extend .phone-icon;
+    background: url($img-path + "gm.png") no-repeat center center;
+  }
+}
+
+// Slide left from the right, used for modals
+// -------------------------------
+.slide-in-left {
+  @include translate3d(100%, 0, 0);
+}
+
+.slide-in-left.ng-enter,
+.slide-in-left > .ng-enter {
+  @include transition(all cubic-bezier(.1, .7, .1, 1) 400ms);
+}
+
+.slide-in-left.ng-enter-active,
+.slide-in-left > .ng-enter-active {
+  @include translate3d(0, 0, 0);
+}
+
+.slide-in-left.ng-leave,
+.slide-in-left > .ng-leave {
+  @include transition(all ease-in-out 250ms);
+}
+
+// 付款详情
+.pay-detail-modal {
+  .item {
+    padding-left: 0;
+    &.item-icon-right {
+      padding-right: 40px;
+      .icon {
+        right: 0;
+      }
+    }
+  }
+}
+
+//支付密码
+.pay-pwd-modal {
+  .modal-content {
+    padding: 0 38px;
+  }
+  .item-input {
+    padding: 0;
+  }
+  .item-input input {
+    height: 44px;
+    line-height: normal;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding-left: 8px;
+    &:focus {
+      border-color: #79b1e6;
+    }
+  }
+  .pwd-form {
+    padding: 24px 0;
+  }
+  .smg-form {
+    .item-input {
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+    input {
+      border-radius: 0;
+      border: none;
+      border-right: 1px solid #e0e0e0;
+      padding: 0 8px;
+      text-align: center;
+      &:focus {
+        border-right-color: #e0e0e0;
+      }
+    }
+    input:last-child {
+      border: none;
+    }
+  }
+}

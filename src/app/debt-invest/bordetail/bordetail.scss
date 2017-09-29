@@ -1,0 +1,27 @@
+#invest_bordetail{
+  .list{
+    .item{
+      padding:0;
+      .infor-title{
+        padding:0 10px;
+        position: relative;
+        background: #f4f4f4;
+        .line{
+          width:3px;
+          height:50%;
+          background: red;
+          position: absolute;
+          left:10px;
+          top:center;
+        }
+        h3{
+          height:30px;
+          padding-left: 10px;
+        }
+      }
+      .infor-detail{
+        padding-left:15px;
+      }
+    }
+  } 
+}

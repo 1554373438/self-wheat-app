@@ -1,0 +1,15 @@
+<ion-view view-title="限额说明">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-icon-left item-text-wrap bank-item" ng-repeat="item in limit.list track by item.id" >
+        <i class="icon">
+          <div class="bank-logo" code="{{::item.bankCode}}"></div>
+        </i>
+        <h2>{{::item.bankName}}</h2>
+        <div class="small">
+          <span>单笔{{::item.singleLimit/10000}}万，单日{{::item.dayLimit?item.dayLimit/10000+'万元':'无限额'}}，单月{{::item.month_limit?item.month_limit:'无限额'}},<br/>银行客户热线：{{::item.hotLine}}</span>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

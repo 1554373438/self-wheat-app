@@ -1,0 +1,60 @@
+<ion-view view-title="设置" id="setting">
+  <ion-content>
+    <ion-list>
+    <ion-item class="item-icon-right" ng-click="setting.goHscg()">
+        徽商存管管理
+        <div class="item-note"  ng-if="setting.info.hasEBank">
+          <span class="dark">{{::setting.info.realName}}</span><span class="small">已认证</span>
+        </div>
+         <i class="icon ion-ios-arrow-right gray" ></i>
+      </ion-item>
+      <!-- <ion-item class="item-icon-right">
+        实名认证
+        <div class="item-note"  ng-if="setting.info.realname">
+          <span class="dark">{{setting.info.realname}}</span><span class="small ">已认证</span>
+        </div>
+        <div class="item-note positive"  ng-if="!setting.info.realname"  >
+          未认证
+        </div>
+         <i class="icon ion-ios-arrow-right gray" ng-if="!setting.info.realname"></i>
+      </ion-item> -->
+      <div class="item item-icon-right" ui-sref="mobile:update:step1">
+        绑定手机
+        <span class="item-note positive">{{::setting.info.mobileEncrypted}}</span>
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+      <div class="item item-icon-right" ui-sref="address">
+        收货地址
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+      <div class="item item-icon-right" ui-sref="security">
+        账户安全
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+      <div class="item" ng-class="{'item-icon-right': !setting.info.investAuth}" ng-click="setting.jumpSw()">
+        智能投资授权
+        <div class="item-note" ng-if="setting.info.investAuth">
+          <span class="small ">已开通</span>
+        </div>
+        <i class="icon ion-ios-arrow-right gray" ng-hide="setting.info.investAuth"></i>
+      </div>
+     <!--  <div class="item item-icon-right" ui-sref="feedback">
+        我要反馈
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div> -->
+      <!-- <ion-item>
+        版本号
+        <span class="item-note dark">V5.3.0</span>
+      </ion-item> -->
+      <ion-item class="item-icon-right" ng-click="setting.goCall()">
+        客服热线
+        <span class="item-note gray" style="font-size:12px;">服务时间:&nbsp;08:00-22:00</span>
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </ion-item>
+    </ion-list>
+
+    <div class="dbl-padding">
+      <button class="button button-positive button-block" ng-click="setting.logout()">安全退出</button>
+    </div>
+  </ion-content>
+</ion-view>

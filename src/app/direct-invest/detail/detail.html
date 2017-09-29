@@ -1,0 +1,196 @@
+<ion-view class="has-footer" id="direct-detail">
+  <ion-nav-title>{{::detail.info.name}}</ion-nav-title>
+  <ion-content delegate-handle="mainScroll" id="test">
+  <detail-scroll>
+    <div id="pro-detail">
+      <product-detail-header product="detail.product">
+      </product-detail-header>
+      <section class="item item-borderless dbl-padding-horizontal padding-vertical mode dbl-padding-top margin-bottom">
+        <div class="col col-80 anto">
+          <div class="progress dbl-margin-top">
+            <i>
+            <span class="small margin-t25">开始投资</span>
+          </i>
+            <i>
+            <span class="small margin-t25">满标计息</span>
+          </i>
+            <i>
+            <span class="small margin-t25">每月回款</span>
+          </i>
+          </div>
+        </div>
+        <div class="points dbl-margin-left dbl-margin-right padding-bottom">
+          <p class="tip_icon dbl-margin-top">投资10000元，{{::detail.info.bo_expect}}个月预期收益可达<span class="assertive">{{::detail.info.expect_interest | currency:''}}元</span></p>
+        </div>
+      </section>
+      <product-security></product-security>
+      <div class="scrollBottom">继续拖动，查看产品详情</div>
+    </div>
+    <div id="pro-info" ng-style="detail.style">
+      <nono-tabs type="positive" ng-model="detail.sliderIndex" tabs-top="true">
+        <nono-tab title="产品详情" value="0"></nono-tab>
+        <nono-tab title="借款信息" value="1"></nono-tab>
+        <nono-tab title="投资记录" value="2"></nono-tab>
+      </nono-tabs>
+        <ion-slides options="options" slider="data.slider" showPager="false">
+          <ion-slide-page>
+            <ion-scroll>
+              <ion-list class="plan-list">
+                <ion-item class="item-borderless" ng-repeat="item in detail.productInfo.info">
+                  <p class="row row-center">{{::item.title}}</p>
+                  <small class="row row-center gray item-text-wrap">{{::item.content}}</small>
+                </ion-item>
+                <ion-item class="item-borderless">
+                  <p class="row row-center">保障方式</p>
+                  <small class="row row-center item-text-wrap positive" ui-sref="nxy:plan">质量保障服务计划</small>
+                </ion-item>
+                <ion-item class="item-borderless">
+                  <span class="row row-center">服务协议</span>
+                  <small class="row row-center item-text-wrap positive" ng-click="detail.showTemplate()">借款协议</small>
+                </ion-item>
+              </ion-list>
+              <div class="scrollBottom">温馨提示：投资有风险，请谨慎投资</div>
+            </ion-scroll>
+          </ion-slide-page>
+          <ion-slide-page>
+            <div class="empty" ng-if="detail.noData">
+              <img src="assets/images/err_empty.png" alt="" width="96">
+              <p class="font-16 light-grey dbl-padding-top dbl-margin-top">暂无内容</p>
+            </div>
+            <ion-scroll>
+              <ion-list class="light-bg bor-detail" ng-if="!detail.noData">
+                <ion-item class="item-borderless">
+                  <div class="row row-center infor-title">
+                    <span class="line"></span>
+                    <h3 class="row row-center">借款理由</h3>
+                  </div>
+                  <div class="infor-detail gray">
+                    <small class="row row-center item-text-wrap">{{::detail.borrowInfo.bo_aim}}</small >
+                  </div>
+                </ion-item>
+
+                <ion-item class="item-borderless">
+                  <div class="row row-center infor-title">
+                    <span class="line"></span> 
+                    <h3 class="row row-center">借款人身份</h3>
+                  </div>
+                  <div class="infor-detail gray">
+                    <small class="row row-center"><span>用户：</span>{{::detail.borrowInfo.user_name}}({{::detail.borrowInfo.callName}})</small >
+                    <small class="row row-center " ng-if="detail.borrowInfo.user_type != '学生'"><span>身份：</span>{{::detail.borrowInfo.user_type}}</small >
+                    <small class="row row-center" ng-if="detail.borrowInfo.gender == 1"><span>性别：</span>男</small >
+                    <small class="row row-center" ng-if="detail.borrowInfo.gender != 1"><span>性别：</span>女</small >
+                    <!-- <small class="row row-center"><span>年龄：</span>{{::detail.borrowInfo.age}}</small > -->
+                    <small class="row row-center"><span>籍贯：</span>{{::detail.borrowInfo.registerProvince}}&nbsp;&nbsp;{{::detail.borrowInfo.registerCity}}</small >
+                    <small class="row row-center"><span>所在地：</span>{{::detail.borrowInfo.currentProvince}}</small >
+                  </div>
+                </ion-item>
+
+                <ion-item class="item-borderless" ng-if="detail.borrowInfo.user_type != '学生'">
+                  <div class="row row-center infor-title">
+                    <span class="line"></span> 
+                    <h3 class="row row-center">工作／学历信息</h3>
+                  </div>
+                  <div class="infor-detail gray">
+                    <small class="row row-center text-ellipsis"><span>单位／学校名称：</span>{{::detail.borrowInfo.academy}}</small >
+                    <small class="row row-center"><span>学历：</span>{{::detail.borrowInfo.education}}</small >
+                  </div>
+                </ion-item>
+
+                <ion-item class="item-borderless">
+                  <div class="row row-center infor-title">
+                    <span class="line"></span> 
+                    <h3 class="row row-center">认证信息</h3>
+                  </div>
+                  <div class="infor-detail gray">
+                    <small class="row row-center" ng-if="detail.borrowInfo.is_card == 1">
+                      <span class="col col-33">身份认证</span>
+                      <span class="col col-33 text-center">已认证</span>
+                      <!-- <span class="col col-33 text-right">{{::detail.borrowInfo.cardCertifiedTime}}</span> -->
+                    </small >
+                    <small class="row row-center" ng-if="detail.borrowInfo.friendCertified == 1">
+                      <span class="col col-33">好友关系</span>
+                      <span class="col col-33 text-center">已认证</span>
+                      <!-- <span class="col col-33 text-right">{{::detail.borrowInfo.friendCertifiedTime}}</span> -->
+                    </small >
+                    <small class="row row-center" ng-if="detail.borrowInfo.parentCertified == 1">
+                      <span class="col col-33">父母关系</span>
+                      <span class="col col-33 text-center">已认证</span>
+                      <!-- <span class="col col-33 text-right">{{::detail.borrowInfo.parentCertifiedTime}}</span> -->
+                    </small >
+                  </div>
+                </ion-item>
+
+                <ion-item class="item-borderless">
+                  <div class="row row-center infor-title">
+                    <span class="line"></span> 
+                    <h3 class="row row-center">借款情况</h3>
+                  </div>
+                  <div class="infor-detail gray">
+                    <small class="row row-center">本平台借款笔数：{{::detail.borrowInfo.loanMessage.count}}笔</small >
+                    <small class="row row-center">本平台借款总金额：{{::detail.borrowInfo.loanMessage.amount | currency:''}}元</small >
+                    <small class="row row-center">已还款：{{::detail.borrowInfo.loanMessage.repayAmout | currency:''}}元</small >
+                    <!-- <small class="row row-center">正常还清：{{::detail.borrowInfo.loanMessage.normalCount}}次&nbsp;&nbsp;(其中提前还清{{::detail.borrowInfo.loanMessage.advanceCount}}次)</small >
+                    <small class="row row-center">逾期已还次数：{{::detail.borrowInfo.loanMessage.overdueCount}}次</small >
+                    <small class="row row-center">逾期未还次数：{{::detail.borrowInfo.loanMessage.overdueNotPayCount}}次</small >
+                    <small class="row row-center">质量保障服务专款垫付次数：{{::detail.borrowInfo.loanMessage.overdueNotPayCount}}次</small > -->
+                  </div>
+                </ion-item>
+
+                <ion-item class="item-borderless">
+                  <div class="row row-center infor-title">
+                    <span class="line"></span> 
+                    <h3 class="row row-center">还款情况</h3>
+                  </div>
+                  <div class="infor-detail gray">
+                    <div class="row row-center item-text-wrap small"  ng-switch on="detail.borrowInfo.repaymentMessage.status">
+                      <span ng-switch-when="0">待放款</span>
+                      <span ng-switch-when="1">还款中</span>
+                      <span ng-switch-when="2">还款结束</span>
+                      <span> 已还款{{::detail.borrowInfo.repaymentMessage.repay_expect}}/{{::detail.borrowInfo.repaymentMessage. total_expect}}期</span>
+                    </div>
+                  </div>
+                </ion-item>
+              </ion-list>
+              </ion-scroll>
+          </ion-slide-page>
+
+          <ion-slide-page class="pay-record">
+            <div class="empty" ng-if="detail.investedUsers.length == 0">
+              <img src="assets/images/err_empty.png" alt="" style="width:96px;">
+              <p class="font-16 light-grey dbl-padding-top dbl-margin-top">暂无内容</p>
+            </div>
+            <p class="row gray no-margin small" ng-if="detail.investedUsers.length != 0">
+              <span class="col col-33">投资人</span>
+              <span class="col col-33 text-center">投资金额(元)</span>
+              <span class="col col-33 text-right">投资时间</span>
+            </p>
+            <ion-scroll ng-if="detail.investedUsers.length != 0">  
+              <ion-list class="record-list">
+                <ion-item class="item-borderless no-padding" ng-repeat="user in detail.investedUsers">
+                  <p class="row no-margin no-padding bottom">
+                    <span class="col col-33">{{::user.name}}</span>
+                    <span class="col col-33 text-center">{{::user.amount}}</span>
+                    <span class="col col-33 gray text-right">{{::user.payTime && user.payTime.substr(5)}}</span>
+                  </p>
+                </ion-item>
+              </ion-list>
+              <ion-infinite-scroll
+                ng-if="detail.hasMoreData"
+                on-infinite="detail.loadMore()"
+                distance="1%">
+              </ion-infinite-scroll>
+            
+            </ion-scroll>
+          </ion-slide-page>
+        </ion-slides>
+    </div>
+    </detail-scroll>
+  </ion-content>
+   <div class="bar bar-footer block border-top">
+    <p class="text-center gray small">可投金额<span class="assertive">{{::detail.info.residueAmount | floor}}</span>/{{::detail.info.bo_price | floor}}(元)
+    </p>
+    <button class="button button-positive button-block" ng-click="detail.purchase()" ng-disabled="detail.info.status!=0">
+      <span>{{detail.info.status ==0 ? '立即投资' : '已售罄'}}</span>
+    </button>
+  </div>
+</ion-view>

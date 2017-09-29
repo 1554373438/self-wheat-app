@@ -1,0 +1,18 @@
+<section class="item item-borderless text-center" id="invest_counter">
+  <label>投资金额</label>
+  <div class="row row-center row-no-padding margin-top margin-bottom">
+    <button class="button button-outline " ng-click="minus()" ng-class="{active:order.price>order.priceMin}">
+      <i class="icon ion-minus positive"></i>
+    </button>
+    <div class="item no-padding item-input">
+      <input placeholder="{{order.priceMin | number:0}}起投，{{order.increment|number:0}}元递增" type="tel" class="text-center no-padding bold" ng-model="order.price"  required>
+    </div>
+    <button class="button button-outline " ng-click="plus()" ng-class="{active:order.price<order.priceMax}">
+      <i class="icon ion-plus positive"></i>
+    </button>
+  </div>
+  <div class="row gray row-no-padding">
+    <p class="col col-50 gray text-left small">预期收益<span class="assertive">{{order.earnings}}</span>元</p>
+    <p class="col col-50 gray text-right small">剩余可投<span class="assertive">{{order.balance | number:2}}</span>元</p>
+  </div>
+</section>

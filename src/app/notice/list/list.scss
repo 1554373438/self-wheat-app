@@ -1,0 +1,32 @@
+.msg-list {
+  .scroll-content{
+    top:90px;
+  }
+  .scroll-view {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    bottom: 0;
+  }
+  .scroll {
+    height: 100%;
+  }
+  .swiper-pagination {
+    display: none;
+  }
+  .list {
+    margin: 4px 0;
+    .item {
+      margin-top: 1px;
+      margin-bottom: 0;
+    }
+  }
+  h3 {
+    font-weight: normal;
+  }
+  .desc {
+    @extend .small,
+    .gray, .text-ellipsis;
+  }
+}

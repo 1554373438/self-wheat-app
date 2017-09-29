@@ -1,0 +1,15 @@
+<ion-view view-title="公司新闻" class="msg-list">
+  <ion-content>
+    <ion-scroll>
+      <ion-list>
+        <ion-item class="item item-borderless item-icon-right" ng-repeat="item in newslist.notice.list track by item.id" ui-sref="msg:detail({type:2,id:item.id})">
+          <h3 class="dark">{{::item.title}}</h3>
+          <div ng-bind-html="::item.content" class="desc"></div>
+          <i class="icon ion-ios-arrow-right gray"></i>
+        </ion-item>
+      </ion-list>
+      <ion-infinite-scroll ng-if="newslist.notice.hasMoreData" on-infinite="newslist.loadMore()" distance="1%">
+      </ion-infinite-scroll>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

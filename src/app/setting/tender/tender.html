@@ -1,0 +1,15 @@
+<ion-view view-title="智能投资授权" id="tender">
+  <ion-content>
+    <section class="light-bg">  
+      <p>自动投标功能麦子金服财富推出的，为用户提供自动循环出借及到期自动转让退出的投标服务。用户通过徽商存管系统开通该服务后,将授权平台计划类产品进行分散投资、本息回款复投及到期自动转让，提高了小额分散投资、本息回款及时复投和到期自动转让的效率，在满足用户多样化的投资需求同时，提供更好的投资体验。<br/><br/>
+      自动投标功能的由徽商银行授权，安全可靠。</p>
+      <div class="positive">
+        <span class="check" ng-class="{on:tender.agreed}" ng-click="tender.agreed = !tender.agreed"></span>
+        <span>智能投资授权书</span>
+      </div>
+    </section>
+    <div class="dbl-padding">
+        <button class="button button-block button-positive margin-top-44" ng-disabled="!tender.agreed" ng-click="tender.complete()">确定</button>
+      </div>
+  </ion-content> 
+</ion-view>

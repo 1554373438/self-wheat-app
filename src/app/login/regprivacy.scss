@@ -1,0 +1,17 @@
+#reg-view,#reg-app-view{
+  .scroll-content{
+    padding-top: 10px;
+    font-size:12px; 
+    line-height:20px;
+  }
+}
+#reg-view{
+  .scroll-content{
+    top:44px;
+  }
+}
+.platform-cordova #reg-view{
+  .scroll-content{
+    top:64px;
+  }
+}

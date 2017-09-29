@@ -1,0 +1,32 @@
+<ion-modal-view class="login-view">
+  <ion-content>
+    <div class="top-bar relative" ng-if="!fn.changePwdStatus">
+      <i class="icon icon-back" ng-click="fn.goBack(false,true)"></i>
+    </div>
+    <section class="dbl-margin-horizontal register" ng-if="!fn.changePwdStatus">
+      <div class="text-center  mar-bot-24">
+        <p class="font-18">设置密码</p>
+        <span class="small-font" >请为你的帐号{{::user.userTel}}设置密码</span>
+      </div>
+
+      <div class="item item-input dbl-margin-bottom">
+        <input type="{{show?'text':'password'}}" ng-model="user.pwd" maxlength="20" placeholder="密码需由6-16位字母和数字组成" required clear-input code="pwd">
+         <i  ng-class="{'on': show, 'light': !show}" ng-click="show=!show"></i>
+      </div>
+      <div ng-if="fn.registerLog">
+        <div class="dbl-margin-bottom" ng-click="fn.isShow=!fn.isShow">
+          <span style="color:#9E9E9E;">请输入邀请码 (选填)</span>
+          <i class="toggle-phone" ng-class="{'slide':fn.isShow}" ></i>
+        </div>
+        <div class="item item-input invate-phone dbl-margin-bottom" ng-if="fn.isShow">
+          <input type="text" maxlength="11" ng-model="user.inviteCode" clear-input placeholder="请输入邀请码">
+        </div>
+      </div>
+      <button class="button button-block button-positive margin-top-30" ng-disabled="!user.pwd" ng-click="fn.registerCheck()">完成</button>
+    </section>
+    <div class="success" ng-if="fn.changePwdStatus">
+        <p>{{fn.changePwdStatus == 'find'?'登录密码修改成功':'注册成功'}}</p>
+        <div alt=""></div>
+    </div>
+  </ion-content>
+</ion-modal-view>

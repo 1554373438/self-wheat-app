@@ -1,0 +1,77 @@
+.coupon-wrapper {
+  padding: 4px 8px;
+  &:first-child {
+    padding-top: 8px;
+  }
+  .coupon {
+    position: relative;
+    min-height: 96px;
+    box-shadow: rgba(216, 216, 216, .5) 0 0 4px 0;
+    border-left: 2px solid $assertive;
+    background: #fff;
+    &.expired,
+    &.used {
+      border-left: 2px solid $border-color;
+      .amount, .title, .date {
+        color: #d2d2d2;
+      }
+
+      .assertive .amount {
+        color: $assertive;
+      }
+    }
+    &.expired:after,
+    &.used:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 48px;
+      background: url(#{$img-path}expired.png) no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      right: 55px;
+      top: 50%;
+      margin-top: -24px;
+    }
+    &.used:after {
+      background: url(#{$img-path}used.png) no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+  .amount {
+    width: 90px;
+    font-size: 24px;
+    color: $assertive;
+    .symbol {
+      font-family: Arial;
+      font-weight: normal;
+      font-size: 12px;
+    }
+  }
+  .title {
+    color: #1E1E1E;
+    font-family: Heiti SC;
+    font-weight: lighter;
+    padding-bottom: 6px;
+  }
+  .desc {
+    @extend .small, .gray;
+    line-height: 1.4;
+    margin-bottom: 0px;
+  }
+  .date {
+    @extend .small, .assertive;
+  }
+  .dashed {
+    border-left: 1px dashed $border-color;
+  }
+  .item-icon-right .icon {
+    right: -10px;
+    color: $gray;
+    font-size: 14px;
+  }
+  .item-note {
+    padding-right: 14px;
+    color: #1E1E1E;
+  }
+}

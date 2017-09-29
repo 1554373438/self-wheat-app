@@ -1,0 +1,181 @@
+
+#records_detail_nny{
+  .has-footer {
+    bottom: 78px;
+  }
+  .info-top{
+    background: #228DEA;
+    .amount{
+      position: relative;
+      &:after{
+        content: '';
+        width: 1px;
+        height: 40px;
+        background: #45A3FF;
+        position: absolute;
+        top: 10%;
+        right: 0;
+      }
+    }
+    small{
+      color:#B1DBFF;
+    }
+  }
+  .line-10{
+    height:10px;
+    background-color: #f5f5f5;
+    width: 100%;
+  }
+  .item-nny{
+    padding: 0 0 0 16px;
+    &.margin-1{
+      margin-bottom: 1px;
+    }
+    .col.dbl-padding-right{
+      padding-right:16px;
+    }
+    .cc{
+      color: #ccc!important;
+      vertical-align: sub;
+      font-size: 21px;
+    }
+    .transfer{
+      border-bottom: 1px solid #f5f5f5;
+      margin-right: 16px;
+      .name{
+        width: 70px;
+        color: #333;
+        font-size: 16px;
+        line-height: 22px;
+        margin: 14px 0;
+      }
+      .transfer-right{
+        font-size: 14px;
+        color: #999;
+        line-height: 20px;
+        padding: 0 16px  0 0;
+        .money{
+          color: $energized;
+          margin-right: 8px;
+        }
+        .time-up{
+          margin-right: 9px;
+          color: $energized;
+        }
+      }
+    }
+    .lately{
+      margin: 20px 16px 20px 0;
+      h3{
+        font-weight: normal;
+        font-size: 16px;
+        color: #666;
+      }
+      .lately-top{
+        margin-top: 16px;
+        font-size: 16px;
+        color: #333;
+      }
+      .lately-bottom{
+        margin-top: 10px;
+        font-size: 12px;
+        color: #999;
+      }
+      .state{
+        font-size: 14px;
+        margin-top: 10px;
+        span:nth-child(1){
+          color: #999;
+        }
+        span:nth-child(2){
+          color: #333;
+        }
+      }
+
+    }
+
+  }
+  .margin-r-16{
+    margin-right: 16px;
+  }
+
+
+  .remark {
+    font-size: 12px;
+    border: 1px solid $assertive;
+    color: $assertive;
+    margin-right: 5px;
+    padding: 2px;
+  }
+  .success{
+    border-bottom:1px solid #f5f5f5;
+    i{
+      display: inline-block;
+      vertical-align: middle;
+      width: 14px;
+      height: 14px;
+      background: url(../assets/images/deal_in.png) no-repeat;
+      background-size: cover;
+      margin-right: 5px;
+    }
+  }
+  .bar-footer{
+    padding:0;
+    .instr{
+      display: inline-block;
+      vertical-align: sub;
+      width:16px;
+      height:16px;
+      background: url(../assets/images/instr-plan.png) no-repeat;
+      background-size: cover;
+      &.mon-up{
+        background: url(../assets/images/instr-mon.png) no-repeat;
+        background-size: cover;
+      }
+    }
+    .tip{
+      display: inline-block;
+
+
+    }
+    .btn-no-border{
+      border-radius: 0;
+    }
+  }
+  .btm-46{
+    bottom: 46px;
+  }
+}
+.record-popup {
+  .popup-head {
+    h3{
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+  }
+  .popup-body {
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  .popup-buttons {
+    padding: 10px;
+    padding-top: 0;
+    border-top: none;
+    .button {
+      min-height:30px;
+      border:none;
+      border-radius:10px;
+      font-size:14px;
+      &:after{
+        display: none;
+      }
+    }
+    .button:first-child {
+      background-color: $energized;
+    }
+    .button:last-child {
+    }
+  }
+
+}
+

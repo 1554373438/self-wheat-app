@@ -1,0 +1,13 @@
+<ion-view id="coupon_view" view-title="优惠券" >
+  <ion-content>
+  <div class="list light-bg padding">
+    <coupon-checkbox type="{{coupon.type}}" ng-repeat="c in coupon.list track by $index" data="c" index="{{$index}}" ></coupon-checkbox>  
+  </div> 
+
+  <div class="dbl-margin">
+    <button class="button button-block button-positive no-margin" ng-click="coupon.submit()">确定</button>  
+  </div>
+
+  </ion-content>
+</ion-view>
+

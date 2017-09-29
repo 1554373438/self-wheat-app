@@ -1,0 +1,25 @@
+<ion-view view-title="" id="assets">
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-back-button back-button class="button-clear">
+      <i class="icon ion-ios-arrow-left"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <section class="total-content">
+      <p class="font-36">{{assets.total}}</p>
+      <span class="small">总资产(元)</span>
+    </section>
+    <section class="clearfix list light-bg margin-bottom" ng-repeat="item in assets.categories track by $index">
+      <ion-item class="item-header">
+        <span >{{item.name}}</span>
+        <div class="item-note dbl-padding-right ">{{item.total}}</div>
+      </ion-item>
+      <ion-item ng-repeat="detail in item.detailList">
+       {{detail.name}}
+        <div class="item-note dbl-padding-right">{{detail.amount}}</div>
+      </ion-item>
+      <a href="" ui-sref="freeze" class="pull-right" ng-if="item.name=='冻结金额'">查看详情</a>
+    </section>
+   
+  </ion-content>
+</ion-view>

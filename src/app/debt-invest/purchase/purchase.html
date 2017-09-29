@@ -1,0 +1,42 @@
+<ion-view class="debtpurchase-view has-footer">
+  <ion-nav-title>投资</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" ui-sref="limit">
+      限额说明
+    </a>
+  </ion-nav-buttons>
+  <ion-content>
+    <section class="item item-borderless bg-positive white info">
+      <header class="font-16">
+        {{::debtpurchase.order.title}}
+      </header>
+      <div class="row row-center">
+        <div class="name">借款年化利率(%)</div>
+        <div class="col font-24">
+          <span>{{::debtpurchase.order.rateShow}}</span><span class="font-20"></span>
+        </div>
+      </div>
+      <div class="row row-center rown-no-padding">
+        <div class="col border-right">
+          <span class="name">预期收益(元)</span>
+          <span>{{::debtpurchase.order.earnings | number:2}}</span>
+        </div>
+        <div class="col relative">
+          <i class="icon-line"></i>
+          <span class="name padding-left">项目期限(月)</span>
+          <span>{{::debtpurchase.order.expect}}</span>
+        </div>
+      </div>
+      <div>
+      </div>
+    </section>
+    <section class="bg-white">
+      <div class="space-between">
+        <span class="black">投资金额(元)</span>
+        <span class="assertive">{{::debtpurchase.order.price | number:2}}</span>
+      </div>
+    </section>
+    <nono-agree agree="debtpurchase.agreeTos" type="9" id="debtpurchase.order.id"></nono-agree>
+  </ion-content>
+  <nono-pay-footer order="debtpurchase.order"  balance="debtpurchase.userBalance" agreetos="debtpurchase.agreeTos"></nono-pay-footer>
+</ion-view>

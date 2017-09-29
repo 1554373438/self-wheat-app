@@ -1,0 +1,261 @@
+  $gray-light: #bdbdbd;
+  $main-font-color: #616161;
+  $linght-font-color:#bdbdbd;
+  $pos-color:#3388d9;
+  .margin-bottom-60{
+    margin-bottom: 60px;
+  }
+.login-view {
+  input::-webkit-input-placeholder {
+    color: $gray-light;
+    font-size: 14px;
+  }
+  .fix{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #fff;
+  }
+  .intr{
+    position: relative;
+    top: 30px;
+  }
+  .main-font-color{
+    color: $main-font-color;
+  }
+  .read .check-agree{
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin-right: 7px;
+    width: 17px;
+    height: 17px;
+    background: url(#{$img-path}login/check_on.png) center center no-repeat;
+    background-size: 100% auto;
+    &.on{
+      background: url(#{$img-path}login/check_off.png) center center no-repeat;
+      background-size: 100% auto;
+    }
+  }
+
+  .item-input,.code-f{
+    background: #FAFAFA;
+    border:1px solid #E0E0E0;
+    height: 48px;
+    line-height: 48px;
+    border-radius:5px;
+    i.light{
+      margin-right: 9px;
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      background: url(#{$img-path}login/eyeOff.png) center center no-repeat;
+      background-size: 100% auto;
+
+    }
+    i.on{
+      margin-right: 9px;
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      background: url(#{$img-path}login/eyeOn.png) center center no-repeat;
+      background-size: 100% auto;
+    }
+    .clear-val{
+      width:20px;
+      height: 20px;
+      margin-top:14px;
+      background: url(#{$img-path}login/Delete.png) center center no-repeat;
+      background-size: 100% auto;
+    }
+
+    button{
+      color: #bdbdbd;
+      border:none;
+      border-left:1px solid #E0E0E0;
+      background:none;
+      &.main-positive-color{
+        color:#3388d9;
+      }
+    }
+
+    .code-t{
+      position: relative;
+      padding:0;
+      input{
+        background:none;
+        width: 100%;
+        line-height: 36px;
+      }
+    }
+  }
+  .dbl-margin-bottom.focus{
+    border:1px solid lighten(#3388d9,10%);
+    // border-color:$pos-color;
+  }
+  .self .clear-val{
+    margin-top: 8px;
+  }
+  div.code-f{
+      background: none;
+      padding: 6px 0 5px 16px;
+      box-sizing: border-box;
+    }
+  // .col-70 {
+  //   -webkit-box-flex: 0;
+  //   -moz-flex: 0 0 70%;
+  //   -ms-flex: 0 0 70%;
+  //   flex: 0 0 70%;
+  //   max-width: 70%;
+  // }
+  // .col-30 {
+  //   -webkit-box-flex: 0;
+  //   -moz-flex: 0 0 30%;
+  //   -ms-flex: 0 0 30%;
+  //   flex: 0 0 30%;
+  //   max-width: 30%;
+  // }
+
+
+  .toggle-phone{
+    width: 20px;
+    height: 20px;
+    float: right;
+    background: url(#{$img-path}login/icon_back.png) center center no-repeat;
+    background-size: 100% auto;
+    transform: rotate(-90deg) scale(.7);
+    transition: all .3s ease;
+    &.slide{
+      transform: rotate(90deg) scale(.7);
+    }
+
+  }
+  .invate-phone{
+
+  }
+  .success{
+    padding-top:250px;
+    text-align: center;
+    p{
+      text-align: center;
+      font-size: 17px;
+      color: $main-font-color;
+    }
+    div{
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      background: url(#{$img-path}login/loading.gif) center center no-repeat;
+      background-size: 100% auto;
+
+    }
+
+  }
+  .top-bar {
+    margin-bottom: 40px;
+    height: 44px;
+    width: 100%;
+    .right-text {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      color: #616161;
+    }
+    .icon {
+      position: absolute;
+      top: 13px;
+      left: 16px;
+      width: 24px;
+      height: 24px;
+    }
+    .icon-close {
+      background: url(#{$img-path}login/icon_close.png) center center no-repeat;
+      background-size: 100% auto;
+    }
+    .icon-back {
+      background: url(#{$img-path}login/icon_back.png) center center no-repeat;
+      background-size: 100% auto;
+    }
+  }
+  .margin-free {
+    margin-bottom: 9%;
+  }
+  .margin-top-30 {
+    margin-top: 30px;
+  }
+  .bar button.button-clear {
+    display: block;
+    font-size: 14px;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+    // 注册页面样式
+  .register{
+    .font-18{
+      font-size: 18px;
+      color: $main-font-color;
+    }
+    .small-font{
+        color: $linght-font-color;
+        font-size: 13px;
+      }
+    .mar-bot-24{
+      margin-bottom: 24px;
+    }
+  }
+
+}
+.captcha-pop-1{
+  .popup{
+      background-color: #ededed;
+      border-radius: 8px;
+    .captcha-pop{
+      padding:5px;
+      background-color: #fff;
+      border-radius:3px;
+    }
+    .popup-body{
+      padding-bottom: 13px;
+    }
+
+    .popup-buttons .button{
+      background-color:transparent;
+      border-bottom-right-radius:8px;
+      border:none;
+      color: $pos-color;
+      &:nth-child(1){
+        border-bottom-left-radius:8px;
+        border-bottom-right-radius:0px;
+      }
+    }
+  }
+
+}
+.setting-pop{
+  @extend .captcha-pop-1;
+  .popup .popup-buttons .button{
+    &:nth-child(1){
+      border-bottom-left-radius:8px;
+      border-bottom-right-radius:8px;
+    }
+  }
+}
+.login-sheet .button{
+  font-size: 18px!important;
+}
+.clear-val{
+    width:20px;
+    height: 20px;
+    // margin-top:14px;
+    background: url(#{$img-path}login/Delete.png) center center no-repeat;
+    background-size: 100% auto;
+  } 
+  .login-view.rules .title {
+    color: #424242;
+  }
+
+
+
+
+

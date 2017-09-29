@@ -1,0 +1,19 @@
+<ion-view class="protocol_view rules" >
+  <ion-nav-title>{{::protocol.product.fp_title}}协议书</ion-nav-title>
+  <ion-content class="padding-horizontal">
+    <p>
+		甲方：{{::protocol.userInfo.realname}}
+		<br/> 身份证件号码：{{::protocol.userInfo.id}}
+    <br/> 平台用户名：{{::protocol.userInfo.username}}
+		<br/> 联系电话：{{::protocol.userInfo.mobile}}
+    </p>
+    <p>
+    乙方：上海诺诺镑客金融信息服务有限公司（下称“诺诺镑客”）
+    <br/> 地址：上海市徐汇区肇嘉浜路1033号徐家汇国际大厦19-20层
+    <br/> 邮编：200030
+    <br/> 咨询电话：1010-0668
+    </p>
+    <p>甲乙双方经友好协商，本着平等自愿、诚实信用的原则，达成如下协议：</p>
+    <article ng-include="protocol.template"></article>
+  </ion-content>
+</ion-view>

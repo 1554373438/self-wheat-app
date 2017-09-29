@@ -1,0 +1,31 @@
+#debtor{
+  .scroll-view{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .scroll {
+    height: 100%;
+  }
+  .no-padding-horizontal{
+    padding:5px 0;
+  }
+  .tip{
+    line-height: 24px;
+    padding-left: 16px;
+    background: #FFF0D8;
+    color: $assertive;
+    font-size: 12px;
+  }
+ 
+  .item-divider{
+    font-weight: normal;
+  }
+  .item.item-text-wrap{
+    padding: 0 6px;
+    margin-top: 0;
+    margin-bottom: 1px;
+  }
+}

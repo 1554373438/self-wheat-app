@@ -1,0 +1,23 @@
+
+<div class="coupon-checkbox">
+  <div class="row no-padding row-center margin-bottom" ng-class="{'disabled':!data.isEnable || data.minimum > coupon.orderPrice}" >
+    <div ng-if="type=='interest'" class="col col-33 assertive text-center ">
+      <p class="font-20">+<span class="font-36">{{::data.value}}</span>%</p>
+      <small class="light-positive">满{{::data.minimum}}元可用</small>
+    </div>
+
+    <div ng-if="type!='interest'" class="col col-33 assertive text-center ">
+      <p class="font-20">￥<span class="font-36">{{::data.value | number:0}}</span></p>
+      <small class="light-positive">满{{::data.minimum}}元可用</small>
+    </div>
+    <div class="col col-66 item item-icon-right item-borderless dbl-padding-left">
+      <div>
+        <div class="font-20">{{type!='interest' ? '现金券' : '加息券'}}</div>
+        <small class="gray block dbl-margin-top">{{::data.remark}}</small>
+        <small class="gray block">有效期{{::data.expireDate.slice(0, 10)}}</small>
+      </div>
+      <i ng-if="data.isEnable" class="icon positive" ng-class="{'ion-ios-circle-outline':!data.isSelected,'ion-ios-checkmark':data.isSelected}"></i>
+    </div>
+  </div>
+</div>
+

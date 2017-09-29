@@ -1,0 +1,15 @@
+<ion-view view-title="绑定手机">
+  <ion-content class="padding">
+    <p class="small">当前绑定手机<span class="positive">{{update.info.oriMobile}}</span> </p>
+    <div class="item item-input">
+      <input type="password" ng-model="update.info.loginPwd" placeholder="请输入登录密码">
+    </div>
+    <div class="dbl-margin-top">
+      <button class="button button-block button-positive" ng-disabled="!update.info.loginPwd" ng-click="update.validLoginPwd()">更换绑定</button>
+    </div>
+    <div class="small">
+      <span class="温馨提示"></span>
+      <p>更换绑定手机号后，您的原来手机号码奖杯重置到未认证状态，再次登录请使用新手机号码，密码不变。</p>
+    </div>
+  </ion-content>
+</ion-view>

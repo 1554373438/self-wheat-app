@@ -1,0 +1,52 @@
+.purchase-view {
+  .scroll-content {
+    bottom: 130px;
+  }
+  .bottom-line {
+    margin-bottom: 2px;
+  }
+  .bg-positive {
+    background: $light-positive;
+  }
+  .info.item {
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    header {
+      padding-bottom: 10px;
+      border-bottom: solid 1px rgba(255, 255, 255, .2);
+      margin-bottom: 6px;
+    }
+    .row {
+      padding-left: 0;
+      .col {
+        padding-left: 0;
+      }
+    }
+    .name {
+      display: inline-block;
+      padding-right: 8px;
+      font-size: 12px;
+    }
+    .icon-line {
+      height: 16px;
+      width: 1px;
+      position: absolute;
+      top: 50%;
+      margin-top: -8px;
+      left: 0;
+      background: rgba(255, 255, 255, .2);
+    }
+  }
+
+  .payment {
+    margin-top: 8px;
+    .item {
+      border: 0;
+      margin-top: 0;
+      margin-bottom: 1px;
+    }
+  }
+  
+}
+
+

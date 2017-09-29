@@ -1,0 +1,21 @@
+#freeze_history{
+  .item-freeze{
+    border-bottom: 1px solid $border-color;
+    padding: 5px 0;
+    .icon-right{
+      line-height: 57px;
+      margin-left: 8px;
+      font-size: 18px;
+    }
+  }
+
+  .intro{
+    color: #757575;
+    line-height: 23px;
+    h3{
+      font-size: 15px;
+      font-weight: normal;
+      color: #616161;
+    }
+  }
+}

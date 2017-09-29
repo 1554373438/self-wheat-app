@@ -1,0 +1,65 @@
+.tab-nav {
+  padding: 6px 0;
+  color: #BABFC8;
+  .icon {
+    width: 20px;
+    height: 20px;
+    // background: url(#{$img-path}home-out.gif) no-repeat;
+    background-size: 20px auto;
+    margin-bottom: 3px;
+  }
+  .tab-item.tab-item-active{
+    color:#618DE5;
+  }
+  .tab-item-active .icon-discovery {
+    // background-position: -0px -0px
+    background: url(#{$img-path}bottom-nav/discovery-in.gif) no-repeat;
+    // background: url(#{$img-path}bottom-nav-continue/discovery-in.gif) no-repeat;
+    background-size: 20px auto;
+  }
+  .icon-discovery {
+    // background-position: -0px -20px
+    background: url(#{$img-path}bottom-nav/discovery-out.gif) no-repeat;
+    // background: url(#{$img-path}bottom-nav-continue/discovery-out.gif) no-repeat;
+    background-size: 20px auto;
+  }
+  .tab-item-active .icon-home {
+    // background-position: -0px -40px
+    background: url(#{$img-path}bottom-nav/home-in.gif) no-repeat;
+    background-size: 20px auto;
+  }
+  .icon-home {
+    // background-position: -0px -60px
+    background: url(#{$img-path}bottom-nav/home-out.gif) no-repeat;
+    background-size: 20px auto;
+  }
+  .tab-item-active .icon-product {
+    // background-position: -0px -80px
+    background: url(#{$img-path}bottom-nav/investment-in.gif) no-repeat;
+    background-size: 20px auto;
+  }
+  .icon-product {
+    // background-position: -0px -100px
+    background: url(#{$img-path}bottom-nav/investment-out.gif) no-repeat;
+    background-size: 20px auto;
+  }
+  .tab-item-active .icon-mine {
+    // background-position: -0px -120px
+    background: url(#{$img-path}bottom-nav/user-in.gif) no-repeat;
+    background-size: 20px auto;
+  }
+  .icon-mine {
+    // background-position: -0px -140px
+    background: url(#{$img-path}bottom-nav/user-out.gif) no-repeat;
+    background-size: 20px auto;
+  }
+}
+
+// .icon-discovery {width:40px; height:40px; background-position: -0px -0px}
+// .icon-discovery1 {width:40px; height:40px; background-position: -0px -40px}
+// .icon-home {width:40px; height:40px; background-position: -0px -80px}
+// .icon-home1 {width:40px; height:40px; background-position: -0px -120px}
+// .icon-invest {width:40px; height:40px; background-position: -0px -160px}
+// .icon-invest1 {width:40px; height:40px; background-position: -0px -200px}
+// .icon-mine {width:40px; height:40px; background-position: -0px -240px}
+// .icon-mine1 {width:40px; height:40px; background-position: -0px -280px}

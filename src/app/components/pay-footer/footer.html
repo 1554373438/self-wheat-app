@@ -1,0 +1,17 @@
+<div class="bar bar-footer pay-footer border-top">
+  <div class="gray item item-icon-left item-border-bottom">
+    <i class="icon icon-checkbox" ng-class="{'check-on': checked , 'check-off': !checked}"></i> 余额支付(元)
+    <div class="item-note"><span class="dark">-{{balancePayShow}}</span><span>/{{balance}}</span></div>
+  </div>
+  <div class="row row-center">
+    <div class="col">
+      <div class="assertive font-24 margin-bottom">{{order.needPay| number:2}}</div>
+      <div ng-if="order.needPay <= 0">待支付(元)</div>
+      <div ng-if="order.needPay > 0">还需要充值(元)</div>
+    </div>
+    <button class="button button-positive button-block col" ng-click="submit()" ng-disabled="!agreetos || !order.price">
+      <span ng-if="order.needPay <= 0">确认支付</span>
+      <span ng-if="order.needPay > 0">充值</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<ion-view view-title="诺币" id="nb_list">
+  <ion-content class="nb-list" scroll="false">
+    <div class="list info">
+      <div class="item item-icon-left">
+        <i class="icon iconfont icon-nuobi gray"></i> 您的诺币
+        <span class="item-note">
+              <span class="assertive amount">{{nblist.coin}}</span>
+        <small>NB</small>
+        </span>
+      </div>
+      <div class="item item-icon-left item-icon-right" ui-sref="mall:level({number:walfare.level})">
+        <i class="icon iconfont icon-zhuanshufuli gray"></i> 我的专属福利
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+      <div class="item item-icon-left item-icon-right" ui-sref="mall:nbRules">
+        <i class="icon iconfont icon-gonglve gray"></i> 诺币赚取攻略
+        <i class="icon ion-ios-arrow-right gray"></i>
+      </div>
+    </div>
+    <div class="total">共{{nblist.coinLogCount}}笔</div>
+    <ion-scroll>
+      <div class="list log dark">
+        <div class="row row-no-padding" ng-repeat="log in nblist.coinLogList">
+          <div class="col">
+            {{log.name}}
+            <br>
+            <span class="gray small">{{log.date}}</span>
+          </div>
+          <div class="col col-center text-right gray">
+            <span class="assertive amount">{{log.amount}}</span> <small>NB</small>
+          </div>
+        </div>
+      </div>
+      <ion-infinite-scroll ng-if="nblist.hasMoreCoin" on-infinite="nblist.loadMore('coin')" spinner="bubbles" immediate-check="false" distance="1%">
+      </ion-infinite-scroll>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+#repay_view{
+  table{
+    border:none;
+  }
+  .nowDatas{
+    color:#3388d9;
+  }
+  .repay-list{
+    .listBg{
+      background: #ecf4fb;
+    }
+    .month{
+      color:#3388d9;
+      font-size: 25px;
+    } 
+    .noRepay{
+      @include justify-content(center);
+    }
+    span{
+      border:1px solid #e79006;
+      color:#e79006;
+      border-radius: 5px;
+    }
+  }
+  .repayList{
+    padding:8px 10px;
+    border-bottom: 2px solid #f5f5f5;
+    .col-10{
+      padding-right: 10px;
+    }
+  }
+  .empty {
+    text-align: center;
+    margin-top: 100px;
+  }
+  .dbl-padding{
+      padding-left: 35px;
+  }
+}

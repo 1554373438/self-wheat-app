@@ -1,0 +1,31 @@
+.login-note-popup {
+  .font-17 {
+    font-size: 17px;
+    color: #212121;
+  }
+  .popup {
+    background: transparent;
+    width: 270px;
+  }
+  .popup-head {
+    display: none;
+  }
+  .popup-body {
+    padding: 0;
+  }
+  .btn-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 26px;
+    height: 38px;
+  }
+  .banner {
+    line-height: 0;
+  }
+  .content {
+    border-radius: 0 0 4px 4px;
+    color: #424242;
+  }
+  
+}

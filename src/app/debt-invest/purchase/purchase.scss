@@ -1,0 +1,106 @@
+.debtpurchase-view {
+  .bg-positive {
+    background: $light-positive;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+   .space-between {
+      @include display-flex();
+      @include justify-content(space-between);
+    }
+  .bg-white {
+    background: $white;
+    padding:10px 16px 10px 16px;
+  }
+  .info.item {
+    header {
+      padding-bottom: 10px;
+      border-bottom: solid 1px rgba(255, 255, 255, .2);
+      margin-bottom: 6px;
+    }
+    .row {
+      padding-left: 0;
+      .col {
+        padding-left: 0;
+      }
+    }
+    .name {
+      display: inline-block;
+      padding-right: 8px;
+      font-size: 12px;
+    }
+    .icon-line {
+      height: 16px;
+      width: 1px;
+      position: absolute;
+      top: 50%;
+      margin-top: -8px;
+      left: 0;
+      background: rgba(255, 255, 255, .2);
+    }
+  }
+  .invest-counter {
+    .item-input {
+      padding-top: 0;
+      padding-bottom: 16px;
+    }
+    input {
+      height: 44px;
+      line-height: normal;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      padding-left: $content-padding;
+    }
+  }
+  .payment {
+    margin-top: 8px;
+    .item {
+      border: 0;
+      margin-top: 0;
+      margin-bottom: 1px;
+    }
+  }
+  // .icon-checkbox {
+  //   width: 24px;
+  //   height: 24px;
+  //   background: url(#{$img-path}pay/icon_checkbox.png);
+  //   background-size: 24px auto;
+  //   &.check-off {
+  //     background-position: -0px -0px;
+  //   }
+  //   &.check-on {
+  //     background-position: -0px -24px;
+  //   }
+  // }
+  // .bar-footer {
+  //   display: block;
+  //   .item-border-bottom {
+  //     border: none;
+  //     border-bottom: 1px solid $border-color;
+  //   }
+  //   .item.item-icon-left {
+  //     padding-top: 0;
+  //     padding-bottom: 10px;
+  //   }
+  //   .row {
+  //     padding-top: 12px;
+  //     padding-bottom: 0;
+  //   }
+  //   .row,
+  //   .col {
+  //     padding-left: 0;
+  //     padding-right: 0;
+  //   }
+  //   .amount {
+  //     padding-bottom: 16px;
+  //   }
+  //   .button {
+  //     margin: 0;
+  //     font-size: 16px;
+  //     line-height: 44px;
+  //   }
+  // }
+  // &.has-footer .scroll-content {
+  //   bottom: 108px;
+  // }
+}

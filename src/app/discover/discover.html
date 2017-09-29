@@ -1,0 +1,76 @@
+<ion-view view-title="发现" id="discover_view" hide-nav-bar="true">
+  <ion-content class="has-footer">
+    <ion-slides options="options" slider="data.slider" class="banners">
+      <ion-slide-page ng-repeat="banner in discovery.bannerList track by $index">
+        <ion-item class="item-borderless no-padding no-margin" ng-click="discovery.bannerSelect($index)">
+          <img http-src="{{banner.path}}" placeholder="assets/images/home_banner.png" class="block">
+        </ion-item>
+      </ion-slide-page>
+    </ion-slides>
+    <section class="margin-top light-bg">
+      <div class="row row-no-padding row-center">
+        <div class="col col-50 text-center" ng-click="discovery.goPage('mall')">
+          <h4 class="relative inline-block">商城<span class="mall-label" ng-if="discovery.info.mallFlag">上新</span></h4>
+          <p class="small gray">开心兑诺币</p>
+          <img src="assets/images/discovery/icon_mall.png" width="60">
+        </div>
+        <div class="col col-50 border-left">
+          <div class="item item-avatar-right item-borderless border-bottom" ng-click="discovery.toBBS()">
+            <img src="assets/images/discovery/icon_discuss.png" width="64">
+            <h4>社区</h4>
+            <p>诺米交流天地</p>
+          </div>
+          <div class="item item-avatar-right item-borderless" ng-click="discovery.goPage('vip')">
+            <img src="assets/images/discovery/icon_vip.png" width="64">
+            <h4>会员中心</h4>
+            <p>精选专享礼</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="margin-top light-bg dbl-padding-bottom">
+      <h4 class="text-center dbl-padding-vertical no-margin font-16">— 做任务 拿奖励 —</h4>
+      <div class="row row-no-padding margin-top">
+        <div class="col col-50" ng-class="{'icon-circle':discovery.info.taskFlag}" ng-click="discovery.goPage('task')">
+          <div class="item item-avatar item-borderless border-right item-no-padding">
+            <img src="assets/images/discovery/icon_task.png">
+            <h4>我的任务 </h4>
+            <!-- <p ng-if="!discovery.needLogin"><span>{{+discovery.info.taskNum}}</span>个任务待完成</p> -->
+            <!-- <p ng-if="discovery.needLogin">完成任务 拿大奖</p> -->
+            <p>完成任务 拿大奖</p>
+          </div>
+        </div>
+        <div class="col col-50" ng-click="discovery.goPage('envoy')" >
+          <div class="item item-avatar item-borderless">
+            <img src="assets/images/discovery/icon_friend.png">
+            <h4>邀请好友</h4>
+            <p>享好友年化1%返现</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="margin-top dbl-padding light-bg scroll-list">
+      <scroll-x class="light-bg full-width">
+        <div class="row row-no-padding" id="about">
+          <div class="col col-40 text-center " ui-sref="about">
+            <img src="assets/images/discovery/pic_company.jpg" class="block full-width">
+            <p>公司介绍</p>
+          </div>
+          <div class="col col-40 text-center margin-left" ui-sref="safe">
+            <img src="assets/images/discovery/pic_safe.jpg" class="block full-width">
+            <p>安全保障</p>
+          </div>
+          <div class="col col-40 text-center margin-left" ui-sref="strategy">
+            <img src="assets/images/discovery/pic_newer.jpg" class="block full-width">
+            <p>新手指引</p>
+          </div>
+          <div class="col col-40 text-center margin-left" ui-sref="news">
+            <img src="assets/images/discovery/pic_news.jpg" class="block full-width">
+            <p>公司新闻</p>
+          </div>
+        </div>
+      </scroll-x>
+    </section>
+  </ion-content>
+  <bottom-nav-tabs active="2"></bottom-nav-tabs>
+</ion-view>

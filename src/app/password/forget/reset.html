@@ -1,0 +1,24 @@
+<ion-view view-title="重置密码">
+  <ion-content>
+    <form name="resetPwdForm" ng-submit="reset.submit()">
+      <div class="padding">
+        <div class="padding-vertical">
+          <div class="item item-input">
+            <input type="password" ng-model="reset.user.newPwd" placeholder="请输入新登录密码" maxlength="16" ng-change="reset.invalid=false" ng-blur="reset.checkNew()" required clear-input>
+          </div>
+        </div>
+        <div class="padding-bottom">
+          <div class="item item-input">
+            <input type="password" ng-model="reset.user.confirmPwd" placeholder="请确认登录密码" maxlength="16" ng-change="reset.invalid=false" ng-blur="reset.checkConfirm()" required clear-input>
+          </div>
+        </div>
+        <p class="small positive">
+          <i class="icon ion-ios-information-outline assertive"></i> 请输入6-16位数字和字母组成的新密码
+        </p>
+      </div>
+      <div class="submit padding-horizontal">
+        <button type="submit" class="button button-block button-positive" ng-disabled="resetPwdForm.$invalid || reset.invalid">确定</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

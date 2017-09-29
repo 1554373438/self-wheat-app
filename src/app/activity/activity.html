@@ -1,0 +1,9 @@
+<ion-view view-title="活动专区" id="activity_view">
+  <ion-content>
+    <ion-list class="item-borderless">
+      <ion-item ng-repeat="i in activity.items" class="item-image" ng-click="activity.select($index)">
+        <img ng-src="{{i.path}}" alt="{{i.title}}">
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
